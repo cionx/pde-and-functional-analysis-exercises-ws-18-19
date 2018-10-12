@@ -20,7 +20,7 @@
 % redefine how counters are printed
 \setcounter{secnumdepth}{2}
 \renewcommand{\thesection}{Exercise \arabic{section}}
-\renewcommand{\thesubsection}{(\romain{subsection})}
+\renewcommand{\thesubsection}{(\roman{subsection})}
 
 
 % define theorem like environments
@@ -54,6 +54,11 @@
 
 
 % functions
+\DeclareMathOperator{\dist}{d}
+
+% decorations
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\newcommand{\closure}[1]{\overline{#1}}
 \DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
 
 
