@@ -1,0 +1,70 @@
+\usepackage{xparse} % defining certain macros
+\usepackage{microtype}  % better typography
+\usepackage{amsmath, amssymb, amsthm, mathtools} % smath stuff
+\usepackage{extarrows} % xlongrightarrow
+\usepackage{enumitem} % better list type environments
+\usepackage[capitalise,noabbrev]{cleveref}  % smarter referencing, load after hyperref
+
+
+% prevents breaking inline math around binary or relationship symbols
+\binoppenalty=\maxdimen
+\relpenalty=\maxdimen
+
+
+% settings for list like environments
+\setlist[enumerate, 1]{leftmargin=*, align=left, label=\arabic*)}
+\setlist[itemize, 1]{leftmargin=*}
+\setlist[itemize, 2]{leftmargin=*, label={\textopenbullet}}
+
+
+% redefine how counters are printed
+\setcounter{secnumdepth}{2}
+\renewcommand{\thesection}{Exercise \arabic{section}}
+\renewcommand{\thesubsection}{(\romain{subsection})}
+
+
+% define theorem like environments
+\newcounter{everything}
+\newtheorem{lemma}[everything]{Lemma}
+
+
+% text shortcuts
+\newcommand{\dash}[2]{#1\nobreakdash-#2}
+\newcommand{\welldef}{well\nobreakdash-defined}
+
+
+% math shortcuts
+\newcommand{\longto}{\longrightarrow}
+
+
+% relations
+\newcommand{\defined}{\coloneqq}
+\newcommand{\defines}{\eqqcolon}
+
+
+% important sets
+\newcommand{\Natural}{\mathbb{N}}
+\newcommand{\Integer}{\mathbb{Z}}
+\newcommand{\Real}{\mathbb{R}}
+\newcommand{\Complex}{\mathbb{C}}
+
+
+% space and set constructions
+\newcommand{\ball}[2]{\operatorname{B}_{#1}(#2)}
+
+
+% functions
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+
+
+% custom macros with case distinctions
+\NewDocumentCommand{\suchthat}{s}{
+  \IfBooleanTF{#1}
+    {\,\middle|\,}
+    {\mathrel{|}}       
+}
+\NewDocumentCommand{\restrict}{smmO{}}{
+  \IfBooleanTF{#1}
+    {\left. {#2} \,\middle|_{#3}^{#4} \right.}
+    {{#2}\,|_{#3}^{#4}}
+}
