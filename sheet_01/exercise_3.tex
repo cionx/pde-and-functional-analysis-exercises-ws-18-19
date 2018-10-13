@@ -1,1 +1,48 @@
-\addtocounter{section}{1}
+\section{}
+
+
+
+
+
+\addtocounter{subsection}{1}
+
+
+
+
+
+\subsection{}
+
+
+\begin{lemma}
+  \label{complete iff closed}
+  Let~$(X,d)$ be a complete metric space.
+  Then a subspace~$A$ of~$X$ is closed if and only if it again complete.
+\end{lemma}
+
+
+\begin{proof}
+  If~$A$ is closed then every Cauchy sequence in~$A$ has a limit in~$X$, which is then again contained in~$A$.
+  If~$A$ is complete and~$x \in X$ is the limit of a sequence~$(a_n)_n \subseteq A$, then the sequence~$(a_n)_n$ is in particular Cauchy and therefore has a limit in~$A$, which must coincide with~$x$ by the uniqueness of limits (in metric spaces).
+\end{proof}
+
+
+It sufficies by~\cref{complete iff closed} to show that~$\ell_1$ is not closed in~$\ell_\infty$ with respect to the norm~$\norm{\,\cdot\,}_\infty$.
+For this we consider the sequence~$x \in \ell_\infty$ with~$x_n = 1/n$.
+The sequence~$x$ is not contained in~$\ell_1$
+But it is with respect to~$\norm{\,\cdot\,}$ the limit of the sequence~$x^{(k)} \in \ell_1$ given by
+\[
+              x^{(k)}_n
+    \defined  \begin{cases}
+                1/n & \text{if~$n \leq k$} \,,  \\
+                0   & \text{else} \,,
+              \end{cases}
+\]
+because
+\[
+          \norm*{x - x^{(k)}}_\infty
+  =       \sum_{n > k} \frac{1}{n}
+  =       \frac{1}{k+1}
+  \longto 0
+\]
+for~$k \to \infty$.
+This shows that~$\ell_1$ is with respect to the norm~$\norm{\,\cdot\,}$ not closed in~$\ell_\infty$, and therefore not complete with respect to~$\norm{\,\cdot\,}$.
