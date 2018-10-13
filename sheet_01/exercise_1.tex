@@ -1,1 +1,163 @@
-\addtocounter{section}{1}
+\section{}
+
+
+
+
+
+\subsection{}
+\label{new metric}
+
+It holds for all~$x, y \in X$ that
+\[
+        d^*(x,y) = 0
+  \iff  d(x,y) = 0
+  \iff  x = y \,,
+\]
+which shows that~$d^*$ is reflexive.
+It holds for all~$x, y \in X$ that
+\[
+    d^*(x,y)
+  = \frac{d(x,y)}{1 + d(x,y)}
+  = \frac{d(d,x)}{1 + d(y,x)}
+  = d^*(y,x) \,,
+\]
+which shows that~$d^*$ symmetric.
+It holds for all~$x, y, z \in X$ that
+\begin{align*}
+          d^*(x,z)
+  &=      \frac{d(x,z)}{1 + d(x,z)} \\
+  &=      1 - \frac{1}{1 + d(x,z)}  \\
+  &\leq   1 - \frac{1}{1 + d(x,y) + d(y,z)} \\
+  &=      \frac{d(x,y) + d(y,z)}{1 + d(x,y) + d(y,z)} \\
+  &=      \frac{d(x,y)}{1 + d(x,y) + d(y,z)} + \frac{d(y,z)}{1 + d(x,y) + d(y,z)} \\
+  &\leq   \frac{d(x,y)}{1 + d(x,y)} + \frac{d(y,z)}{1 + d(y,z))}  \\
+  &=      d^*(x,y) + d^*(y,z) \,,
+\end{align*}
+which shows that~$d^*$ satisfies the triangle inequality.
+This shows altogether that~$d^*$ is a metric.
+
+
+
+
+
+\subsection*{(ii) + (iii)}
+
+That~$d$ is a metric on~$\Real^n$ follows from part~\ref{new metric} and the following \lcnamecref{point set topology}.
+Part~(iii) also follows from the following \lcnamecref{point set topology}.
+
+\begin{lemma}
+  \label{point set topology}
+  Let~$(X_n, d_n)$ with~$n \geq 1$ be a family of metric spaces such that the metrics~$d_n$ are uniformly bounded, i.e.\ such that there exists a constant~$C > 0$ with~$d_n \leq C$ for every~$n$.
+  Let~$X \defined \prod_{n=1}^\infty X_n = X_1 \times X_2 \times \dotsb$
+  \begin{enumerate}
+    \item
+      The function~$d \colon X \times X \to \Real$ given by
+      \[
+                  d(x,y)
+        \defined  \sum_{n=1}^\infty \frac{d_n(x_n, y_n)}{2^n}
+      \]
+      is a {\welldef} metric on~$X$, which is again bounded by~$C$.
+    \item
+      A sequence~$( x^{(k)} )_k$ in~$X$ converges to~$x \in X$ if and only if it does so in every coordinate, i.e.\ if and only if~$x^{(k)}_n \to x_n$ for every~$n$.
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  We may replace the metrics~$d_n$ by~$d_n/C$ to assume that~$C = 1$.
+  \begin{enumerate}
+    \item
+      It holds for all~$x, y \in X$ that
+      \[
+              d(x,y)
+        =     \sum_{n=1}^\infty \frac{d_n(x_n,y_n)}{2^n}
+        \leq  \sum_{n=1}^\infty \frac{1}{2^n}
+        =     1 \,,
+      \]
+      which shows that~$d$ is {\welldef} and again bounded by~$1$.
+      It holds for all~$x, y \in X$ that
+      \begin{align*}
+              d(x,y) = 0
+         \iff \sum_{n=1}^\infty \underbrace{\frac{d_n(x_n,y_n)}{2^n}}_{\mathclap{\geq 0}} = 0
+        &\iff \forall n: d_n(x_n, y_n) = 0  \\
+        &\iff \forall n: x_n = y_n
+         \iff x = y \,,
+      \end{align*}
+      which shows that~$d$ is reflexive.
+      That~$d$ is symmetric follows from all~$d_n$ being symmetric.
+      It holds for all~$x, y, z \in X$ that
+      \begin{align*}
+              d(x,z)
+        &=    \sum_{n=1}^\infty \frac{d_n(x_n,z_n)}{2^n}  \\
+        &\leq \sum_{n=1}^\infty \frac{d_n(x_n,y_n) + d_n(y_n,z_n)}{2^n} \\
+        &=    \sum_{n=1}^\infty \frac{d_n(x_n,y_n)}{2^n} + \sum_{n=1}^\infty \frac{d_n(y_n,z_n)}{2^n} \\
+        &=    d(x,y) + d(y,z) \,,
+      \end{align*}
+      which shows that~$d$ satisfies the triangle inequality.
+    \item
+      The projection~$\pi_n \colon X \to X_n$ onto the~\dash{$n$}{th} factor is {\lipcont} with {\lipconst}~$2^n$ for every~$n$.
+      It follows from this continuity that if~$x^{(k)} \to x$ then also~$x^{(k)}_n \to x_n$ for every~$n$.
+      
+      Suppose on the other hand that~$x^{(k)}_n \to x_n$ for every~$n$ and let~$\varepsilon > 0$.
+      There then exists some~$N \geq 1$ with~$\sum_{n=N+1}^\infty 1/2^n = \varepsilon/2$, and there exists by assumption some~$K \geq 1$ with~$\sum_{n=1}^N d_n( x^{(k)}_n , x_n ) < \varepsilon/2$ for all~$k \geq K$.
+      It follows for all~$k \geq  K$ that
+      \begin{align*}
+            d(x^{(k)}, x)
+        &=  \sum_{n=1}^\infty \frac{d_n(x^{(k)}_n, x_n)}{2^n} \\
+        &=  \sum_{n=1}^N \frac{d_n(x^{(k)}_n, x_n)}{2^n}
+            + \sum_{n=N+1}^\infty \frac{d_n(x^{(k)}_n, x_n)}{2^n}
+         <  \frac{\varepsilon}{2} + \frac{\varepsilon}{2}
+         =  \varepsilon \,.
+      \end{align*}
+      This shows that~$x^{(k)} \to x$ with respect to~$d$.
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+
+
+
+\addtocounter{subsection}{2}
+\subsection{}
+
+% We suppose that such a norm~$\norm{\,\cdot\,}$ and such constants~$C_1, C_2 > 0$ exist.
+% We may choose~$C > 0$ with~$1/C < C_1$ and~$C > C_2$ and replace~$C_1$ by~$1/C$ and~$C_2$ by~$C$ to find that
+% \[
+%         \frac{1}{C} \norm{x}
+%   \leq  d(x,0)
+%   \leq  C \norm{x}
+% \]
+% for every~$x \in \Real^\Natural$.
+For every~$k$ let~$e^{(k)} \in \Real^\Natural$ be the sequence given by
+\[
+    e^{(k)}_n
+  = \begin{cases}
+      1 & \text{if~$n = k$} \,, \\
+      0 & \text{otherwise}  \,.
+    \end{cases}
+\]
+% and let~$\tilde{e}^{(k)} \defined 4^k e^{(k)}$.
+It then holds for every~$k$ that
+\[
+    \norm{ 4^k e^{(k)} }
+  = 4^k \norm{ e^{(k)} }
+  \quad\text{and}\quad
+    d( 4^k e^{(k)}, 0 )
+  = 2^k \,,
+\]
+and because of the inequality~$d( 4^k e^{(k)} ) \leq C_2 \norm{ 4^k e^{(k)} }$ therefore
+\[
+        \norm{ e^{(k)} }
+  \geq  \frac{1}{C_2 2^k} \,.
+\]
+It follows that the sequence~$\hat{e}^{(k)} = 2^k e^{(k)}$ is not a null sequence because~$\norm{ \hat{e}^{(k)} } \geq 1/C_2$ for all~$k$.
+But it also holds that
+\[
+        d( \hat{e}^{(k)}, 0)
+  =     \frac{d^*(2^k, 0)}{2^k}
+  \leq  \frac{1}{2^k} \,,
+\]
+which does show that~$\hat{e}^{(k)}$ is a null sequence---a contradiction!
+
+
+
+
