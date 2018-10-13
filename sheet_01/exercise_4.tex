@@ -1,1 +1,124 @@
-\addtocounter{section}{1}
+\section{}
+
+
+
+
+
+\subsection*{Interior of~$A_1$}
+
+The interior of~$A_1$ is empty:
+Let~$x \in A_1$ and let~$\varepsilon > 0$.
+It follows from~$x$ being a positive null sequence that there exists some~$N \in \Natural$ with~$0 < x_N < \varepsilon/2$.
+The sequence~$y$ with
+\[
+            y_n
+  \defined  \begin{cases}
+              x_n - \varepsilon & \text{if~$n = N$} \,, \\
+              x_n               & \text{else} \,, \\
+            \end{cases}
+\]
+differs with~$x$ only by a single value, and is therefore again in~$\ell_1$.
+It holds that~$y_N < -\varepsilon/2$ and therefore that~$y_N \notin A_1$, but
+\[
+    \norm{x - y}_1
+  = \varepsilon \,.
+\]
+This shows that~$A_1$ does not contain any open ball around~$x$.
+
+
+
+
+
+\subsection*{Closure of~$A_1$}
+
+The closure of~$A_1$ is given by the set
+\[
+            C
+  \defined  \{
+              x \in \ell_1
+            \suchthat
+              \text{$x_n \geq 0$ for all~$n \in \Natural$}
+            \} \,.
+\]
+To show that~$\closure{A_1} \subseteq C$ we note that the projection map
+\[
+          \pi_n
+  \colon  \ell_1
+  \to     \Real \,,
+  \quad   x
+  \mapsto x_n
+\]
+is~{\lipcont} with {\lipconst}~$1$ for every~$n \geq 1$, hence continuous, and that therefore
+\[
+            \pi_n(\closure{A_1})
+  \subseteq \closure{ \pi_n(A_1) }
+  =         \closure{ (0,\infty) }
+  =         [0,\infty) \,.
+\]
+To show the inclusion~$C \subseteq \closure{A_1}$ we define for~$x \in C$ and~$\varepsilon > 0$ the sequence~$y$ with
+\[
+            y_n
+  \defined  \begin{cases}
+              x_n             & \text{if~$x_n > 0$} \,,  \\
+              \varepsilon/2^n & \text{otherwise} \,.
+            \end{cases}
+\]
+This sequence is again in~$\ell_1$, because both~$x$ and~$(1/2^n)_{n \geq 1}$ are so, and it is even contained in~$A_1$.
+It holds that
+\[
+        \norm{ x - y }_1
+  =     \norm{ (x_n - y_n)_n }
+  =     \sum_{\substack{n \geq 1 \\ x_n = 0}} \frac{\varepsilon}{2^n}
+  \leq  \sum_{n=1}^\infty \frac{\varepsilon}{2^n}
+  =     \varepsilon \,,
+\]
+as desired.
+
+
+
+
+
+\subsection*{Interior of~$A_2$}
+
+The interior of~$A_2$ is empty:
+If~$x \in A_2$ and~$\varepsilon > 0$ then the sequence~$y$ with
+\[
+            y_n
+  \defined  \begin{cases}
+              x_n             & \text{if~$x_n \neq 0$} \,,  \\
+              \varepsilon/2^n & \text{otherwise} \,,
+            \end{cases}
+\]
+is again in~$\ell_1$ with~$\norm{ x - y }_1 \leq \varepsilon$, as seen above.
+But the sequence~$y$ is not contained in~$A_2$, since~$y_n \neq 0$ for every~$n$.
+This shows that~$A_2$ does not contain an open ball around~$x$.
+
+
+
+
+
+\subsection*{Closure of~$A_2$}
+
+The set~$A_2$ is dense in~$\ell_1$:
+If~$(x_n)_n \in \ell_1$ then we can define the sequence~$(x^{(k)})_k$ in~$A_1$ by cutting off the sequence~$(x_n)_n$ after~$k$ terms:
+\[
+            x^{(k)}_n
+  \defined  \begin{cases}
+              x_n & \text{if $n \leq k$} \,,  \\
+              0   & \text{else} \,.
+            \end{cases}
+\]
+It then holds that
+\[
+          \norm*{ x - x^{(k)} }_1
+  =       \norm*{ (x_n - x^{(k)}_n)_n }_1
+  =       \sum_{n={k+1}}^\infty \norm{x_n}
+  \longto  0
+\]
+for~$k \to \infty$ because the series~$\sum_{n=1}^\infty \norm{x_n}$ converges.
+
+This shows that every sequences~$x \in \ell_1$ can be approximated by a sequence~$(x^{(k)})_k$ in~$A_2$, which shows that~$A_2$ is dense in~$\ell_1$, and therefore that~$\closure{A_2} = \ell_1$.
+
+
+
+
