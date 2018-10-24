@@ -6,7 +6,29 @@
 
 \subsection{}
 
-Let~$(x^{(k)})_k$ be a Cauchy sequence in~$(\ell_p, \norm{\,\cdot\,}$.
+We first show that~$\norm{\,\cdot\,}_p$ defines a norm on~$\ell_p$, and then show that~$\ell_p$ is complete with respect to~$\norm{\,\cdot\,}_p$.
+
+It holds for every~$x \in \ell_p$ that
+\[
+        \norm{x}_p = 0
+  \iff  \norm{x}_p^p = 0
+  \iff  \sum_{n=1}^\infty x_n^p = 0
+  \iff  \text{$x_n = 0$ for all~$n$}
+  \iff  x = 0 \,,
+\]
+which shows that~$\norm{\,\cdot\,}_p$ is reflexive.
+It holds for all~$\lambda \in \Real$,~$x \in \ell_p$ that
+\[
+    \norm{\lambda x}
+  = \sqrt[p]{ \sum_{n=1}^\infty \abs{\lambda x_n}^p }
+  = \sqrt[p]{ \sum_{n=1}^\infty \abs{\lambda}^p \abs{x_n}^p }
+  = \abs{\lambda} \sqrt[p]{ \sum_{n=1}^\infty \abs{x_n}^p }
+  = \abs{\lambda} \, \norm{x}_p \,,
+\]
+which shows that~$\norm{\,\cdot\,}$ is homogeneous.
+The triangle inequality for~$\norm{\,\cdot\,}$ is precisely Minkowski’s inequality, which we are allowed to assume without proof according to the exercise.
+
+To show that~$\ell_p$ is complete with respect to~$\norm{\cdot}_p$ we consider a Cauchy sequence~$(x^{(k)})_k$ in~$(\ell_p, \norm{\,\cdot\,})$.
 It then holds for every~$n \geq 1$ that the projection~$\pi_n \colon \ell_p \to \Real$,~$x \mapsto x_n$ is {\lipcont} with {\lipconst}~$1$, from which it follows that~$(x^{(k)}_n)_k$ is again a Cauchy sequence, and thus convergent.
 For every~$n \geq 1$ let~$x_n \defined \lim_{k \to \infty} x^{(k)}_n$.
 
@@ -16,25 +38,25 @@ The sequence~$x$ is again contained in~$\ell_p$ since it follows from Fatou’s~
   =     \sum_{n=1}^\infty \abs{x_n}^p
   =     \sum_{n=1}^\infty \lim_{k \to \infty} \abs{x_n^{(k)}}^p
   \leq  \liminf_{k \to \infty} \sum_{n=1}^\infty \abs{x_n^{(k)}}^p
-  =     \liminf_{k \to \infty} \norm{x^{(k)}}
+  =     \liminf_{k \to \infty} \norm{x^{(k)}}_p^p
   <     \infty \,,
 \]
 because the sequence~$(x^{(k)})_k$ is bounded.
 
-To show that the Cauchy sequence~$(x^{(k)})_k$ converges to~$x$ with respect to the norm~$\norm{\,\cdot\,}_p$ we may replace this sequence by any of its subsequences.
+To show that the Cauchy sequence~$(x^{(k)})_k$ converges to~$x$ with respect to the norm~$\norm{\,\cdot\,}_p$ we may replace the sequence~$(x^{(k)})_k$ by any of its subsequences.
 We may therefore assume that~$\norm{x^{(l)} - x^{(k)}} \leq 1/2^k$ for all~$l \geq k$.
-It then follows from another use of Fatou’s~lemma that
+It then follows from Fatou’s~lemma that
 \begin{align*}
         \norm{x - x^{(k)}}_p^p
-  &=    \sum_{n=1}^\infty \abs{ x_n - x^{(k)}_n }^p
-   =    \sum_{n=1}^\infty \lim_{l \to \infty} \abs{ x^{(l)}_n - x^{(k)}_n }^p \\
-  &\leq \liminf_{l \to \infty} \sum_{n=1}^\infty \abs{ x^{(l)}_n - x^{(k)}_n }^p
-   =    \liminf_{l \to \infty} \norm{x^{(l)} - x^{(k)}}
+  &=    \sum_{n=1}^\infty \abs*{ x_n - x^{(k)}_n }^p
+   =    \sum_{n=1}^\infty \lim_{l \to \infty} \abs*{ x^{(l)}_n - x^{(k)}_n }^p \\
+  &\leq \liminf_{l \to \infty} \sum_{n=1}^\infty \abs*{ x^{(l)}_n - x^{(k)}_n }^p
+   =    \liminf_{l \to \infty} \norm*{x^{(l)} - x^{(k)}}
    \leq \liminf_{l \to \infty} \frac{1}{2^k}
    =    \frac{1}{2^k} \,,
 \end{align*}
-which shows that~$x^{(k)} \to x$.
-Altogether this shows that the sequence~$(x^{(k)})_k$ converges in~$(\ell_p, \norm{\,\cdot\,})$.
+for every~$k$, which shows that~$x^{(k)} \to x$ with respect to~$\norm{\cdot}_p$.
+Altogether this shows that the sequence~$(x^{(k)})_k$ converges in~$(\ell_p, \norm{\,\cdot\,}_p)$.
 
 
 
@@ -53,14 +75,14 @@ Altogether this shows that the sequence~$(x^{(k)})_k$ converges in~$(\ell_p, \no
 
 \begin{proof}
   If~$A$ is closed then every Cauchy sequence in~$A$ has a limit in~$X$, which is then again contained in~$A$.
-  If~$A$ is complete and~$x \in X$ is the limit of a sequence~$(a_n)_n \subseteq A$, then the sequence~$(a_n)_n$ is in particular Cauchy and therefore has a limit in~$A$, which must coincide with~$x$ by the uniqueness of limits (in metric spaces).
+  If~$A$ is complete and~$x \in X$ is the limit of a sequence~$(a_n)_n \subseteq A$, then the sequence~$(a_n)_n$ is in particular Cauchy and therefore has a limit~$a$ in~$A$, from which it follows that~$x = a \in A$ (because limits in Hausdorff spaces are unique).
 \end{proof}
 
 
 It sufficies by~\cref{complete iff closed} to show that~$\ell_1$ is not closed in~$\ell_\infty$ with respect to the norm~$\norm{\,\cdot\,}_\infty$.
 For this we consider the sequence~$x \in \ell_\infty$ with~$x_n = 1/n$.
-The sequence~$x$ is not contained in~$\ell_1$
-But it is with respect to~$\norm{\,\cdot\,}$ the limit of the sequence~$x^{(k)} \in \ell_1$ given by
+The sequence~$x$ is not contained in~$\ell_1$.
+But it is with respect to~$\norm{\,\cdot\,}_\infty$ the limit of the sequence~$(x^{(k)})_k \subseteq \ell_1$ given by
 \[
               x^{(k)}_n
     \defined  \begin{cases}
@@ -71,9 +93,9 @@ But it is with respect to~$\norm{\,\cdot\,}$ the limit of the sequence~$x^{(k)} 
 because
 \[
           \norm*{x - x^{(k)}}_\infty
-  =       \sum_{n > k} \frac{1}{n}
+  =       \sup_{n > k} \frac{1}{n}
   =       \frac{1}{k+1}
   \longto 0
 \]
-for~$k \to \infty$.
-This shows that~$\ell_1$ is with respect to the norm~$\norm{\,\cdot\,}$ not closed in~$\ell_\infty$, and therefore not complete with respect to~$\norm{\,\cdot\,}$.
+as~$k \to \infty$.
+This shows that~$\ell_1$ is with respect to the norm~$\norm{\,\cdot\,}_\infty$ not closed in~$\ell_\infty$, and therefore not complete with respect to~$\norm{\,\cdot\,}_\infty$.

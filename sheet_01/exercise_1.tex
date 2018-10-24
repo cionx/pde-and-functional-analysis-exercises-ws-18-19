@@ -40,7 +40,7 @@ This shows altogether that~$d^*$ is a metric.
 
 
 
-\subsection*{(ii) + (iii)}
+\subsection*{(ii) and (iii)}
 
 That~$d$ is a metric on~$\Real^n$ follows from part~\ref{new metric} and the following \lcnamecref{point set topology}.
 Part~(iii) also follows from the following \lcnamecref{point set topology}.
@@ -58,7 +58,7 @@ Part~(iii) also follows from the following \lcnamecref{point set topology}.
       \]
       is a {\welldef} metric on~$X$, which is again bounded by~$C$.
     \item
-      A sequence~$( x^{(k)} )_k$ in~$X$ converges to~$x \in X$ if and only if it does so in every coordinate, i.e.\ if and only if~$x^{(k)}_n \to x_n$ for every~$n$.
+      A sequence~$( x^{(k)} )_k$ in~$X$ converges to~$x \in X$ if and only if it does so in each coordinate, i.e.\ if and only if~$x^{(k)}_n \to x_n$ for every~$n$.
   \end{enumerate}
 \end{lemma}
 
@@ -94,11 +94,11 @@ Part~(iii) also follows from the following \lcnamecref{point set topology}.
       \end{align*}
       which shows that~$d$ satisfies the triangle inequality.
     \item
-      The projection~$\pi_n \colon X \to X_n$ onto the~\dash{$n$}{th} factor is {\lipcont} with {\lipconst}~$2^n$ for every~$n$.
+      The projection~$\pi_n \colon X \to X_n$ onto the~\dash{$n$}{th} factor is for every~$n$ {\lipcont} with {\lipconst}~$2^n$.
       It follows from this continuity that if~$x^{(k)} \to x$ then also~$x^{(k)}_n \to x_n$ for every~$n$.
       
       Suppose on the other hand that~$x^{(k)}_n \to x_n$ for every~$n$ and let~$\varepsilon > 0$.
-      There then exists some~$N \geq 1$ with~$\sum_{n=N+1}^\infty 1/2^n = \varepsilon/2$, and there exists by assumption some~$K \geq 1$ with~$\sum_{n=1}^N d_n( x^{(k)}_n , x_n ) < \varepsilon/2$ for all~$k \geq K$.
+      Let~$N \geq 1$ with~$\sum_{n=N+1}^\infty 1/2^n = \varepsilon/2$ and let~$K \geq 1$ with~$\sum_{n=1}^N d_n( x^{(k)}_n , x_n )/2^n < \varepsilon/2$ for all~$k \geq K$.
       It follows for all~$k \geq  K$ that
       \begin{align*}
             d(x^{(k)}, x)
@@ -118,45 +118,36 @@ Part~(iii) also follows from the following \lcnamecref{point set topology}.
 
 \addtocounter{subsection}{2}
 \subsection{}
-
-% We suppose that such a norm~$\norm{\,\cdot\,}$ and such constants~$C_1, C_2 > 0$ exist.
-% We may choose~$C > 0$ with~$1/C < C_1$ and~$C > C_2$ and replace~$C_1$ by~$1/C$ and~$C_2$ by~$C$ to find that
+% Suppose that such a norm~$\norm{\,\cdot\,}$ exists.
+% For every~$k$ let~$e^{(k)} \in \Real^\Natural$ be the sequence given by
 % \[
-%         \frac{1}{C} \norm{x}
-%   \leq  d(x,0)
-%   \leq  C \norm{x}
+%     e^{(k)}_n
+%   = \begin{cases}
+%       1 & \text{if~$n = k$} \,, \\
+%       0 & \text{otherwise}  \,,
+%     \end{cases} \,.
 % \]
-% for every~$x \in \Real^\Natural$.
-For every~$k$ let~$e^{(k)} \in \Real^\Natural$ be the sequence given by
-\[
-    e^{(k)}_n
-  = \begin{cases}
-      1 & \text{if~$n = k$} \,, \\
-      0 & \text{otherwise}  \,.
-    \end{cases}
-\]
-% and let~$\tilde{e}^{(k)} \defined 4^k e^{(k)}$.
-It then holds for every~$k$ that
-\[
-    \norm{ 4^k e^{(k)} }
-  = 4^k \norm{ e^{(k)} }
-  \quad\text{and}\quad
-    d( 4^k e^{(k)}, 0 )
-  = 2^k \,,
-\]
-and because of the inequality~$d( 4^k e^{(k)} ) \leq C_2 \norm{ 4^k e^{(k)} }$ therefore
-\[
-        \norm{ e^{(k)} }
-  \geq  \frac{1}{C_2 2^k} \,.
-\]
-It follows that the sequence~$\hat{e}^{(k)} = 2^k e^{(k)}$ is not a null sequence because~$\norm{ \hat{e}^{(k)} } \geq 1/C_2$ for all~$k$.
-But it also holds that
-\[
-        d( \hat{e}^{(k)}, 0)
-  =     \frac{d^*(2^k, 0)}{2^k}
-  \leq  \frac{1}{2^k} \,,
-\]
-which does show that~$\hat{e}^{(k)}$ is a null sequence---a contradiction!
+% and consider the normed sequence~$(\hat{e}^{(k)})_k \subseteq \Real^\Natural$ given by~$\hat{e}^{(k)} \defined e^{(k)}/\norm{e^{(k)}}$.
+% We find that
+% \[
+%         d(\hat{e}^{(k)}, 0)
+%   =     \frac{ d^*\left( \frac{1}{\norm{e^{(k)}}}, 0 \right) }{ 2^k }
+%   \leq  \frac{1}{2^k}
+%   \to   0
+% \]
+% as~$k \to \infty$ because the metric~$d^*$ is bounded by~$1$, and follows from the inequality~$\norm{\,\cdot\,} \leq d(-,0)/C_1$ that also~$\norm{\hat{e}^{(k)}} \to 0$ as~$k \to \infty$.
+% But
+% \[
+%     \norm{ \hat{e}^{(k)} }
+%   = \norm*{ \frac{e^{(k)}}{\norm{e^{(k)}}} }
+%   = \frac{ \norm{e^{(k)}} }{ \norm{e^{(k)}} }
+%   = 1 \,.
+% \]
+% This contradiction shows that no such norm~$\norm{\,\cdot\,}$ and constant~$C_1$ can exist.
+
+Suppose that such a norm~$\norm{\,\cdot\,}$ and constant~$C_1 > 0$ exist.
+We have seen in \cref{point set topology} that the metric~$d$ is bounded, hence it follows from the inequality~$\norm{\,\cdot\,} \leq d(\,\cdot\,,0)/C_1$ that the~$\norm{\,\cdot\,}$ is also bounded.
+But a norm on a nonzero vector space is never bounded (because it is reflexive and homogeneous).
 
 
 

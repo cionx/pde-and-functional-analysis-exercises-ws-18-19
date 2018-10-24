@@ -9,7 +9,7 @@ We assume that~$A$ is nonempty because otherwise~$d(-,A) = \infty$.
 \label{distance for closed}
 
 It holds that~$d(x,A) = 0$ if and only if there exists for every~$n \geq 1$ some~$a_n \in A$ with~$d(x,a_n) < 1/n$, which means precisely that there exists a sequence~$(a_n)_n$ in~$A$ which converges in~$X$ to~$x$.
-This happens if and only if~$x$ is contained in the sequential closure of~$A$, which conincides with the closure of~$A$ because~$(X,d)$ is a \emph{metric} space.
+Such a sequence exists if and only if~$x$ is contained in the sequential closure of~$A$, which conincides with the closure of~$A$ because~$(X,d)$ is a metric (and not just topological) space.
 
 
 
@@ -18,16 +18,16 @@ This happens if and only if~$x$ is contained in the sequential closure of~$A$, w
 \subsection{}
 \label{distance is lipschitz}
 
-It holds that
+It holds that for all~$x, y \in X$ that
 \begin{align*}
           d(x,A)
    =      \inf_{a \in A} d(x,a)
-  &\leq   \inf_{a \in A} d(x,y) + d(y,a)  \\
+  &\leq   \inf_{a \in A} \left( d(x,y) + d(y,a) \right) \\
   &=      d(x,y) + \inf_{a \in A} d(y,a)
    =      d(x,y) + d(y,A)
 \end{align*}
 and therefore~$d(x,A) - d(y,A) \leq d(x,y)$.
-It follows that also
+It then also follows that 
 \[
         d(y,A) - d(x,A) 
   \leq  d(y,x)
@@ -51,11 +51,11 @@ It follows from part~\ref{distance for closed} that the function~$d(-,A) + d(-,B
 The function
 \[
             f
-  \defined  \frac{d(-,B)}{d(-,A) + d(-,B)}
+  \defined  \frac{d(-,A)}{d(-,A) + d(-,B)}
   \colon    X
   \to       [0,1] \,,
   \quad     x
-  \mapsto   \frac{d(x,B)}{d(x,A) + d(x,B)}
+  \mapsto   \frac{d(x,A)}{d(x,A) + d(x,B)}
 \]
 is therefore {\welldef}.
 It follows from part~\ref{distance is lipschitz} that~$f$ is continous.
@@ -72,7 +72,7 @@ It holds that
 \]
 and
 \begin{align*}
-      f^{-1}(0)
+      f^{-1}(1)
   &=  \{
         x \in X
       \suchthat
