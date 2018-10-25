@@ -1,1 +1,126 @@
-\addtocounter{section}{1}
+\section{}
+
+
+
+
+
+\subsection{}
+
+If~$(X,d)$ is complete then every Cauchy~sequence~$(x_n)_n \subseteq X$ converges in~$X$;
+this holds in particular for every Cauchy~sequence~$(x_n)_n \subseteq A$.
+
+Suppose that every Cauchy sequence~$(x_n)_n \subseteq A$ converges in~$X$, and let~$(y_n)_n \subseteq X$ be a Cauchy sequence.
+To show that~$(y_n)_n$ converges we may replace~$y$ by any of its subsequences and therefore assume that~$d(y_l, y_k) \geq 1/k$ for all~$l \geq k$.
+There exists for every~$n$ some~$x_n \in A$ with~$d(x_n, y_n) < 1/n$.
+The sequence~$(y_n)_n$ is again a Cauchy sequence because it holds for all~$l \geq k$ that
+\[
+    d(x_l, x_k)
+  = d(x_l, y_l) + d(y_l, y_k) + d(y_k, x_k)
+  < \frac{1}{l} + \frac{1}{l} + \frac{1}{k}
+  < \frac{3}{k} \,.
+\]
+It follows by assumption that the sequence~$(x_n)_n$ converges in~$X$.
+Let~$y \defined \lim_{n \to \infty} x_n$.
+It follows that
+\[
+        d(y_n, y)
+  =     d(y_n, x_n) + d(x_n, y)
+  \leq  d(x_n, y) + \frac{1}{n}
+  \to   0
+\]
+as~$n \to \infty$, which shows that~$(y_n)_n$ converges in~$X$.
+
+
+
+
+
+\subsection{}
+\label{extension of uniformly continuous maps}
+
+\begin{lemma}
+  \label{uniformly continuous preserves cauchy}
+  Let~$X$ and~$Y$ be metric spaces and let~$f \colon X \to Y$ be a uniformly continuous map.
+  \begin{enumerate}
+    \item
+      If~$(x_n)_n \subseteq X$ is a Cauchy~sequence then the sequence~$(f(x_n))_n \subseteq Y$ is again a Cauchy~sequence.
+    \item
+      If~$f(x_n) \to y$ and~$(x'_n)_n \subseteq X$ is another sequence with~$d(x'_n, x_n) \to 0$ then also~$f(x'_n) \to y$.
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      For every~$\varepsilon > 0$ there exists some~$\delta > 0$ with~$d(f(x),f(x')) < \varepsilon$ for all~$x, x' \in X$ with~$d(x, x') < \delta$.
+      There exists some~$k$ with~$d(x_l, x_k) < \delta$ for all~$l \geq k$, and hence~$d(f(x_l), f(x_k)) < \varepsilon$ for all~$l \geq k$.
+    \item
+      There exists for every~$\varepsilon > 0$ some~$\delta > 0$ with~$d(f(x),f(x')) < \varepsilon/2$ for all~$x, x' \in X$ with~$d(x,x') < \delta$.
+      There exists~$N$ with both~$d(x_n, x'_n) < \varepsilon/2$ and~$d(f(x), y) < \varepsilon/2$ for all~$n \geq N$.
+      It follows that
+      \[
+          d(f(x'_n), y)
+        = d(f(x'_n), f(x_n)) + d(f(x_n), y)
+        < \frac{\varepsilon}{2} + \frac{\varepsilon}{2}
+        = \varepsilon
+      \]
+      for all~$n \geq N$, and hence~$f(x'_n) \to y$.
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+For~$x \in X$ there exist a sequence~$(x_n)_n \subseteq A$ with~$x_n \to x$.
+It follows from \cref{uniformly continuous preserves cauchy} that the sequence~$(f(x_n)_n)_n$ is again a Cauchy sequence, hence converges by the completeness of~$Y$.
+Let~$\tilde{f}(x) \defined \lim_{n \to \infty} f(x_n)$.
+
+If~$(x'_n)_n \subseteq A$ is another sequence with~$x'_n \to x$ then
+\[
+        d(x_n, x'_n)
+  \leq  d(x_n, x) + d(x, x'_n)
+  \to   0
+\]
+as~$n \to \infty$ and therefore also~$f(x'_n) \to \tilde{f}(x)$ by \cref{uniformly continuous preserves cauchy}.
+This shows that~$\tilde{f}(x)$ is independent of the choice of sequence~$(x_n)_n$.
+
+To show that~$\tilde{f}$ is continuous let~$x \in X$ and let~$(x_n)_n \subseteq X$ be a sequence with~$x_n \to x$.
+Let~$(y_n)_n \subseteq A$ be a sequence with~$y_n \to x$.
+It follows as above that~$d(x_n, y_n) \to 0$ as~$n \to \infty$, and it hence follows from \cref{uniformly continuous preserves cauchy} that
+\[
+      f(x_n)
+  \to \lim_{n \to \infty} f(y_n)
+  =   f(x) \,.
+\]
+
+We also note that the continuous extension~$\tilde{f}$ is unique because~$A$ is dense in~$X$, and that it can be shown that~$\tilde{f}$ is again uniformly continuous.
+(We won’t show this, as it is not asked for in the exercise.)
+
+
+
+
+
+\subsection{}
+
+The isometry~$f$ extends by part~\ref{extension of uniformly continuous maps} (uniquely) to a continuous map~$\tilde{f} \colon X \to Y$.
+For all~$x, x' \in X$ there exist sequences~$(x_n)_n, (x'_n)_n \subseteq A$ with~$x_n \to x$ and~$x'_n \to x'$.
+It then follows from the continuity of~$\tilde{f}$ and the continuity of the metrics~$d_X \colon X \times X \to \Real$ and~$d_Y \colon Y \times Y \to \Real$ that
+\begin{align*}
+      d_Y(\tilde{f}(x), \tilde{f}(x'))
+  &=  d_Y\left( \lim_{n \to \infty} (\tilde{f}(x_n), \tilde{f}(x'_n)) \right) \\
+  &=  \lim_{n \to \infty} d_Y(\tilde{f}(x_n), \tilde{f}(x'_n))  \\
+  &=  \lim_{n \to \infty} d_Y(f(x_n), f(x'_n))  \\
+  &=  \lim_{n \to \infty} d_A(x_n, x'_n)  \\
+  &=  \lim_{n \to \infty} d_X(x_n, x'_n)  \\
+  &=  d_X\left( \lim_{n \to \infty} (x_n, x'_n) \right) \\
+  &=  d_X(x, x') \,.
+\end{align*}
+This shows that~$\tilde{f}$ is again an isometry.
+
+It follows that~$\tilde{f}$ restricts to a bijective isometry into its image, which shows that the subspace~$\tilde{f}(X) \subseteq Y$ is complete, and thus closed.
+But the image~$\tilde{f}(X)$ is dense in~$Y$ because it contains~$\tilde{f}(A) = f(A)$, which is dense in~$Y$.
+It follows that already~$\tilde{f}(X) = Y$.
+This shows that~$\tilde{f}$ is a bijective isometry.%
+\footnote{We haven’t explicitely shown that~$\tilde{f}$ is injective, but isometries are always injective.}
+
+
+
+
