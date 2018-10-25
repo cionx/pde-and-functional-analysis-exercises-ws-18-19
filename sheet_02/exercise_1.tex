@@ -1,1 +1,54 @@
-\addtocounter{section}{1}
+\section{}
+
+
+
+
+
+\subsection{}
+
+% The norm~$\norm{\,\cdot\,} \colon \ell_2 \to \Real$ is {\libcont} with~{\libconst}~$1$ by the inverse triangle inequality.
+If the sequence~$(x^{(k)})_k$ would converge in~$\ell_2$ then this sequence would be a Cauchy sequencence.
+But it holds for all~$l > k$ that
+\[
+    \norm{ x^{(l)} - x^{(k)} }_2
+  = \sqrt{2} \,,
+\]
+which shows that this is not the case.
+
+
+
+
+
+\subsection{}
+
+It holds for all~$l \geq k$ that
+\[
+        \norm{ x^{(l)} - x^{(k)} }_2
+  =     \left( \sum_{i=k+1}^l \frac{1}{i^2} \right)^{1/2}
+  \leq  \left( \sum_{i=k+1}^\infty \frac{1}{i^2} \right)^{1/2}
+  \to   0
+\]
+as~$k \to \infty$ because the sum~$\sum_{i=1}^\infty \frac{1}{i^2}$ converges.
+This shows that the sequence~$(x^{(k)})_k$ is a Cauchy sequence.
+It follows from the completeness of~$\ell_2$ that this sequence converges.
+
+
+
+
+
+\subsection{}
+
+It holds for all~$l > k$ that
+\begin{align*}
+        \norm{ x^{(l)} - x^{(k)} }_2
+   =    \left( \sum_{i=k}^{l-1} \frac{1}{i} + \sum_{i=2^k+1}^{2^l} \frac{1}{i} \right)^{1/2}
+  &\geq \left( \sum_{i=2^k+1}^{2^{(k+1)}} \frac{1}{i} \right)^{1/2} \\
+  &\geq \left( 2^k \cdot \frac{1}{2^{(k+1)}} \right)^{1/2}
+   =    \frac{1}{2} \,,
+\end{align*}
+which shows that the sequence~$(x^{(k)})_k$ is not a Cauchy sequence.
+It is therefore not convergent.
+
+
+
+
