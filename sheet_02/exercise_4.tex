@@ -1,1 +1,83 @@
-\addtocounter{section}{1}
+\section{}
+
+
+
+\subsection{}
+\label{criterion for nonseperable}
+
+Let~$D \subseteq X$ be a countable dense subset.
+There exist for every~$a \in A$ some~$x_a \in D$ with~$d(x_a, a) < \delta/2$.
+It follows from~$D$ being countable but~$A$ being uncountable that there exist~$a_1, a_2 \in A$ with~$a_1 \neq a_2$ but~$x_{a_1} = x_{a_2} \defines x$.
+It then follows that
+\[
+        d(a_1, a_2)
+  \leq  d(a_1, x) + d(x, a_2)
+  <     \frac{\delta}{2} + \frac{\delta}{2}
+  =     \delta \,,
+\]
+which contradicts~$d(a_1, a_2) \geq \delta$.
+
+
+
+
+
+\subsection{}
+
+For every subset~$S \subseteq \Integer$ there exists a continuous bounded function~$f_S \colon \Real \to \Real$ with
+\[
+    f_S(n)
+  = \begin{cases}
+      1 & \text{if~$n \in S$} \,, \\
+      0 & \text{otherwise} \,.
+    \end{cases}
+\]
+(One takes a small hat of support~$[n - 1/2, n + 1/2]$ and height~$1$ around every~$n \in S$ and connects these by the zero function.)
+It then holds for any two distinct subsets~$S, T \subseteq \Integer$ some~$n \in \Integer$ which is contained in precisely one of the sets~$S$ and~$T$, for which is then follows that~$\abs{f_S(n) - f_T(n)} = 1$.
+This shows that~$\norm{f_S - f_T} \geq 1$ for all~$S, T \subseteq \mathcal{P}(\Integer)$ with~$S \neq T$.
+It follows from the uncountability of the power set~$\mathcal{P}(\Integer)$ by part~\ref{criterion for nonseperable} of the exercise that~$\cont^0_b(\Real)$ is not seperable.
+
+
+
+
+
+\subsection{}
+
+If~$f_1, f_2 \colon \Real \to \Real$ are functions for which the limits
+~$\lim_{x \to \infty} f_1(x)$ and~$\lim_{x \to \infty} f_2(x)$ exist, then it holds for every~$\alpha \in \Real$ that the limit~$\lim_{x \to \infty} (\alpha f_1 + f_2)(x)$ also exists, and is given by
+\[
+    \lim_{x \to \infty} (\alpha f_1 + f_2)(x)
+  =   \alpha \left( \lim_{x \to \infty} f_1(x) \right)
+    + \left( \lim_{x \to \infty} f_2(x) \right) \,.
+\]
+The analogous statement for~$x \to -\infty$ also holds.
+It follows that for all functions~$f_1, f_2 \colon \Real \to \Real$ with~$\lim_{\abs{x} \to \infty} f(x) = 0$ and all~$\alpha \in \Real$, the function~$\alpha f_1 + f_2$ again satisfies~$\lim_{\abs{x} \to \infty} (\alpha f_1 + f_2)(x) = 0$.
+It also holds that~$0 \in \cont^0_0(\Real)$.
+Altogether this shows that~$\cont^0_0(\Real)$ is a linear subspace of~$\cont^0_b(\Real)$.
+
+Let~$f \in \cont^0_b(\Real)$ be in the closure of~$\cont^0_0(\Real)$.
+Then there exist for every~$\varepsilon > 0$ some~$g \in \cont^0_0(\Real)$ with~$\norm{f-g} < \varepsilon$, and hence
+\[
+        \abs{f(x)}
+  \leq  \abs{g(x)} + \abs{ f(x) - g(x) }
+  \leq  \abs{ g(x) } + \varepsilon
+\]
+for every~$x \in \Real$.
+It follows that
+\[
+        \limsup_{x \to \infty} \abs{f(x)}
+  \leq  \varepsilon \,.
+\]
+As this holds for every~$\varepsilon > 0$, this shows that~$\limsup_{x \to \infty} \abs{ f(x) } = 0$, which shows that~$\lim_{x \to \infty} f(x) = 0$.
+It can be shown in the same way that~$\lim_{x \to -\infty} f(x) = 0$.
+This shows together that~$\lim_{\abs{x} \to \infty} f(x) = 0$, which shows that~$\cont^0_0(\Real)$ is closed in~$\cont^0_b(\Real)$.
+
+It remains to show that~$\cont^0_0(\Real)$ is separable.
+
+
+
+
+
+
+
+
+
