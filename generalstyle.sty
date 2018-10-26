@@ -25,6 +25,7 @@
 
 % define theorem like environments
 \newcounter{everything}
+\newtheorem{corollary}[everything]{Corollary}
 \newtheorem{lemma}[everything]{Lemma}
 
 
@@ -54,6 +55,7 @@
 % space and set constructions
 \newcommand{\ball}[2]{\operatorname{B}_{#1}(#2)}
 \DeclareMathOperator{\bounded}{B}
+\DeclareMathOperator{\cont}{C}
 
 
 % functions
@@ -64,6 +66,7 @@
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
 \newcommand{\closure}[1]{\overline{#1}}
 \DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+\newcommand{\vect}[1]{\begin{pmatrix} #1 \end{pmatrix}}
 
 
 % custom macros with case distinctions

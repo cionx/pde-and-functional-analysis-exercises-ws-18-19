@@ -1,1 +1,184 @@
-\addtocounter{section}{1}
+\section{}
+
+We consider only the cases that~$\Omega$ is nonempty.
+
+
+
+
+\subsection{}
+
+It follows from~$\alpha < \beta$ and the boundedness of~$\Omega$ that
+\[
+            C
+  \defined  \sup_{\substack{x, y \in \Omega \\ x \neq y}}
+            \frac{1}{\norm{x - y}^{\alpha - \beta}}
+  =         \sup_{\substack{x, y \in \Omega \\ x \neq y}}
+            \norm{x - y}^{\beta - \alpha}
+  <         \infty
+\]
+with~$C > 0$.
+It therefore holds for every~$f \colon \Omega \to \Real^m$ that
+\begin{align*}
+        [f]_{\alpha}
+  &=    \sup_{\substack{x, y \in \Omega \\ x \neq y}}
+        \frac{\norm{f(x) - f(y)}}{\norm{x - y}^\alpha}
+   =    \sup_{\substack{x, y \in \Omega \\ x \neq y}}
+        \frac{1}{\norm{x - y}^{\alpha - \beta}}
+        \frac{\norm{f(x) - f(y)}}{\norm{x - y}^\beta} \\
+  &\leq \sup_{\substack{x, y \in \Omega \\ x \neq y}}
+        C
+        \frac{\norm{f(x) - f(y)}}{\norm{x - y}^\beta}
+   =    C
+        \sup_{\substack{x, y \in \Omega \\ x \neq y}}
+        \frac{\norm{f(x) - f(y)}}{\norm{x - y}^\beta}
+   =    C [f]_{\beta}
+\end{align*}
+We may replace the constant~$C$ by~$C+1$ to ensure that~$C \geq 1$, while still maintaining that~$[f]_\alpha \leq C [f]_\beta$ for every~$f \colon \Omega \to \Real^m$.
+It then further follows that
+\[
+        \norm{f}_{0,\alpha}
+  =     \norm{f}_\infty + [f]_\alpha
+  \leq  C \norm{f}_\infty + C [f]_\beta
+  =     C \norm{f}_{0,\beta} \,.
+\]
+It follows in particular for~$f \in \cont^{0,\beta}$ that~$[f]_\alpha \leq C [f]_\beta < \infty$ and hence~$f \in \cont^{0,\alpha}$.
+
+
+
+
+
+\subsection{}
+
+\begin{lemma}
+  \label{subadditive}
+  If~$0 \leq \alpha \leq 1$ then the map~$[0,\infty) \to \Real$,~$x \mapsto x^\alpha$  is subadditive, i.e.\ it holds that
+  \[
+          (x + y)^\alpha
+    \leq  x^\alpha + y^\alpha
+  \]
+  for all~$x, y \in [0,\infty)$.
+\end{lemma}
+
+\begin{proof}
+  We fix~$x \in [0,\infty)$.
+  If~$x = 0$ then the claimed inequality holds, so we may assume that~$x > 0$.
+  We then consider the two maps
+  \begin{gather*}
+            f
+    \colon  [0,\infty)
+    \to     \Real \,,
+    \quad   y
+    \mapsto (x + y)^\alpha
+  \shortintertext{and}
+            g
+    \colon  [0,\infty)
+    \to     \Real \,,
+    \quad   y
+    \mapsto x^\alpha + y^\alpha \,.
+  \end{gather*}
+  It holds that~$f(0) = g(0)$ and and both maps are differentiable.
+  It holds for every~$x \in [0,\infty)$ that
+  \[
+      f'(x)
+    =
+      \alpha (x+y)^{\alpha-1}
+    \leq
+      \alpha y^{\alpha - 1}
+    =
+      g'(x)
+  \]
+  where we use that~$0 \leq \alpha \leq 1$.
+  It therefore follows from~$f(0) = g(0)$ that~$f(x) \leq g(x)$ for all~$x \geq 0$.
+\end{proof}
+
+\begin{corollary}
+  \label{reverse subadditive}
+  It holds for all~$x, y \geq 0$ that
+  \[
+          \abs{x^\alpha - y^\alpha}
+    \leq  \abs{x-y}^\alpha \,.
+  \]
+\end{corollary}
+
+\begin{proof}
+  We may assume that~$x \geq y$.
+  Then
+  \[
+          x^\alpha
+    =     ((x - y) + y)^\alpha
+    \leq  (x-y)^\alpha + y^\alpha
+  \]
+  by \cref{subadditive} and therefore
+  \[
+          \abs{x^\alpha - y^\alpha}
+    =     x^\alpha - y^\alpha
+    \leq  (x - y)^\alpha
+    =     \abs{x-y}^\alpha \,,
+  \]
+  as desired.
+\end{proof}
+
+We first consider the case~$m = 1$.
+Fix a base point~$z \in \Omega$ and consider the continuous function
+\[
+          f
+  \colon  \Omega
+  \to     \Real \,,
+  \quad   x
+  \mapsto \norm{x - z}^\alpha \,.
+\]
+It holds for all~$x, y \in \Omega$ by \cref{reverse subadditive} and the reverse triangle inequality for~$\norm{\,\cdot\,}$ that
+\begin{align*}
+        \norm{f(x) - f(y)}
+  &=    \abs{\, \norm{x-z}^\alpha - \norm{y-z}^\alpha \,} \\
+  &\leq \abs{ \, \norm{x-z} - \norm{y-z} \, }^\alpha  \\
+  &\leq \abs{ \norm{ (x-z) - (y-z) } }^\alpha \\
+  &\leq \norm{x-y}^\alpha \,.
+\end{align*}
+It then follows from \cref{subadditive} that~$f \in \cont^{0,\alpha}$ because
+\[
+    [f]_\alpha
+  = \sup_{\substack{x, y \in \Omega \\ x \neq y}}
+    \frac{\norm{f(x) - f(y)}}{\norm{x-y}^\alpha}
+  = \sup_{\substack{x, y \in \Omega \\ x \neq y}}
+    \frac{\norm{x-y}^\alpha}{\norm{x-y}^\alpha}
+  = 1 \,.
+\]
+But~$f \notin \cont^{0,\beta}$ because
+\begin{align*}
+    [f]_\beta
+   =
+    \sup_{\substack{x, y \in \Omega \\ x \neq y}}
+    \frac{\norm{f(x) - f(y)}}{\norm{x-y}^\beta}
+   \mathbin{\underset{y=z}{=\!=}}
+    \sup_{\substack{x \in \Omega \\ x \neq z}}
+    \frac{\norm{f(x) - f(z)}}{\norm{x-z}^\beta}
+  &=
+    \sup_{\substack{x \in \Omega \\ x \neq z}}
+    \frac{\norm{x-z}^\alpha}{\norm{x-z}^\beta}  \\
+  &=
+    \sup_{\substack{x \in \Omega \\ x \neq z}}
+    \frac{1}{\norm{x-z}^{\beta - \alpha}}
+   =
+    \infty \,,
+\end{align*}
+where we have used that~$\Omega$ is open.
+
+For~$m \geq 1$ we can replace~$f$ by the function
+\[
+          \Omega
+  \to     \Real^m \,,
+  \quad   x
+  \mapsto \vect{ \norm{x-z}^\alpha \\ 0 \\ \vdots \\ 0 }
+\]
+and all of the above calculations stay true.
+
+
+
+
+
+\addtocounter{subsection}{1}
+
+
+
+
