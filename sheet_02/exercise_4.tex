@@ -72,11 +72,48 @@ It can be shown in the same way that~$\lim_{x \to -\infty} f(x) = 0$.
 This shows together that~$\lim_{\abs{x} \to \infty} f(x) = 0$, which shows that~$\cont^0_0(\Real)$ is closed in~$\cont^0_b(\Real)$.
 
 It remains to show that~$\cont^0_0(\Real)$ is separable.
+We know from the lecture that~$\cont^0([-n,n])$ is separable for every~$n \in \Natural$ (Theorem~2.5 in the lecture notes).
+Let~$B_n \subseteq \cont^0([-n,n])$ be a countable dense subset.
+We extend every~$f \in B_n$ to a function~$\hat{f} \in \cont^0_0(\Real)$ by letting~$\hat{f}$ tend linearly to~$0$ on the intervals~$[-n-1,-n]$ and~$[n,n+1]$ and setting~$\hat{f} \equiv 0$ outside of~$[-n-1,n+1]$.
+This means explicitely that
+\[
+    \hat{f}(x)
+  = \begin{cases}
+      0                   & \text{if~$x \leq -n-1$} \,, \\
+      f(-n) \cdot (x+n+1) & \text{if~$-n-1 \leq x \leq -n$} \,, \\
+      f(x)                & \text{if~$-n \leq x \leq n$}  \,, \\
+      f(n) \cdot  (n+1-x) & \text{if~$n \leq x \leq n+1$} \,, \\
+      0                   & \text{if~$x \geq n+1$} \,.
+    \end{cases} \,.
+\]
+Let~$\hat{B}_n = \{ \hat{f} \suchthat f \in B_n \}$ and~$\hat{B} = \bigcup_{n \geq 0} \hat{B}_n$.
+Then~$\hat{B}$ is a countable subset of~$\cont^0_0(\Real)$, and we claim that it is dense:
 
-
-
-
-
+Let~$g \in \cont_0^0(\Real)$ and let~$\varepsilon > 0$.
+There exist some~$n \in \Natural$ with~$\abs{g(x)} \leq \varepsilon$ whenever~$\abs{x} \geq n$.
+It holds in particular that
+\begin{equation}
+  \label{estimate on original function}
+        \abs{g(n)}, \abs{g(-n)}
+  \leq  \varepsilon
+\end{equation}
+There exist by choice of~$B_n$ some~$f \in B_n$ with~$\norm{g-f}_{\cont^0([-n,n])} \leq \varepsilon$.
+It follows in particular that~$\abs{g(x) - f(x)} \leq \varepsilon$ for~$x = n, -n$, and hence
+\[
+        \abs{g(n)}, \abs{g(-n)}
+  \leq  2 \varepsilon
+\]
+by~\eqref{estimate on original function}.
+It then follows from the construction of the extension~$\hat{f}$ that~$\abs{f(x)} \leq 2\varepsilon$ for all~$\abs{x} \geq n$.
+It follow from the triangle inequality that
+\[
+        \abs{g(x) - f(x)}
+  \leq  \abs{g(x)} + \abs{f(x)}
+  \leq  2 \varepsilon + \varepsilon
+  =     3 \varepsilon
+\]
+for all~$\abs{x} \geq n$.
+Together with~$\norm{g-f}_{\cont^0([-n,n])} \leq \varepsilon$ this shows that~$\norm{f-g}_{\cont^0_0(\Real)} \leq 3 \varepsilon$.
 
 
 
