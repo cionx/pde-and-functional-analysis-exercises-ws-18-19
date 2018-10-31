@@ -1,6 +1,7 @@
 \section{}
 
-We consider only the cases that~$\Omega$ is nonempty.
+We consider only the case that~$\Omega$ is nonempty.
+
 
 
 
@@ -17,7 +18,7 @@ It follows from~$\alpha < \beta$ and the boundedness of~$\Omega$ that
   <         \infty
 \]
 with~$C > 0$.
-It therefore holds for every~$f \colon \Omega \to \Real^m$ that
+It therefore holds for every function~$f \colon \Omega \to \Real^m$ that
 \begin{align*}
         [f]_{\alpha}
   &=    \sup_{\substack{x, y \in \Omega \\ x \neq y}}
@@ -93,7 +94,7 @@ It follows in particular for~$f \in \cont^{0,\beta}$ that~$[f]_\alpha \leq C [f]
 
 \begin{corollary}
   \label{reverse subadditive}
-  It holds for all~$x, y \geq 0$ that
+  It holds for all~$0 \leq \alpha < 1$ and all~$x, y \geq 0$ that
   \[
           \abs{x^\alpha - y^\alpha}
     \leq  \abs{x-y}^\alpha \,.
@@ -132,25 +133,25 @@ It holds for all~$x, y \in \Omega$ by \cref{reverse subadditive} and the reverse
         \norm{f(x) - f(y)}
   &=    \abs{\, \norm{x-z}^\alpha - \norm{y-z}^\alpha \,} \\
   &\leq \abs{ \, \norm{x-z} - \norm{y-z} \, }^\alpha  \\
-  &\leq \abs{ \norm{ (x-z) - (y-z) } }^\alpha \\
+  &\leq \abs{ \, \norm{ (x-z) - (y-z) } \, }^\alpha \\
   &\leq \norm{x-y}^\alpha \,.
 \end{align*}
-It then follows from \cref{subadditive} that~$f \in \cont^{0,\alpha}$ because
+It then follows that~$f \in \cont^{0,\alpha}(\Omega)$ because
 \[
-    [f]_\alpha
-  = \sup_{\substack{x, y \in \Omega \\ x \neq y}}
-    \frac{\norm{f(x) - f(y)}}{\norm{x-y}^\alpha}
-  = \sup_{\substack{x, y \in \Omega \\ x \neq y}}
-    \frac{\norm{x-y}^\alpha}{\norm{x-y}^\alpha}
-  = 1 \,.
+        [f]_\alpha
+  =     \sup_{\substack{x, y \in \Omega \\ x \neq y}}
+        \frac{\norm{f(x) - f(y)}}{\norm{x-y}^\alpha}
+  \leq  \sup_{\substack{x, y \in \Omega \\ x \neq y}}
+        \frac{\norm{x-y}^\alpha}{\norm{x-y}^\alpha}
+  =     1 \,.
 \]
-But~$f \notin \cont^{0,\beta}$ because
+But~$f \notin \cont^{0,\beta}(\Omega)$ because
 \begin{align*}
     [f]_\beta
    =
     \sup_{\substack{x, y \in \Omega \\ x \neq y}}
     \frac{\norm{f(x) - f(y)}}{\norm{x-y}^\beta}
-   \mathbin{\underset{y=z}{=\!=}}
+   \mathbin{\underset{y=z}{\geq}}
     \sup_{\substack{x \in \Omega \\ x \neq z}}
     \frac{\norm{f(x) - f(z)}}{\norm{x-z}^\beta}
   &=
@@ -162,7 +163,7 @@ But~$f \notin \cont^{0,\beta}$ because
    =
     \infty \,,
 \end{align*}
-where we have used that~$\Omega$ is open.
+where we have used that~$\Omega$ is open and thus contains points arbitrarily close to~$z$ (but distinct to~$z$).
 
 For~$m \geq 1$ we can replace~$f$ by the function
 \[
@@ -177,8 +178,18 @@ and all of the above calculations stay true.
 
 
 
-\addtocounter{subsection}{1}
+\subsection{}
 
+Every \dash{Hölder}{continuous} function is uniformly continuous, so it sufficies to construct a continuous function~$f \colon \Omega \to \Real^n$ which is not uniformly continuous.
+If~$z \in \partial \Omega$ is a boundary point of~$\Omega$ then the function
+\[
+          f
+  \colon  \Omega
+  \to     \Real \,,
+  \quad   z
+  \mapsto \frac{1}{\norm{x-z}}
+\]
+should do the trick, but I currently don’t have the time to work out the details.
 
 
 
