@@ -25,6 +25,7 @@
 
 % define theorem like environments
 \newcounter{everything}
+\newtheorem{claim}[everything]{Claim}
 \newtheorem{corollary}[everything]{Corollary}
 \newtheorem{lemma}[everything]{Lemma}
 
@@ -43,19 +44,24 @@
 % relations
 \newcommand{\defined}{\coloneqq}
 \newcommand{\defines}{\eqqcolon}
+\newcommand{\nto}{\nrightarrow}
 
 
 % important sets
 \newcommand{\Natural}{\mathbb{N}}
 \newcommand{\Integer}{\mathbb{Z}}
 \newcommand{\Real}{\mathbb{R}}
-\newcommand{\Complex}{\mathbb{C}}
+\newcommand{\Complex}{\mathbb{K}}
 
 
 % space and set constructions
-\newcommand{\ball}[2]{\operatorname{B}_{#1}(#2)}
+\newcommand{\ball}[2]{\operatorname{B}(#2,#1)}
 \DeclareMathOperator{\bounded}{B}
 \DeclareMathOperator{\cont}{C}
+\newcommand{\Compact}{\mathcal{K}}
+\newcommand{\Lin}{\mathcal{L}}
+\newcommand{\Null}{\mathcal{N}}
+\newcommand{\Range}{\mathcal{R}}
 
 
 % functions
@@ -63,9 +69,9 @@
 
 
 % decorations
-\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
-\newcommand{\closure}[1]{\overline{#1}}
-\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+\DeclarePairedDelimiterXPP{\abs}[1]{{}}{\lvert}{\rvert}{}{#1}
+\newcommand{\closure}{\overline}
+\DeclarePairedDelimiterXPP{\norm}[1]{{}}{\lVert}{\rVert}{}{#1}
 \newcommand{\vect}[1]{\begin{pmatrix} #1 \end{pmatrix}}
 
 
