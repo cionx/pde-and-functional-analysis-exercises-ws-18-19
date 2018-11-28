@@ -13,8 +13,8 @@ We can then compute
 \[
         \norm{a}_\infty
   =     \sup_{n \in \Natural} \abs{a_n}
-  =     \sup_{n \in \Natural} \norm{A e^{(n)}}
-  \leq  \norm{A}_1 \,.
+  =     \sup_{n \in \Natural} \norm{A e^{(n)}}_1
+  \leq  \norm{A} \,.
 \]
 We also have for every~$x \in \ell^1$ that
 \[
@@ -22,17 +22,17 @@ We also have for every~$x \in \ell^1$ that
   =     \sum_{n \in \Natural} \abs{a_n x_n}
   =     \sum_{n \in \Natural} \abs{a_n} \abs{x_n}
   \leq  \sum_{n \in \Natural} \norm{a}_\infty \abs{x_n}
-  =     \norm{a}_\infty \sum_{n \in \Natural} \abs{x_n} \,.
+  =     \norm{a}_\infty \sum_{n \in \Natural} \abs{x_n}
+  =     \norm{a}_\infty \norm{x}_1  \,.
 \]
 This shows that~$\norm{A} = \norm{a}_\infty$.
 
-Suppose now that~$a \in \ell^\infty$, so that~$\norm{a}_\infty < \infty$.
-Then~$\norm{A} < \infty$.
-We get that~$\norm{Ax}_1 \leq \norm{A} \norm{x}_1 < \infty$ for every~$x \in \ell^1$, and hence that~$A$ restricts to a linear map~$\ell^1 \to \ell^1$.
+Suppose now that~$a \in \ell^\infty$, so that~$\norm{A} = \norm{a}_\infty < \infty$.
+We then find for every~$x \in \ell^1$ that~$\norm{Ax}_1 \leq \norm{A} \norm{x}_1 < \infty$, and hence that~$A$ restricts to a linear map~$\ell^1 \to \ell^1$.
 We then have~$A \in \Lin(\ell^1)$ because~$\norm{A} < \infty$.
 
 Suppose now that~$A \in \Lin(\ell^1)$.
-Then~$\norm{a}_\infty = \norm{A} < \infty$ and hence~$a \in \ell^1$.
+Then in particular~$\norm{a}_\infty = \norm{A} < \infty$ and hence~$a \in \ell^1$.
 
 
 
@@ -86,7 +86,7 @@ We now observe the following:
           \norm{x}_1
     =     \sum_{n \in \Natural} \abs{x_n}
     =     \sum_{n \in S} \frac{\abs{y_n}}{\abs{a_n}}
-    \leq  C \sum_{n \in \S} \abs{y_n}
+    \leq  C \sum_{n \in S} \abs{y_n}
     =     C \sum_{n \in \Natural} \abs{y_n}
     =     C \norm{y}_1 \,.
   \]
@@ -96,8 +96,8 @@ We now observe the following:
 
 Suppose now that~$y \in \ell^1$ and that~$\varepsilon > 0$.
 Then there exist a sequence~$y' \in \ell^1$ with finite support such that~$\norm{y - y'}_1 < \varepsilon$.
-(The sequence~$y'$ results from~$y$ by cutting off after sufficiently many terms.)
-It follows from the above claim that~$y'$ is contained in the range of~$A$, because~$a_n \neq 0$ for every~$n \in \Natural$ and~$y'$ has only finite support.
+(The sequence~$y'$ results from~$y$ by cutting this sequence off after sufficiently many terms.)
+It follows from the above claim that~$y'$ is contained in the range~$A(\ell^1)$, because~$a_n \neq 0$ for every~$n \in \Natural$ and~$y'$ has only finite support.
 This shows that~$A(\ell^1)$ is dense in~$\ell^1$.
 
 
@@ -113,7 +113,7 @@ If on the other hand~$\inf_{n \in \Natural} \abs{a_n} = 0$ then we distinguish b
     If~$a_n = 0$ for some~$n \in \Natural$ then~$e^{(n)} \notin A(\ell^1)$ and hence~$A(\ell^1) = \ell^1$.
   \item
     Suppose otherwise that~$a_n \neq 0$ for every~$n \in \Natural$.
-    Then there exist a subsequence~$(a_{n(k)})_k$ with~$\abs{a_{n(k)}} < 1/k$ for every~$k$.
+    Then there exist a subsequence~$(a_{n(k)})_k$ with~$\abs{a_{n(k)}} \leq 1/k$ for every~$k$.
     Let~$y = (y_n)_n \in \ell^1$ be the sequence with~$y_{n(k)} = 1/k^2$ for every~$k$ and $y_n = 0$ otherwise.
     Then~$y$ is not contained in the range~$A(\ell^1)$:
     
@@ -121,12 +121,12 @@ If on the other hand~$\inf_{n \in \Natural} \abs{a_n} = 0$ then we distinguish b
     It would then follow for every~$k$ that
     \[
             \frac{1}{k^2}
-      =     y_{n(k)}
-      =     a_{n(k)} x_{n(k)}
-      \leq  \frac{1}{k} x_{n(k)} \,,
+      =     \abs{ y_{n(k)} }
+      =     \abs{ a_{n(k)} } \abs{ x_{n(k)} }
+      \leq  \frac{1}{k} \abs{ x_{n(k)} } \,,
     \]
-    and hence~$x_{n(k)} \geq 1/k$.
-    But then~$\norm{x}_1 = \infty$, which would contradict~$x \in \ell^1$.
+    and hence~$\abs{ x_{n(k)} } \geq 1/k$.
+    But then~$x \notin \ell^1$, a contradition.
 \end{itemize}
 
 
@@ -135,56 +135,59 @@ If on the other hand~$\inf_{n \in \Natural} \abs{a_n} = 0$ then we distinguish b
 
 \subsection{}
 
-Suppose that~$A \in \Compact(\ell^1)$, so that~$C \defined \closure{A(\ball{2}{0})}$ is compact.
+Suppose that~$A \in \Compact(\ell^1)$.
+Then~$C \defined \closure{A(\ball{2}{0})}$ is compact.
 But suppose that also~$\abs{a_n} \nto 0$.
 Then there exists for some~$\varepsilon > 0$ a subsequence~$(\abs{a_{n(k)}})_k$ with~$\abs{a_{n(k)}} > \varepsilon$ for every~$k$.
 Then
 \[
     \norm{ A e_{n(k)} - A e_{n(k')} }
   = \abs{ a_{n(k)} } + \abs{ a_{n(k')} }
+  > 2 \varepsilon
 \]
 for all~$k' > k$.
-This that the sequence~$( A e_{n(k)} )_k$ has not subsequence that is Cauchy, and hence no subsequence that is convergent.
-This shows that~$C$ as above is not compact, which contradicts~$A$ being compact.
+This shows that the sequence~$( A e_{n(k)} )_k$ in~$C$ has not subsequence that is Cauchy, and hence no subsequence that is convergent.
+But this contradicts the compactness of~$C$.
 
 Suppose on the other hand that~$a_n \to 0$ let~$\varepsilon > 0$.
-To show that~$\closure{A(\ball{1}{0})}$ is compact it sufficies to show that~$B \defined \ball{1}{0}$ is precompact because~$\ell^1$ is complete.
-So let~$\varepsilon > 0$;
-we need to show that~$A(\ball{1}{0})$ is covered by finitely many~\dash{$\varepsilon$}{balls}.
+To show that~$\closure{A(\ball{1}{0})}$ is compact it sufficies to show that~$A(\ball{1}{0})$ is precompact because~$\ell^1$ is complete.
+So let~$\varepsilon > 0$.
+We need to show for~$B \defined \ball{0}{1}$ that~$A(B)$ is covered by finitely many~\dash{$\varepsilon$}{balls}.
 
 It follows from~$a_n \to 0$ that there exist some~$N$ with~$\abs{a_n} < \varepsilon/4$ for all~$n > N$.
-Let~$C \defined \sup(\abs{a_1}, \dotsc, \abs{a_N}, 1)$.
-It then holds for all~$x, y \in \ell^1$ that
+Let~$C \defined \max(\abs{a_1}, \dotsc, \abs{a_N}, 1)$.
+It then holds for all~$x, y \in B$ that
 \begin{equation}
   \label{estimate}
   \begin{aligned}
-          \norm{x-y}_1
+          \norm{Ax - Ay}_1
     &=    \sum_{n=1}^\infty \abs{a_n} \abs{x_n-y_n} \\
     &=      \sum_{n=1}^N \abs{a_n} \abs{x_n - y_n}
           + \sum_{n=N+1}^\infty \abs{a_n} \abs{x_n - y_n} \\
     &\leq   \sum_{n=1}^N C \abs{x_n - y_n}
-          + \sum_{n=N+1}^\infty \frac{\varepsilon}{2} \abs{x_n - y_n} \\
-    &=      C \sum_{n=1}^N \abs{x_n - y_n}
+          + \sum_{n=N+1}^\infty \frac{\varepsilon}{4} \abs{x_n - y_n} \\
+    &\leq   C \sum_{n=1}^N \abs{x_n - y_n}
           + \frac{\varepsilon}{4} \norm{x-y}_1  \\
     &\leq   C \sum_{n=1}^N \abs{x_n - y_n}
-          + \frac{\varepsilon}{4} (\norm{x} + \norm{y}) \\
+          + \frac{\varepsilon}{4} (\norm{x}_1 + \norm{y}_1) \\
     &\leq   C \sum_{n=1}^N \abs{x_n - y_n}
           + \frac{\varepsilon}{2} \,.
   \end{aligned}
 \end{equation}
 The normed vector space~$(\Real^N, \norm{\,\cdot\,}_1)$ is \dash{finite}{dimesional} and complete, so its unit ball~$B' \defined \ball{1}{0}$ us precompact.
-Hence there exist~$x'_1, \dotsc, x'_n \in B'$ such that for every~$y \in B'$ there exists some index~$i$ with~$\norm{x' - y'} < \varepsilon/(2C)$.
-By padding the finite vectors~$x'_1, \dotsc, x'_r$ with zeroes we get sequences~$x_1, \dotsc, x_r \in \ell^1$ with~$x_i \in B$.
+Hence there exist finitely many~$x'_1, \dotsc, x'_n \in B'$ such that for every~$y' \in B'$ there exists some index~$i$ with~$\norm{x'_i - y'} < \varepsilon/(2C)$.
+By padding the vectors~$x'_1, \dotsc, x'_r$ with zeroes we get sequences~$x_1, \dotsc, x_r \in \ell^1$ with~$\norm{x_i}_1 = \norm{x'_i}_1 < 1$ and hence~$x_i \in B$.
 
-For~$y \in B$ the truncated, finite vector~$y' = (y_1, \dotsc, y_N) \in \Real$ is contained in the unit ball~$B'$, hence there exist some index~$i$ with~$\norm{x'_i - y'} < \varepsilon/(2C)$.
-The calculation~\eqref{estimate} shows that
+For a sequence~$y \in B$ the truncated vector~$y' = (y_1, \dotsc, y_N) \in \Real$ is contained in the unit ball~$B'$ because~$\norm{y'}_1 \leq \norm{y}_1 \leq 1$.
+Hence there exist some index~$i$ with~$\norm{x'_i - y'} < \varepsilon/(2C)$.
+The calculation~\eqref{estimate} then shows that
 \[
-        \norm{x_i - y}_1
-  \leq  C \norm{x'_i - y'} + \frac{\varepsilon}{2}
+        \norm{A x_i - A y}_1
+  \leq  C \norm{x'_i - y'}_1 + \frac{\varepsilon}{2}
   <     C \frac{\varepsilon}{2C} + \frac{\varepsilon}{2}
   =     \varepsilon \,.
 \]
-Hence we find that~$B$ is covered by the finitely many open balls~$\ball{\varepsilon}{x_i}$.
+Hence we find that~$A(B)$ is covered by the finitely many open balls~$\ball{\varepsilon}{Ax_i}$.
 
 
 
