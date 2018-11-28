@@ -39,12 +39,13 @@
 
 % math shortcuts
 \newcommand{\longto}{\longrightarrow}
-
-
-% relations
 \newcommand{\defined}{\coloneqq}
 \newcommand{\defines}{\eqqcolon}
 \newcommand{\nto}{\nrightarrow}
+
+
+% differentials
+\newcommand{\dd}[1]{\,\text{d}#1}
 
 
 % important sets
@@ -60,16 +61,19 @@
 \DeclareMathOperator{\cont}{C}
 \newcommand{\Compact}{\mathcal{K}}
 \newcommand{\Lin}{\mathcal{L}}
+\DeclareMathOperator{\Lp}{L}
 \newcommand{\Null}{\mathcal{N}}
 \newcommand{\Range}{\mathcal{R}}
 
 
 % functions
 \DeclareMathOperator{\dist}{d}
+\DeclareMathOperator{\sign}{sign}
 
 
 % decorations
 \DeclarePairedDelimiterXPP{\abs}[1]{{}}{\lvert}{\rvert}{}{#1}
+\DeclarePairedDelimiter{\bil}{\langle}{\rangle}
 \newcommand{\closure}{\overline}
 \DeclarePairedDelimiterXPP{\norm}[1]{{}}{\lVert}{\rVert}{}{#1}
 \newcommand{\vect}[1]{\begin{pmatrix} #1 \end{pmatrix}}

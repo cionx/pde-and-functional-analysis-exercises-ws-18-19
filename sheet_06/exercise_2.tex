@@ -1,1 +1,194 @@
-\addtocounter{section}{1}
+\section{}
+
+We note that~$\closure{U}_1$ and~$\closure{U}_2$ are again bounded, and hence compact.
+Their product~$\closure{U}_1 \times \closure{U}_2$ is therefore also compact.
+
+
+
+
+
+\subsection{}
+
+The integral~$(T_K f)(x) = \int_{U_2} K(x,y) f(y) \dd{y}$ is~{\welldef} for every~$f \in \cont(\closure{U}_2)$ and~$x \in \closure{U}_1$:
+The function~$K(x,-)f \colon \closure{U}_2 \to \Real$ is continuous, and~$\closure{U}_2$ is compact.
+The function~$K(x,-)f$ is therefore integrable on~$\closure{U}_2$, and hence also on~$U_2$.
+
+For~$f \in \cont(\closure{U}_2)$ the function~$T_K f \colon \closure{U}_1 \to \Real$ is again continuous:
+We have for all~$x, x' \in \closure{U}_1$ that
+\begin{equation}
+  \label{basic estimate}
+  \begin{aligned}
+          \abs{ (T_K f)(x) - (T_K f)(x') ) }
+    &=    \abs*{ \int_{U_2} K(x,y) f(y) \dd{y} - \int_{U_2} K(x',y) f(y) \dd{y} } \\
+    &=    \abs*{ \int_{U_2} [K(x,y) - K(x',y)] f(y) \dd{y} }  \\
+    &\leq \int_{U_2} \abs{K(x,y) - K(x',y)} \abs{f(y)} \dd{y} \,.
+  \end{aligned}
+\end{equation}
+The function~$K$ is uniformly continuous because~$\closure{U}_1 \times \closure{U}_2$ is compact.
+Hence there exist for every~$\varepsilon > 0$ some~$\delta > 0$ with~$\abs{K(x,y) - K(x',y)} < \varepsilon$ whenever~$\norm{x - x'} < \delta$.
+It then follows from~\eqref{basic estimate} whenever~$\norm{x - x'} < \delta$ that
+\[
+        \abs{ (T_K f)(x) - (T_K f)(x') }
+  \leq  \int_{U_2} \varepsilon \abs{f(y)} \dd{y}
+  =     \varepsilon \int_{U_2} \abs{f(y)} \dd{y}
+  =     C \varepsilon \,,
+\]
+for the constant~$C \defined \int_{U_2} \abs{f(y)} \dd{y}$, where
+\[
+        C
+  =     \int_{U_2} \abs{f(y)} \dd{y}
+  \leq  \int_{\closure{U}_2} \abs{f(y)} \dd{y}
+  <     \infty
+\]
+because~$\closure{U}_2$ is compact and~$f$ is continuous on~$\closure{U}_2$.
+This shows that~$T_K f$ is continuous.
+
+We have thus shown that the map~$T_k \colon \cont(\closure{U}_2) \to \cont(\closure{U}_1)$ is {\welldef}.
+The linearity of~$T_k$ follows with the linearity of the integral.
+
+It remains to show~$T_k$ is continuous.
+Let
+\[
+            C
+  \defined  \sup_{x \in U_1} \int_{U_2} \abs{K(x,y)} \dd{y} \,.
+\]
+This constant is finite:
+We have that~$\int_{U_2} \abs{K(x,y)} \dd{y} = T_{\abs{K}} 1$ (where~$1$ denotes the constant~\dash{$1$}{function}) and we have seen above that~$T_{\abs{K}} 1$ is continuous on~$\closure{U}_2$.
+Hence
+\[
+        C
+  =     \sup_{x \in U_1} \int_{U_2} \abs{K(x,y)} \dd{y}
+  \leq  \sup_{x \in U_1} (T_{\abs{K}} 1)(x)
+  \leq  \sup_{x \in \closure{U}_1} (T_{\abs{K}} 1)(x)
+  <     \infty
+\]
+because~$\closure{U}_1$ is compact.
+We now find that
+\begin{align*}
+        \abs{(T_K f)(x)}
+  &=    \abs*{ \int_{U_2} K(x,y) f(y) \dd{y} }
+   \leq \int_{U_2} \abs{K(x,y)} \abs{f(y)} \dd{y} \\
+  &\leq \int_{U_2} \abs{K(x,y)} \norm{f} \dd{y}
+   =    \norm{f} \int_{U_2} \abs{K(x,y)} \dd{y}
+   \leq C \norm{f} \,.
+\end{align*}
+Hence~$\norm{T_K} \leq C < \infty$.
+
+
+
+
+
+\subsection{}
+
+We have shown above that~$\norm{T_K} \leq \sup_{x \in U_1} \int_{U_2} \abs{K(x,y)} \dd{y}$.
+To show on the other hand that~$\sup_{x \in U_1} \int_{U_2} \abs{K(x,y)} \dd{y} \leq \norm{T_K}$ we need to show that~$\int_{U_2} \abs{K(x,y)} \dd{y} \leq \norm{T_K}$ for every~$x \in U_1$.
+
+We would like to find a suitable test function~$f \in \cont(\closure{U}_2)$ with both~$\norm{f}_\infty \leq 1$ and~$\int_{U_2} \abs{K(x,y)} \dd{y} \leq \abs{(T_K f)(x)}$ because then~$\abs{(T_K f)(x)} \leq \norm{T_K f}_\infty \leq \norm{T_K}$ and hence~$\int_{U_2} \abs{K(x,y)} \dd{y} \leq \norm{T_K}$.
+
+We start with the function~$g \colon \closure{U}_2 \to \Real$ given by
+\[
+            g(y)
+  \defined  \sign(K(x,y))
+  =         \begin{cases}
+                        -1  & \text{if~$K(x,y) < 0$}  \,, \\
+              \phantom{-}0  & \text{if~$K(x,y) = 0$}  \,, \\
+              \phantom{-}1  & \text{if~$K(x,y) > 0$}  \,.
+            \end{cases}
+\]
+This function satisfies both~$\norm{g}_\infty \leq 1$ and
+\begin{equation}
+  \label{property of g}
+    (T_K g)(x)
+  = \int_{U_2} \abs{K(x,y)} \dd{y}
+\end{equation}
+but~$g$ will in general not be continuous.
+But we can approximate~$g$ by continuous functions:
+
+The function~$g$ is measurable and bounded, and~$\closure{U}_1$ is bounded.
+Hence~$g \in \Lp^2(\closure{U}_1)$.
+We similarly have that~$K(x,-) \in \Lp^2(\closure{U}_2)$ because~$K(x,-)$ is continuous and hence bounded on the compact set~$\closure{U}_2$.
+We note that~\eqref{property of g} can be expressed as
+\[
+    \bil{ K(x,-), g }_{\Lp^2(U_2)}
+  = \int_{U_2} \abs{K(x,y)} \dd{y} \,.
+\]
+
+We can now approximate~$g$ in~$\Lp^2(\closure{U}_2)$ by continuous (even smooth) functions in~$\Lp^2(\closure{U}_1)$, i.e.\ there exists a sequence~$(g_n)_n$ of continuous maps~$g_n \colon \closure{U}_1 \to \Real$ such that
+\[
+  \norm{g - g_n}_2 \to 0 \,.
+\]
+But the functions~$g_n$ may not necessarily satisfy~$\norm{g_n}_\infty \leq 1$.
+We therefore replace~$g_n$ by the function~$f_n \colon U_2 \to \Real$ with
+\[
+            f_n(y)
+  \defined  \begin{cases}
+              1       & \text{if~$g_n(y) \geq 1$} \,, \\
+              g_n(y)  & \text{if~$g_n(y) \in [-1,1$}  \,, \\
+              -1      & \text{if~$g_n(y) \leq -1$}  \,.
+            \end{cases}
+\]
+We then have the following:
+\begin{itemize}
+  \item
+    It holds that~$f_n \in \Lp^2(\closure{U}_2)$ because~$\abs{f_n(y)} \leq \abs{g_n(y)}$ for every~$y \in \closure{U}_2$.
+  \item
+    The functions~$f_n$ are again continuous because~$f_n = h \circ g_n$ for the continuous map~$h \colon \Real \to \Real$ with
+    \[
+                h(t)
+      \defined  \begin{cases}
+                  \phantom{-}1  & \text{if~$t \geq 1$}  \,, \\
+                  \phantom{-}t  & \text{if~$t \in [-1,1]$}  \,, \\
+                            -1  & \text{if~$t \leq -1$} \,.
+                \end{cases}
+    \]
+  \item
+    It again holds that~$\norm{g - f_n}_2 \to 0$, because~$\abs{g(y) - f_n(y)} \leq \abs{g(y) - g_n(y)}$ for every~$y \in \closure{U}_2$:
+    If~$g_n(y) \in [-1,1]$ then then this holds true because~$f_n(y) = g_n(y)$; and if~$g_n(y) \geq 1$ or~$g_n(y) \leq -1$ then this holds because~$g(y) \in [-1,1]$.
+    
+    We have more specifically~$\norm{g - f_n}_{\Lp^2(\closure{U}_2)} \to 0$ and hence also~$\norm{g - f_n}_{\Lp^2(U_2)} \to 0$.
+\end{itemize}
+
+We now have that
+\begin{align*}
+        \abs{ (T_K f_n)(x) }
+  &=    \abs*{ \int_{U_2} K(x,y) f_n(y) \dd{y} }
+   =    \abs*{ \bil{ K(x,-) , f_n }_{\Lp^2(U_2)} }
+   \to  \abs*{ \bil{ K(x,-), g}_{\Lp^2(U_2)} }  \\
+  &=    \abs*{ \int_{U_2} K(x,y) g(y) \dd{y} }
+   =    \abs*{ \int_{U_2} \abs{K(x,y)} \dd{y} }
+   =    \int_{U_2} \abs{K(x,y)} \dd{y} \,.
+\end{align*}
+But we also have that
+\[
+        \abs{ (T_K f_n)(x) }
+  \leq  \norm{ T_K f_n }_\infty
+  \leq  \norm{ T_K } \norm{f_n}_\infty
+  \leq  \norm{ T_K }
+\]
+because~$\norm{f_n}_\infty \leq 1$.
+This shows that~$\int_{U_2} \abs{K(x,y)} \dd{y} \leq \norm{ T_K }$.
+
+
+
+
+
+% 
+% The continuous map~$K(x,-) \colon U_2 \to \Real$ is also contained in~$\Lp^2(U_1)$ because~$U_1$ is bounded and~$K(x,-)$ is bounded (because~$K(x,-)$ is the restriction of the corresponding continuous map~$K(x,-) \colon \closure{U}_2 \to \Real$ with~$\closure{U}$ being compact).
+% 
+% We find that
+% \[
+%     \int_{U_2} \abs{K(x,y)} \dd{y}
+%   = \int_{U_2} K(x,y) s(y) \dd{y}
+%   = \norm{ K s }_1
+% \]
+
+
+
+
+
+
+
+
+
+
+
