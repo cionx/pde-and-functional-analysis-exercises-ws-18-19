@@ -1,4 +1,130 @@
-\addtocounter{section}{1}
+\section{}
+
+We denote as always by~$e^{(k)}$ the sequence with~$e^{(k)}_k = 1$ and~$e^{(k)}_n = 0$ for~$n \neq k$.
+
+
+
+
+
+\subsection{}
+
+
+
+\subsubsection{The case $1 < p < \infty$}
+
+We write~$q \defined p'$.
+It follows with Hölder’s inequality that~$J(y)$ is for every sequence~$y = (y_n)_n \in \ell^q$ a {\welldef} linear map~$J(y) \colon \ell^p \to \Real$ with~$\norm{J(y)} \leq \norm{y}_q$.
+To show that~$\norm{J(y)} \geq \norm{y}_q$ we may assume that~$\norm{y}_q = 1$ and consider the sequence~$x = (y_n)_n \in \ell^p$ given by~$x_n = \sign(y_n) \abs{y_n}^{q/p}$.
+Then~$\norm{x}_p = 1$ and hence
+\[
+    \abs{J(y)(x)}
+  = \sum_{n=1}^\infty \abs{y_n}^{1 + q/p}
+  = \sum_{n=1}^\infty \abs{y_n}^q
+  = \norm{y}_q^q
+  = 1
+  = \norm{y}_q \norm{x}_p \,.
+\]
+We have shown that~$J \colon \ell^q \to (\ell^p)'$ is an isometric linear embedding.
+
+It remains to show that~$J$ is surjective, so let~$\varphi \in (\ell^p)'$.
+We note that the linear span~$\gen{e^{(n)} \suchthat n \in \Natural}$ is dense in~$\ell^p$.
+The continuous linear map~$\varphi$ is therefore uniquely determined by the values~$y_n \defined \varphi(e^{(n)})$ with~$n \in \Natural$.
+To prove that~$\varphi$ is contained in the range~$J(\ell^q)$ we need to show that the squence~$y \defined (y_n)_n$ is contained in~$\ell^q$.
+We show that there exist for every~$N \in \Natural$ some~$x_N \in \ell^p$ with~$\norm{x}_p = 1$ such that~$\abs{J(y)(x)} = (\sum_{n=1}^N \abs{y_q}^q)^{1/q}$.
+Then
+\[
+        \norm{y}_q
+  =     \lim_{N \to \infty} \left( \sum_{n=1}^N \abs{y_q}^q \right)^{1/q}
+  =     \lim_{N \to \infty} \abs{J(y)(x_N)}
+  \leq  \lim_{n \to \infty} \norm{J(y)} \norm{x_N}_p
+  =     \norm{J(y)}
+\]
+and hence~$\norm{y}_q < \norm{J(y)} < \infty$.
+
+We fix~$N \in \Natural$.
+We note that for~$V \defined (\Real^N, \norm{\,\cdot\,}_q)$ and~$W \defined (\Real^N, \norm{\,\cdot\,}_p)$ we find as above that~$J \colon V \to W'$ is an isometric embedding.
+It follows that~$J$ is already an isometric isomorphism because~$\dim V = N = \dim W'$.
+It follows for~$y' \defined (y_1, \dotsc, y_N)$ and the compactness of the unit sphere of~$W$ (because~$W$ is {\fd}) that there exist some~$x' \in W$ with~$\norm{x'}_p = 1$ and~$\abs{J(y')(x')} = \norm{y'}_q$.
+By padding the vector~$x'$ with zeroes we get a sequence~$x \in \ell^p$ with
+\[
+    \abs{J(y)(x)}
+  = \abs{J(y')(x')}
+  = \norm{y'}_q
+  = \left( \sum_{n=1}^N \abs{y_n}^q \right)^{1/q} \,,
+\]
+as desired.
+
+
+
+\subsubsection*{The case $p = 1$, $q = \infty$}
+
+We find as before with Hölder’s inequality that~$J \colon \ell^\infty \to (\ell^1)'$ is a {\welldef} linear map with~$\norm{J(y)} \leq \norm{y}_\infty$.
+We have on the other hand for~$y = (y_n)_n \in \ell^\infty$ that
+\[
+        \abs{y_n}
+  =     \abs{ J(y)(e^{(n)}) }
+  \leq  \norm{J(y)} \norm{ e^{(n)} }_1
+  =     \norm{J(y)}
+\]
+for every~$n \in \Natural$, and hence that~$\norm{y}_\infty \leq \norm{J(y)}$.
+This shows that~$J$ is an isometric embedding.
+
+To show that~$J$ is surjective we again pick~$\varphi \in (\ell^1)'$ and need to show that the sequence~$y = (y_n)_n$ with~$y_n \defined \varphi(e^{(n)})_{n \in \Natural}$ for every~$n \in \Natural$ is contained in~$\ell^\infty$.
+This holds because
+\[
+        \abs{y_n}
+  =     \abs{ \varphi(e^{(n)}) }
+  \leq  \norm{\varphi} \norm{e^{(n)}}_1
+  =     \norm{\varphi}
+\]
+for every~$n \in \Natural$, and hence~$\norm{y}_\infty < \norm{\varphi} < \infty$.
+
+
+
+
+
+\subsection{}
+
+We assume that~$c_0$ is to be endowed with the norm~$\norm{\,\cdot\,}$, i.e.\ that~$c_0$ is a subspace of~$\ell^\infty$.
+We can then proceed as before:
+
+It follows with Hölder’s inequality that~$J \colon \ell^1 \to c_0'$ is a {\welldef} linear map with~$\norm{J(y)} \leq \norm{y}_1$ for every~$y \in \ell^1$.
+To see that also~$\norm{J(y)} \geq \norm{y}_1$ we can consider for every~$N \in \Natural$ the sequence~$x = (x_n)_n \in c_0$ with
+\[
+    x_n
+  = \begin{cases}
+      \sign(y_n)  & \text{if~$n \leq N$}  \,, \\
+      0           & \text{otherwise}      \,.
+    \end{cases}
+\]
+This sequence satisfies~$\norm{x}_\infty \leq 1$ and
+\[
+        \sum_{n=1}^N \abs{y_n}
+  =     \abs{ J(y)(x_N) }
+  \leq  \norm{J(y)} \norm{x_N}
+  =     \norm{J(y)}
+\]
+for every~$N \in \Natural$.
+Hence~$\norm{y}_1 = \sum_{n=1}^\infty \abs{y_n} \leq \norm{J(y)}$.
+This shows that~$J$ is an isometric embedding.
+
+To show that~$J$ is surjective we note that the linear span~$\gen{e^{(n)} \suchthat n \in \Natural}$ is dense in~$c_0$.
+(Every sequence~$x \in c_0$ can be approximated by a finite sequence by truncation.)
+To show that~$\varphi \in c_0'$ is contained in the range~$J(\ell^1)$ is therefore sufficies (by the same reasoning as before) to show that the sequence~$y = (y_n)_n$ with~$y_n = \varphi(e^{(n)})$ is contained in~$\ell^1$.
+This is the case because we have for every~$N \in \Natural$ for the sequences~$x \in c_0$ as above that
+\[
+        \sum_{n=1}^N \abs{y_n}
+  =     \abs*{ \sum_{n=1}^\infty \varphi(e^{(n)}) x_n }
+  =     \abs{ \varphi(x) }
+  \leq  \norm{\varphi} \norm{x_N}_\infty
+  \leq  \norm{\varphi} \,,
+\]
+and hence~$\norm{y}_1 = \sum_{n=1}^\infty \leq \norm{\varphi} < \infty$.
+
+
+\begin{remark}
+  We can see that the above approch fails to show the (nonexisting) surjectivity of~$\ell^1 \to (\ell^\infty)'$ because the linear span~$\gen{e^{(n)} \suchthat n \geq 0}$ is not dense in~$\ell^\infty$.
+\end{remark}
 
 
 
