@@ -1,4 +1,85 @@
-\addtocounter{section}{1}
+\section{}
+
+
+
+
+
+\subsection{}
+For every~$x \in X$ let
+\[
+            I_x
+  \defined  \{
+              \alpha > 0
+            \suchthat
+              a^{-1} x \in C
+            \} \,.
+\]
+It follows from~$C$ being convex and containing~$0$ that for every~$\alpha \in I_x$ also~$[\alpha,\infty) \subseteq I…x$.
+This shows that~$I_x$ is an interval, namely a subinterval of~$(0,\infty)$ that is unbounded from above.
+
+It follows from~$0$ being contained in the interior of~$C$ that there exist some~$\varepsilon > 0$ with~$\cball{\varepsilon}{0} \subseteq C$.
+It then holds for every nonzero~$x \in X$ that~$(\varepsilon/\norm{x}) x \in C$ and hence~$\norm{x}/\varepsilon \in X$.
+It follows for~$M \defined 1/\varepsilon$ that
+\[
+        p(x)
+  =     \inf I_x
+  \leq  \frac{1}{\varepsilon} \norm{x}
+  =     M \norm{x} \,.
+\]
+For~$x = 0$ we have that~$I_x = (0,\infty)$ and hence~$p(0) = 0$.
+This shows that~$p$ is~{\welldef} with ~$0 \leq p \leq M \norm{x} < \infty$ for every~$x \in X$.
+
+
+
+
+
+\subsection{}
+
+It holds for every~$x \in X$ and every nonzero~$\lambda > 0$ that~$I_{\lambda x} = \lambda I_x$.
+It follows that
+\[
+    p(\lambda x)
+  = \inf I_{\lambda x}
+  = \inf (\lambda I_x)
+  = \lambda \inf I_x
+  = \lambda p(x)
+\]
+where we again use that~$\lambda > 0$.
+
+To show that~$p$ is subaddive let~$x, y \in X$.
+It sufficies to show that~$I_x + I_y \subseteq I_{x+y}$ because then
+\[
+        p(x+y)
+  =     \inf I_{x+y}
+  \leq  \inf (I_x + I_y)
+  \leq  (\inf I_x) + (\inf I_y)
+  =     p(x) + p(y) \,.
+\]
+So let~$\alpha \in I_x$ and~$\beta \in I_y$.
+Then both~$x/\alpha$ and~$y/\beta$ are contained in~$C$ and we want to show that also~$(x+y)/(\alpha + \beta) \in C$.
+This holds true because
+\[
+    \frac{x+y}{\alpha + \beta}
+  =   \frac{\alpha}{\alpha + \beta} \cdot \frac{x}{\alpha}
+    + \frac{\beta}{\alpha + \beta} \cdot \frac{y}{\beta}
+\]
+is a convex combination of~$x/\alpha$ and~$y/\beta$ and hence again contained in~$C$.
+
+
+
+
+
+\subsection{}
+
+For every~$x \in X$ the map~$h_x \colon (0,\infty) \to X$ given by~$h(\alpha) = x/\alpha$ is continuous, hence~$I_x = h^{-1}(C)$ is closed in~$(0,\infty)$.
+Since~$I_x$ is also a subinterval of~$(0,\infty)$ we find that either~$I_x = (0,\infty)$ or~$I_x = [p(x), \infty)$.
+(Because otherwise~$I_x = (p(x), \infty)$ with~$p(x) > 0$, but this is not a closed subset of~$(0,\infty)$.)
+We find in both cases that
+\[
+        p(x) \leq 1
+  \iff  1 \in I_x
+  \iff  x \in C \,.
+\]
 
 
 
