@@ -14,7 +14,7 @@ For every~$x \in X$ let
               a^{-1} x \in C
             \} \,.
 \]
-It follows from~$C$ being convex and containing~$0$ that for every~$\alpha \in I_x$ also~$[\alpha,\infty) \subseteq I…x$.
+It follows from~$C$ being convex and containing~$0$ that for every~$\alpha \in I_x$ also~$[\alpha,\infty) \subseteq I_x$.
 This shows that~$I_x$ is an interval, namely a subinterval of~$(0,\infty)$ that is unbounded from above.
 
 It follows from~$0$ being contained in the interior of~$C$ that there exist some~$\varepsilon > 0$ with~$\cball{\varepsilon}{0} \subseteq C$.
@@ -26,7 +26,7 @@ It follows for~$M \defined 1/\varepsilon$ that
   \leq  \frac{1}{\varepsilon} \norm{x}
   =     M \norm{x} \,.
 \]
-For~$x = 0$ we have that~$I_x = (0,\infty)$ and hence~$p(0) = 0$.
+For on the other hand~$x = 0$ we have that~$I_x = (0,\infty)$ and hence~$p(0) = 0$.
 This shows that~$p$ is~{\welldef} with ~$0 \leq p \leq M \norm{x} < \infty$ for every~$x \in X$.
 
 
@@ -42,7 +42,7 @@ It follows that
   = \inf I_{\lambda x}
   = \inf (\lambda I_x)
   = \lambda \inf I_x
-  = \lambda p(x)
+  = \lambda p(x)  \,,
 \]
 where we again use that~$\lambda > 0$.
 
@@ -52,7 +52,7 @@ It sufficies to show that~$I_x + I_y \subseteq I_{x+y}$ because then
         p(x+y)
   =     \inf I_{x+y}
   \leq  \inf (I_x + I_y)
-  \leq  (\inf I_x) + (\inf I_y)
+  =     (\inf I_x) + (\inf I_y)
   =     p(x) + p(y) \,.
 \]
 So let~$\alpha \in I_x$ and~$\beta \in I_y$.
@@ -77,6 +77,7 @@ Since~$I_x$ is also a subinterval of~$(0,\infty)$ we find that either~$I_x = (0,
 We find in both cases that
 \[
         p(x) \leq 1
+  \iff  \inf I_x \leq 1
   \iff  1 \in I_x
   \iff  x \in C \,.
 \]
