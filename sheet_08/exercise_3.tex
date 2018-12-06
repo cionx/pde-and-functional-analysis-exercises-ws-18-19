@@ -1,5 +1,81 @@
-\addtocounter{section}{1}
+\section{}
+
+We only consider the case~$X \neq 0$.
 
 
 
 
+
+\subsection{}
+
+It holds for all~$x_1, x_2 \in X$ that
+\begin{align*}
+      (T x_1) + (T x_2)
+  &=  \left( \lim_{n \to \infty} T_n x_1 \right) + \left( \lim_{n \to \infty} T_n x_2 \right) \\
+  &=  \lim_{n \to \infty} [ (T_n x_1) + (T_n x_n) ]
+   = \lim_{n \to \infty} T_n(x_1 + x_2)
+   = T (x_1 + x_2)  \,,
+\end{align*}
+and for all~$x \in X$ and~$\lambda \in \Korper$ that
+\[
+    T(\lambda x)
+  = \lim_{n \to \infty} T_n(\lambda x)
+  = \lim_{n \to \infty} \lambda T_n x
+  = \lambda \lim_{n \to \infty} T_n x
+  = \lambda T x \,.
+\]
+This shows that~$T$ is linear.
+
+We have for every~$x \in X$ with~$\norm{x} = 1$ by the continuity of the norm (of~$Y$) that
+\[
+        \norm{T x}
+  =     \norm*{\lim_{n \to \infty} T_n x}
+  =     \lim_{n \to \infty} \norm{T_n x}
+  =     \liminf_{n \to \infty} \norm{T_n x}
+  \leq  \liminf_{n \to \infty} \norm{T_n} \,.
+\]
+That~$\liminf_{n \to \infty} \norm{T_n} < \infty$ follows from the Banach--Steinhaus theorem (Theorem~7.3 in the lecture).
+(That the theorem can be applied, i.e.\ that~$\sup_{n \in \Natural} \norm{T_n x} < \infty$ for every~$x \in X$, follows from the convergence of the sequence~$(T_n x)_n$.)
+It follows in particular that~$T$ is bounded, and hence that~$T \in \Lin(X,Y)$.
+
+
+
+
+
+\subsection{}
+
+For every~$n \in \Natural$ let~$T_n \colon \ell^1 \to \ell^1$ be the linear map that multiplies the~\dash{$n$}{th} position with~$2$, i.e.\ that is given by
+\[
+    (T_n x)_m
+  = \begin{cases}
+      2 x_m & \text{if~$m = n$}     \,, \\
+        x_m & \text{if~$m \neq n$}  \,.
+    \end{cases}
+\]
+for every~$x \in \ell^1$.
+Then
+\[
+        \norm{T_n x}_1
+  \leq  \sum_{m \in \Natural} 2 \abs{x_m}
+  =     2 \norm{x}_1 \,,
+\]
+for every~$x \in \ell^1$ and therefore~$\norm{T_n} \leq 2$ for every~$n \in \Natural$.
+Hence~$T_n \in \Lin(X,Y)$ for every~$n \in \Natural$.
+
+We have for every~$x \in \ell^1$ that
+\[
+      \norm{T_n x - x}_1
+  =   2 \abs{x_n}
+  \to 0
+\]
+as~$n \to \infty$, and hence that~$T_n x \to x$.
+But the sequence~$(T_n)_n$ does not converge in the operator norm:
+We have for all~$n > m$ that
+\[
+    \norm{ (T_n - T_m) e^{(n)} }_1
+  = \norm{ 2 e^{(n)} - e^{(n)} }_1
+  = \norm{ e^{(n)} }_1
+  = 1 \,,
+\]
+and hence~$\norm{ T_n - T_m } \geq 1$.
+This shows that the sequence~$(T_n)_n$ is not a Cauchy sequence, and hence not convergent.
