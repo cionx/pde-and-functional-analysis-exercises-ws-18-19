@@ -1,4 +1,143 @@
-\addtocounter{section}{1}
+\section{}
+
+
+
+
+
+\subsection{}
+\label{needed inequality}
+
+We may assume that~$c \geq 0$, because otherwise we can replace~$c$ by~$-c$ and~$x$ by~$-x$;
+we may also assume that~$c \neq 0$ and hence~$c > 0$.
+Suppose that not~$\norm{x - c \one}_\infty \geq c$.
+Then
+\[
+    \sup_{n \in \Natural} \abs{x_n - c}
+  = \norm{x - c \one}_\infty
+  < c
+\]
+and hence there exist~$0 < c' < c$ with~$\abs{x_n - c} < c'$ for every~$n \in \Natural$.
+It follows from~$x \in W$ that there exists some~$y \in \ell^\infty$ with~$x = S(y) - y$, and hence~$x_n = y_{n+1} - y_n$ for every~$n \in \Natural$. 
+We now have for every~$n \in \Natural$ that
+\begin{gather*}
+  \abs{y_{n+1} - y_n - c} < c'
+\shortintertext{and hence}
+  y_{n+1} - y_n \in (c - c', c + c') \,.
+\end{gather*}
+It follows from~$c' < c$ that~$y_{n+1} - y_n > c-c' > 0$ for every~$n \in \Natural$.
+The sequence~$y$ is therefore strictly increasing.
+But this contradicts~$y$ being bounded.
+
+
+
+
+
+\subsection{}
+
+It follows from part~\ref{needed inequality} that~$\one \notin W$ because for~$x = \one$ and~$c = -1$ we get
+\[
+    \norm{x - c \one}_\infty
+  = \norm{0}_\infty
+  = 0
+  < 1
+  = \abs{c} \,.
+\]
+The sum~$Y \defined W + \Real \one$ is therefore direct, i.e.\ that~$Y = W \oplus \Real \one$.
+We can hence define a map
+\[
+          \varphi
+  \colon  Y
+  \to     \Real \,,
+  \quad   x + c \one
+  \mapsto c
+\]
+where~$x \in W$ and~$c \in \Real$.
+The map~$\varphi$ is linear, and it follows from part~\ref{needed inequality} that
+\[
+        \varphi(y)
+  =     \varphi(x + c \one)
+  =     c
+  \leq  \abs{c}
+  \leq  \norm{x + c \one}_\infty
+  =     \norm{y}_\infty
+\]
+for every~$y \in Y$ with~$y = x + c \one$, where~$x \in W$ and~$c \in \Real$.
+Hence~$\varphi \in Y'$ with~$\norm{\varphi} \leq 1$.
+By considering~$y = \one$ we see that actually~$\norm{\varphi} = 1$ because~$\varphi(\one) = 1$.
+
+It follows from the Hahn--Banch theorem (version~II, Theorem~6.4 from the lecture) that there exist an extension~$\Phi \in (\ell^\infty)'$ of~$\varphi$ with~$\norm{\Phi} = \norm{\varphi} = 1$.
+It again holds that~$\Phi(\one) = \varphi(\one) = 1$.
+The functional~$\Phi$ is shift invariant:
+We have for every~$x \in \ell^\infty$ that
+\[
+        \Phi(S(x)) = \Phi(x)
+  \iff  \Phi(S(x)) - \Phi(x) = 0
+  \iff  \Phi(S(x) - x) = 0 \,,
+\]
+and the last condition holds because~$S(x) - x \in W$ and hence
+\[
+    \Phi(S(x) - x)
+  = \varphi(S(x) - x)
+  = 0
+\]
+by construction of~$\Phi$ via~$\varphi$ and the definition of~$\varphi$.
+
+That~$\Phi$ is positive, i.e.\ that~$\Phi(x) \geq 0$ for~$x \geq 0$, follows from the upcoming part~\ref{estimate on behavior}, because~$\liminf_{n \to \infty} x_n \geq 0$.
+
+
+
+
+
+\subsection{}
+\label{estimate on behavior}
+
+
+Suppose first that~$x \geq 0$.
+We then have for every~$N \in \Integer$ that
+\[
+        \Phi(x)
+  =     \Phi(S^N x)
+  \leq  \abs{ \Phi(S^N x) }
+  \leq  \norm{ S^N x }_{\infty}
+  =     \sup_{n \in \Natural} \abs{x_{n+N}}
+  =     \sup_{n \geq N} \abs{x_n}
+  =     \sup_{n \geq N} x_n \,,
+\]
+and hence
+\[
+        \Phi(x)
+  \leq  \limsup_{n \to \infty} x_n \,.
+\]
+If now~$x \in \ell^\infty$ then we get for~$c \defined \inf_{n \in \Natural} x_n$ that~$x - c \one \geq 0$ and hence
+\[
+        \Phi(x) - c
+  =     \Phi(x - c \one)
+  \leq  \limsup_{n \to \infty} (x_n - c)
+  =     \left( \limsup_{n \to \infty} x_n \right) - c \,,
+\]
+which shows that
+\[
+        \Phi(x)
+  \leq  \limsup_{n \to \infty} x_n \,.
+\]
+We now also find that
+\[
+        -\Phi(x)
+  =     \Phi(-x)
+  \leq  \limsup_{n \to \infty} (-x_n)
+  =     - \liminf_{n \to \infty} x_n \,,
+\]
+and hence
+\[
+        \Phi(x)
+  \geq  \liminf_{n \to \infty} x_n \,.
+\]
+
+
+
+
+
+
 
 
 
