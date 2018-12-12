@@ -1,4 +1,64 @@
-\addtocounter{section}{1}
+\section{}
+
+
+
+
+
+\subsection{}
+
+We need to show that the family of linear functionals
+\[
+            \mathcal{T}
+  \defined  \{
+              T(y)
+            \suchthat
+              y \in X,
+              \norm{y} \leq 1
+            \}
+\]
+is bounded.
+We have for every~$x \in X$ that~$T(y)x = T(x)y$ by assumption, and therefore
+\[
+        \sup_{S \in \mathcal{T}} \abs{ S x }
+  =     \sup_{\substack{y \in X \\ \norm{y} \leq 1}} \abs{ (T y) x }
+  =     \sup_{\substack{y \in X \\ \norm{y} \leq 1}} \abs{ (T x) y }
+  \leq  \norm{T x}
+  <     \infty  \,.
+\]
+We find that the boundedness of~$\mathcal{T}$ follows from the Banach--Steinhaust theorem.
+
+
+
+
+
+\subsection{}
+
+By the closed graph theorem we need to show that every sequence~$(x_n)_n$ in~$X$ and all~$x \in X$ and~$S \in X'$ with both~$x_n \to x$ and~$T x_n \to S$ already~$S = T x$.
+For this we may replace~$x_n$ by~$x_n - x$ and~$S$ by~$S - T$ to additionally assume that~$x_n \to 0$.
+We hence need to show that~$S = T 0 = 0$, hence that~$S y = 0$ for every~$y \in X$.
+
+We have for every~$\lambda \in \Real$ that
+\begin{align*}
+        0
+  &\leq \bil{ x_n + \lambda y, T(x_n + \lambda y) } \\
+  &=    \bil{ x_n, T x_n} + \lambda( \bil{x_n, T y} + \bil{y, T x_n} ) + \lambda^2 \bil{y, T y} \,.
+\end{align*}
+It follows from~$x_n \to 0$ that~$\bil{x_n, T x_n} \to 0$ and that~$\bil{x_n, T y} \to 0$.
+By taking the limit~$n \to \infty$, we find that
+\[
+        0
+  \leq  \lambda \bil{y, S} + \lambda^2 \bil{y, Ty}
+  =     \lambda \cdot ( \bil{y, S} + \lambda \bil{y, Ty} )
+\]
+for every~$\lambda \in \Real$.
+This shows that
+\[
+  \begin{cases}
+    \bil{y, S} + \lambda \bil{y, Ty} \geq 0 & \text{if~$\lambda > 0$} \,, \\
+    \bil{y, S} + \lambda \bil{y, Ty} \leq 0 & \text{if~$\lambda < 0$} \,.
+  \end{cases}
+\]
+It follows by continuity for~$\lambda = 0$ that~$\bil{y,S} = 0$.
 
 
 
