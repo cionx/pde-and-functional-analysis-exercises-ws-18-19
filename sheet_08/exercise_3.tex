@@ -8,13 +8,13 @@ We only consider the case~$X \neq 0$.
 
 \subsection{}
 
-It holds for all~$x_1, x_2 \in X$ that
+It holds for all~$x, y \in X$ that
 \begin{align*}
-      (T x_1) + (T x_2)
-  &=  \left( \lim_{n \to \infty} T_n x_1 \right) + \left( \lim_{n \to \infty} T_n x_2 \right) \\
-  &=  \lim_{n \to \infty} [ (T_n x_1) + (T_n x_n) ]
-   = \lim_{n \to \infty} T_n(x_1 + x_2)
-   = T (x_1 + x_2)  \,,
+      (T x) + (T y)
+  &=  \left( \lim_{n \to \infty} T_n x \right) + \left( \lim_{n \to \infty} T_n y \right) \\
+  &=  \lim_{n \to \infty} [ (T_n x) + (T_n y) ]
+   = \lim_{n \to \infty} T_n(x + y)
+   = T (x + y)  \,,
 \end{align*}
 and for all~$x \in X$ and~$\lambda \in \Korper$ that
 \[
@@ -49,7 +49,7 @@ For every~$n \in \Natural$ let~$T_n \colon \ell^1 \to \ell^1$ be the linear map 
     (T_n x)_m
   = \begin{cases}
       2 x_m & \text{if~$m = n$}     \,, \\
-        x_m & \text{if~$m \neq n$}  \,.
+        x_m & \text{if~$m \neq n$}
     \end{cases}
 \]
 for every~$x \in \ell^1$.
@@ -57,7 +57,7 @@ Then
 \[
         \norm{T_n x}_1
   \leq  \sum_{m \in \Natural} 2 \abs{x_m}
-  =     2 \norm{x}_1 \,,
+  =     2 \norm{x}_1
 \]
 for every~$x \in \ell^1$ and therefore~$\norm{T_n} \leq 2$ for every~$n \in \Natural$.
 Hence~$T_n \in \Lin(X,Y)$ for every~$n \in \Natural$.
@@ -65,7 +65,7 @@ Hence~$T_n \in \Lin(X,Y)$ for every~$n \in \Natural$.
 We have for every~$x \in \ell^1$ that
 \[
       \norm{T_n x - x}_1
-  =   2 \abs{x_n}
+  =   \abs{x_n}
   \to 0
 \]
 as~$n \to \infty$, and hence that~$T_n x \to x$.
@@ -78,4 +78,4 @@ We have for all~$n > m$ that
   = 1 \,,
 \]
 and hence~$\norm{ T_n - T_m } \geq 1$.
-This shows that the sequence~$(T_n)_n$ is not a Cauchy sequence, and hence not convergent.
+The sequence~$(T_n)_n$ is therefore not a Cauchy sequence, and hence not convergent.
