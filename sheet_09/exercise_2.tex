@@ -1,4 +1,94 @@
-\addtocounter{section}{1}
+\section{}
+
+
+
+
+
+\subsection{}
+
+Suppose that~$x_k \wto x$.
+We then know from the lecture (Proposition~8.3, part~(iv)) that the sequence~$(x_k)_k$ is bounded.
+The convergence~$\bil{x_k, x'} \to \bil{x, x'}$ holds for every~$x' \in X'$, whence for every~$x' \in D$.
+
+Suppose now that the sequence~$(x_k)_k \subseteq X$ is bounded, say~$\norm{x_k} \leq C$ for every~$k$, and that there exists a dense subset~$D \subseteq X'$ with~$\bil{x_k, x'} \to \bil{x, x'}$ for every~$x' \in D$.
+Let~$x' \in X'$.
+There exists some~$\tilde{x}' \in D$ with
+\[
+  \norm{x} \norm{x' - \tilde{x}'} \leq \frac{\varepsilon}{2}
+  \quad\text{and}\quad
+  C \norm{\tilde{x'} - x'} \leq \frac{\varepsilon}{2}
+\]
+because~$D$ is dense in~$X'$.
+It then holds that
+\begin{align*}
+  \abs{ \bil{x_k, x'} - \bil{x, x'} }
+  &\leq
+    \abs{ \bil{x_k, x'} - \bil{x_k, \tilde{x}'} }
+  + \abs{ \bil{x_k, \tilde{x}'} - \bil{x, \tilde{x}'} }
+  + \abs{ \bil{x, \tilde{x}'} - \bil{x, x'} } \\
+  &=
+      \abs{ \bil{x_k, x' - \tilde{x}' } }
+    + \abs{ \bil{x_k, \tilde{x}'} - \bil{x, \tilde{x}' } }
+    + \abs{ \bil{x, \tilde{x}' - x' } } \\
+  &\leq
+      \norm{x_k} \norm{x' - \tilde{x}'}
+    + \abs{ \bil{x_k, \tilde{x}'} - \bil{x, \tilde{x}' } }
+    + \norm{x} \norm{\tilde{x'} - x'} \\
+  &\leq
+      \frac{\varepsilon}{2}
+    + \abs{ \bil{x_k, \tilde{x}'} - \bil{x, \tilde{x}' } }
+    + \frac{\varepsilon}{2} \\
+  &=  \abs{ \bil{x_k, \tilde{x}'} - \bil{x, \tilde{x}' } }
+    + \varepsilon \,.
+\end{align*}
+When taking the limit~$k \to \infty$ we have by assumption that~$\abs{ \bil{x_k, \tilde{x}'} - \bil{x, \tilde{x}' } } \to 0$.
+We hence find that
+\[
+        \limsup_{k \to \infty} \abs{ \bil{x_k, x'} - \bil{x, x'} }
+  \leq  \varepsilon \,.
+\]
+This holds for every~$\varepsilon > 0$, whence~$\bil{x_k, x'} \to \bil{x,x'}$.
+This shows that~$x_k \wto x$.
+
+
+
+
+
+\subsection{}
+
+Suppose that~$x_k \to x$.
+Then
+\begin{align*}
+  \sup_{\norm{x'} = 1}
+  \abs*{ \bil{x_k, x'} - \bil{x, x'} }
+  &=
+  \sup_{\norm{x'} = 1}
+  \abs*{ \bil{x_k - x, x'} }
+  \\
+  &\leq
+  \sup_{\norm{x'} = 1}
+  \norm{x_k - x} \norm{x'}
+  =
+  \norm{x_k - x}
+  \to
+  0 \,.
+\end{align*}
+
+Suppose on the other hand that~$\sup_{\norm{x'} = 1} \abs{ \bil{x_k, x'} - \bil{x, x'} } \to 0$.
+We know from the lecture (Corollary~6.6) that there exist for every~$k$ some~$x'_0 \in X'$ with~$\norm{x'_0} = 1$ such that
+\[
+    \bil{x_k - x, x'_0}
+  = \norm{x_k - x} \,.
+\]
+Then
+\[
+        \norm{x_k - x}
+   =    \abs{ \bil{x_k - x, x'_0} }
+   =    \abs{ \bil{x_k, x'_0} - \bil{x, x'_0} }
+   \leq \sup_{\norm{x'}  = 1} \abs{ \bil{x_k, x'_0} - \bil{x, x'_0} }
+   \to  0 \,,
+\]
+which shows that~$x_k \to x$.
 
 
 
