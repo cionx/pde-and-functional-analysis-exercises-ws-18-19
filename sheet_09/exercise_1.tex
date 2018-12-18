@@ -1,4 +1,156 @@
-\addtocounter{section}{1}
+\section{}
+
+
+
+
+
+\subsection{}
+
+Suppose that~$x_k \wto x$.
+Then for any~$y' \in Y'$ we have~$y' \circ J \in X'$ and hence
+\[
+      \bil{ J x_k, y' }
+  =   \bil{x_k, y' \circ J}
+  \to \bil{x, y' \circ J}
+  =   \bil{J x, y'} \,.
+\]
+This shows that~$J x_k \wto J x$.
+If on the other hand~$J x_k \wto J x$ then
+\[
+      x_k
+  =   J^{-1} J x_k
+  \to J^{-1} J x
+  \to x
+\]
+because~$J^{-1} \colon Y \to X$ is again an isomorphism of Banach spaces.
+
+
+
+
+
+\subsection{}
+
+Suppose that~$x^{(k)} \wto x$ and let~$i \in \{1, \dotsc, n\}$.
+Let~$x'_i \in X'_i$ for some~$i$.
+The projection operator~$P \colon X \to X_i$ is continuous, hence~$x' \circ P \in X'$.
+It follows that
+\[
+      \bil{ x^{(k)}_i, x' }
+  =   \bil{ P x^{(k)}, x' }
+  =   \bil{ x^{(k)}, x' \circ P }
+  \to \bil{ x, x' \circ P }
+  =   \bil{ P x, x' }
+  =   \bil{ x_i, x' }
+\]
+This shows that~$x^{(k)}_i \wto x_i$.
+
+Suppose now that~$x^{(k)}_i \wto x_i$ for every~$i = 1, \dotsc, n$, and let~$x' \in X'$.
+For every~$i = 1, \dotsc, n$ let~$P_i \colon X \to X_i$ be the projection, and let~$I_i \colon X_i \to X$ be the inclusion given by
+\[
+    I_i(y)
+  = (0, \dotsc, y, \dotsc, 0) \,.
+\]
+Then both~$P_i$ and~$I_i$ are linear and bounded, and~$\Id_X = \sum_{i=1}^n (I_i \circ P_i)$.
+Hence
+\[
+    x'
+  = x' \circ \Id_X
+  = x' \circ \sum_{i=1}^n (I_i \circ P_i)
+  = \sum_{i=1}^n (x' \circ I_i) \circ P_i
+  = \sum_{i=1}^n x'_i \circ P_i
+\]
+with~$x'_i \defined x' \circ I_i \in X'_i$ for every~$i$.
+It follows for every~$i = 1, \dotsc, n$ that
+\[
+      \bil{x^{(k)}, x'_i \circ P_i}
+  =   \bil{P_i x^{(k)}, x'_i}
+  =   \bil{ x^{(k)}_i, x'_i}
+  \to \bil{ x_i, x'_i }
+  =   \bil{ P_i x, x'_i }
+  =   \bil{ x, x'_i \circ P_i } \,,
+\]
+and hence altogether
+\[
+      \bil{ x^{(k)}, x' }
+  =   \sum_{i=1}^n \bil{ x^{(k)}, x'_i \circ P_i }
+  \to \sum_{i=1}^n \bil{ x, x'_i \circ P_i }
+  =   \bil{ x, x' } \,.
+\]
+This shows that~$x^{(k)} \wto x$.
+
+
+
+
+
+\subsection{}
+
+Suppose that~$x_k \wto x$ in~$Y$.
+Then for every~$x' \in X'$ we have~$\restrict{x'}{Y} \in Y'$ and hence
+\[
+      \bil{x_k, x'}
+  =   \bil{x_k, \restrict{x'}{Y}}
+  \to \bil{x, \restrict{x'}{Y}}
+  =   \bil{x, x'} \,.
+\]
+This shows that~$x_k \wto x$ in~$X$.
+
+Suppose now that~$x_k \wto x$ in~$X$.
+For~$y' \in Y'$ there exists by the Hahn--Banach theorem an extension~$x' \in X'$.
+Then
+\[
+      \bil{x_k, y'}
+  =   \bil{x_k, x'}
+  \to \bil{x, x'}
+  =   \bil{x, y'} \,.
+\]
+This shows that~$x_k \wto x$ in~$Y$.
+
+
+
+
+
+\subsection{}
+
+Let
+\[
+  X
+  \defined
+  \Lp^p(U) \times \dotsb \times \Lp^p(U)
+\]
+be the~\dash{$(n+1)$}{fold} product of copies of~$\Lp^p(U)$, and consider the linear operator
+\[
+          J
+  \colon  \Wp^{1,p}(U)
+  \to     X \,,
+  \quad   f
+  \mapsto (f, \del_1 f, \dotsc, \del_n f) \,.
+\]
+We can endow~$X$ with the norm
+\[
+  \norm{(f, f_1, \dotsc, f_n)}
+  \defined
+  ( \norm{f}_p + \norm{\,\sqrt{\abs{f_1} + \dotsb + \abs{f_n}}\,}_p ) \,.
+\]
+This norm is chosen so that~$J$ is an isometric embedding (i.e.\ we have copied the definition of the~\dash{$\Wp^{1,p}$}{norm} from the lecture).
+We can now use the previous parts of the exercise as follows:
+\begin{itemize}
+  \item
+    We find from part~(i) for a sequence~$(x_k)_k \subseteq \Wp^{1,p}$ and~$x \in \Wp^{1,p}$ that~$x_k \wto x$ if and only if~$J x_k \wto J x$, because~$J$ is an isometric embedding.
+  \item
+    The subspace~$J(\Wp^{1,p}) \subseteq X$ is closed because~$J(\Wp^{1,p}) \cong \Wp^{1,p}$ is complete.
+    It hence follows from part~(iii) for~$(x_k)_k \subseteq J(\Wp^{1,p})$ and~$x \in J(\Wp^{1,p})$ that~$x_k \wto x$ in~$J(\Wp^{1,p})$ if and only if~$x_k \wto x$ in~$W$.
+  \item
+    The projections~$P_i \colon X \to \Lp^p(U)$ and inclusions~$I_i \colon \Lp^p(U) \to X$ are again continuous.
+    We therefore find as in part~(ii) that a sequence in~$X$ converges weakly if and only if it does so in each coordinate.
+\end{itemize}
+This shows altogether for a sequence~$(f_k)_k \subseteq \Wp^{1,p}(U)$ and~$f \in \Wp^{1,p}(U)$ that~$f_k \wto f$ in~$\Wp^{1,p}$ if and only of~$f_k \wto f$ in~$\Lp^p(U)$ and~$\del_i f_k \wto \del_i f$ for every~$i = 1, \dotsc, n$.
+
+
+
+
+
+
+
 
 
 
