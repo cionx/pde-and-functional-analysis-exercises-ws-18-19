@@ -10,7 +10,8 @@ Suppose that~$x_k \wto x$.
 We then know from the lecture (Proposition~8.3, part~(iv)) that the sequence~$(x_k)_k$ is bounded.
 The convergence~$\bil{x_k, x'} \to \bil{x, x'}$ holds for every~$x' \in X'$, whence for every~$x' \in D$.
 
-Suppose now that the sequence~$(x_k)_k \subseteq X$ is bounded, say~$\norm{x_k} \leq C$ for every~$k$, and that there exists a dense subset~$D \subseteq X'$ with~$\bil{x_k, x'} \to \bil{x, x'}$ for every~$x' \in D$.
+Suppose now that the sequence~$(x_k)_k \subseteq X$ is bounded, say~$\norm{x_k} \leq C$ for every~$k$ for some~$C \geq 0$, and that there exists a dense subset~$D \subseteq X'$ with~$\bil{x_k, x'} \to \bil{x, x'}$ for every~$x' \in D$.
+
 Let~$x' \in X'$.
 There exists some~$\tilde{x}' \in D$ with
 \[
@@ -75,7 +76,7 @@ Then
 \end{align*}
 
 Suppose on the other hand that~$\sup_{\norm{x'} = 1} \abs{ \bil{x_k, x'} - \bil{x, x'} } \to 0$.
-We know from the lecture (Corollary~6.6) that there exist for every~$k$ some~$x'_0 \in X'$ with~$\norm{x'_0} = 1$ such that
+We know from the lecture (Corollary~6.6) that there exists for every~$k$ some~$x'_0 \in X'$ with~$\norm{x'_0} = 1$ such that
 \[
     \bil{x_k - x, x'_0}
   = \norm{x_k - x} \,.
@@ -85,7 +86,7 @@ Then
         \norm{x_k - x}
    =    \abs{ \bil{x_k - x, x'_0} }
    =    \abs{ \bil{x_k, x'_0} - \bil{x, x'_0} }
-   \leq \sup_{\norm{x'}  = 1} \abs{ \bil{x_k, x'_0} - \bil{x, x'_0} }
+   \leq \sup_{\norm{x'}  = 1} \abs{ \bil{x_k, x'} - \bil{x, x'} }
    \to  0 \,,
 \]
 which shows that~$x_k \to x$.

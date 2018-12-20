@@ -17,12 +17,12 @@ Then for any~$y' \in Y'$ we have~$y' \circ J \in X'$ and hence
 This shows that~$J x_k \wto J x$.
 If on the other hand~$J x_k \wto J x$ then
 \[
-      x_k
-  =   J^{-1} J x_k
-  \to J^{-1} J x
-  \to x
+        x_k
+  =     J^{-1} J x_k
+  \wto  J^{-1} J x
+  =     x
 \]
-because~$J^{-1} \colon Y \to X$ is again an isomorphism of Banach spaces.
+by the above because~$J^{-1} \colon Y \to X$ is again an isomorphism of Banach spaces.
 
 
 
@@ -32,20 +32,20 @@ because~$J^{-1} \colon Y \to X$ is again an isomorphism of Banach spaces.
 
 Suppose that~$x^{(k)} \wto x$ and let~$i \in \{1, \dotsc, n\}$.
 Let~$x'_i \in X'_i$ for some~$i$.
-The projection operator~$P \colon X \to X_i$ is continuous, hence~$x' \circ P \in X'$.
+The projection operator~$P_i \colon X \to X_i$ is continuous, hence~$x' \circ P_i \in X'$.
 It follows that
 \[
       \bil{ x^{(k)}_i, x' }
-  =   \bil{ P x^{(k)}, x' }
-  =   \bil{ x^{(k)}, x' \circ P }
-  \to \bil{ x, x' \circ P }
-  =   \bil{ P x, x' }
+  =   \bil{ P_i x^{(k)}, x' }
+  =   \bil{ x^{(k)}, x' \circ P_i }
+  \to \bil{ x, x' \circ P_i }
+  =   \bil{ P_i x, x' }
   =   \bil{ x_i, x' }
 \]
 This shows that~$x^{(k)}_i \wto x_i$.
 
 Suppose now that~$x^{(k)}_i \wto x_i$ for every~$i = 1, \dotsc, n$, and let~$x' \in X'$.
-For every~$i = 1, \dotsc, n$ let~$P_i \colon X \to X_i$ be the projection, and let~$I_i \colon X_i \to X$ be the inclusion given by
+For every~$i = 1, \dotsc, n$ let~$P_i \colon X \to X_i$ be the projection operator, and let~$I_i \colon X_i \to X$ be the inclusion operator given by
 \[
     I_i(y)
   = (0, \dotsc, y, \dotsc, 0) \,.
@@ -131,19 +131,19 @@ We can endow~$X$ with the norm
   \defined
   ( \norm{f}_p + \norm{\,\sqrt{\abs{f_1} + \dotsb + \abs{f_n}}\,}_p ) \,.
 \]
-This norm is chosen so that~$J$ is an isometric embedding (i.e.\ we have copied the definition of the~\dash{$\Wp^{1,p}$}{norm} from the lecture).
+This norm is chosen so that~$J$ is an isometric embedding (i.e.\ we have copied the definition of the norm on~$\Wp^{1,p}(U)$ from the lecture).
 We can now use the previous parts of the exercise as follows:
 \begin{itemize}
   \item
-    We find from part~(i) for a sequence~$(x_k)_k \subseteq \Wp^{1,p}$ and~$x \in \Wp^{1,p}$ that~$x_k \wto x$ if and only if~$J x_k \wto J x$, because~$J$ is an isometric embedding.
+    We find from part~(i) for a sequence~$(x_k)_k \subseteq \Wp^{1,p}(U)$ and any~$x \in \Wp^{1,p}(U)$ that~$x_k \wto x$ if and only if~$J x_k \wto J x$, because~$J$ is an isometric embedding (and hence an isomorphism of Banach spaces into its image~$J(\Wp^{1,p}(U))$).
   \item
-    The subspace~$J(\Wp^{1,p}) \subseteq X$ is closed because~$J(\Wp^{1,p}) \cong \Wp^{1,p}$ is complete.
-    It hence follows from part~(iii) for~$(x_k)_k \subseteq J(\Wp^{1,p})$ and~$x \in J(\Wp^{1,p})$ that~$x_k \wto x$ in~$J(\Wp^{1,p})$ if and only if~$x_k \wto x$ in~$W$.
+    The subspace~$J(\Wp^{1,p}(U)) \subseteq X$ is closed because~$J(\Wp^{1,p}(U)) \cong \Wp^{1,p}(U)$ is complete.
+    It hence follows from part~(iii) for~$(x_k)_k \subseteq J(\Wp^{1,p}(U))$ and~$x \in J(\Wp^{1,p}(U))$ that~$x_k \wto x$ in~$J(\Wp^{1,p}(U))$ if and only if~$x_k \wto x$ in~$X$.
   \item
     The projections~$P_i \colon X \to \Lp^p(U)$ and inclusions~$I_i \colon \Lp^p(U) \to X$ are again continuous.
-    We therefore find as in part~(ii) that a sequence in~$X$ converges weakly if and only if it does so in each coordinate.
+    We therefore find as in part~(ii) that a sequence in~$X$ converges weakly if it converges weakly in each coordinate.
 \end{itemize}
-This shows altogether for a sequence~$(f_k)_k \subseteq \Wp^{1,p}(U)$ and~$f \in \Wp^{1,p}(U)$ that~$f_k \wto f$ in~$\Wp^{1,p}$ if and only of~$f_k \wto f$ in~$\Lp^p(U)$ and~$\del_i f_k \wto \del_i f$ for every~$i = 1, \dotsc, n$.
+This shows for a sequence~$(f_k)_k \subseteq \Wp^{1,p}(U)$ and any~$f \in \Wp^{1,p}(U)$ that~$f_k \wto f$ in~$\Wp^{1,p}(U)$ if and only of~$f_k \wto f$ in~$\Lp^p(U)$ and~$\del_i f_k \wto \del_i f$ in~$\Lp^p(U)$ for every~$i = 1, \dotsc, n$.
 
 
 

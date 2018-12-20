@@ -10,15 +10,15 @@
 
 \subsubsection{Boundedness}
 
-It holds for every~$k$ that
+It holds for every~$k$ and~$1 \leq p < \infty$ that
 \[
-        \norm{f_k}^p
+        \norm{f_k}_p^p
   =     \int_{-1}^1 \abs{\sin(k \pi x)}^p \dd{x}
   \leq  \int_{-1}^1 1 \dd{x}
   =     2 \,.
 \]
 The sequence~$(f_k)_k$ is therefore bounded in~$\Lp^p([-1,1])$ for~$1 \leq p < \infty$.
-The sequence is also bounded in~$\Lp^\infty([-\infty,\infty])$ because~$\norm{f_k} \leq 1$ for every~$k$.
+The sequence is also bounded in~$\Lp^\infty([-\infty,\infty])$ because~$\norm{f_k}_\infty \leq 1$ for every~$k$.
 
 
 
@@ -38,21 +38,25 @@ So I suspect that also~$f_k \wto 0$ in~$\Lp^1([-1,1])$, but I don’t know how t
 
 \subsubsection{Strong Convergence}
 
-We have for every~$1 \leq p < \infty$ and~$k \geq 2$ that
+We have for every~$1 \leq p < \infty$ and~$k \geq 1$ that
 \begin{align*}
-      \norm{f_{2^{k+2}} - f_{2^{k+1}}}_p^p
-  &=  \int_{-1}^1 \abs{ \sin(2^{k+2} \pi x) - \sin(2^{k+1} \pi x) }^p \dd{x}  \\
-  &=  2 \int_{-1/2}^{1/2} \abs{ \sin(2^{k+2} \pi x) - \sin(2^{k+1} \pi x) }^p \dd{x}  \\
-  &=  \int_{-1}^1 \abs{ \sin(2^{k+1} \pi x) - \sin(2^k \pi x) }^p \dd{x}  \\
-  &=  \norm{f_{2^{k+1}} - f_{2^k}}_p^p \,,
+  \norm{f_{2^{k+2}} - f_{2^{k+1}}}_p^p
+  &=
+  \int_{-1}^1 \abs{ \sin(2^{k+2} \pi x) - \sin(2^{k+1} \pi x) }^p \dd{x}  \\
+  &=
+  2 \int_{-1/2}^{1/2} \abs{ \sin(2^{k+2} \pi x) - \sin(2^{k+1} \pi x) }^p \dd{x}  \\
+  &=
+  \int_{-1}^1 \abs{ \sin(2^{k+1} \pi x) - \sin(2^k \pi x) }^p \dd{x}  \\
+  &=
+  \norm{f_{2^{k+1}} - f_{2^k}}_p^p \,,
 \end{align*}
-where we use for the second equality that the map~$\abs{\sin(2^{k+2} \pi x) - \sin(2^{k+1} \pi x)}^p$ is~\dash{$(1/2)$}{periodic} (because~$k+1 \geq 3$), and for the third equality the change of variables~$x \to x/2$.
+where we use for the second equality that the map~$\abs{\sin(2^{k+2} \pi x) - \sin(2^{k+1} \pi x)}^p$ is~\dash{$(1/2)$}{periodic} (because~$k+1 \geq 2$), and for the third equality the change of variables~$x \to x/2$.
 It follows inductively that
 \[
     \norm{f_{2^{k+1}} - f_{2^k}}_p
-  = \norm{f_8 - f_4}
+  = \norm{f_4 - f_2}
 \]
-for all~$k \geq 2$, and hence that the sequene~$(f_k)_k$ is not Cauchy in~$\Lp^p([-1,1])$ because~$\norm{f_8 - f_4}_p > 0$.
+for all~$k \geq 1$, and hence that the sequene~$(f_k)_k$ is not Cauchy in~$\Lp^p([-1,1])$ because~$\norm{f_4 - f_2}_p > 0$.
 This shows that the sequence~$(f_k)_k$ is not strongly convergent in~$\Lp^p([-1,1])$.
 
 We have for every~$k$ that
@@ -70,7 +74,7 @@ and hence
   \geq  1
 \]
 because~$f_{2^{k+1}} - f_{2^k}$ is continuous.
-This shows that the sequence~$(f_k)_k$ is not Cauchy in~$\Lp^\infty([-1,1])$, and hence not strongly convergent.
+This shows that the sequence~$(f_k)_k$ is not Cauchy in~$\Lp^\infty([-1,1])$, and hence not strongly convergent in~$\Lp^\infty([-1,1])$.
 
 
 
@@ -83,16 +87,23 @@ This shows that the sequence~$(f_k)_k$ is not Cauchy in~$\Lp^\infty([-1,1])$, an
 
 We have for every~$1 \leq p < \infty$ that
 \begin{align*}
-      \norm{f_k}_p^p
-  &=  \int_0^1 \abs{f_k(x)}^p \dd{x}
-   =  \int_0^{1/k} ( k^{1/4} - k^{5/4} x )^p \dd{x}
-   =  \int_0^1 ( k^{1/4} - k^{1/4} x )^p \frac{1}{k} \dd{x} \\
-  &=  \int_{-1}^0 (-k^{1/4} x)^p \frac{1}{k} \dd{x}
-   =  \int_0^1 (k^{1/4} x)^p \frac{1}{k} \dd{x}
-   =  k^{-3/4} \int_0^1 x^p \dd{x}
-   =  \frac{k^{-3/4}}{p+1} \,.
+  \norm{f_k}_p^p
+  &=
+  \int_0^1 \abs{f_k(x)}^p \dd{x}
+  =
+  \int_0^{1/k} ( k^{1/4} - k^{5/4} x )^p \dd{x}
+  \xlongequal[x \to x/k]{}
+  \int_0^1 ( k^{1/4} - k^{1/4} x )^p \frac{1}{k} \dd{x} \\
+  &\xlongequal[x \to x+1]{}
+  \int_{-1}^0 (-k^{1/4} x)^p \frac{1}{k} \dd{x}
+  =
+  \int_0^1 (k^{1/4} x)^p \frac{1}{k} \dd{x}
+  =
+  k^{-3/4} \int_0^1 x^p \dd{x}
+  =
+  \frac{k^{-3/4}}{p+1} \,.
 \end{align*}
-We find that~$\norm{f_k}_p^p \to 0$ as~$k \to \infty$, and hence that the sequence~$(f_k)_k$ is bounded in~$\Lp^p([0,1])$.
+We find that~$\norm{f_k}_p \to 0$ as~$k \to \infty$, and hence that the sequence~$(f_k)_k$ is bounded in~$\Lp^p([0,1])$.
 
 The functions~$f_k$ are continuous with~$f_k(0) = k^{1/4}$ and strictly decreasing until they reach~$0$, whence~$\norm{f_k}_\infty = k^{1/4}$.
 The sequence~$(f_k)_k$ is therefore not bounded in~$\Lp^\infty([0,1])$.
@@ -102,7 +113,7 @@ The sequence~$(f_k)_k$ is therefore not bounded in~$\Lp^\infty([0,1])$.
 \subsubsection{Weak Convergence}
 
 It follows for~$1 \leq p < \infty$ from~$f_k \to 0$ (which we show below) that~$f_k \wto 0$.
-The function~$(f_k)_k$ is unbounded in~$\Lp^\infty([0,1])$, and is therefore not {\weaklystar} convergent.
+The sequence~$(f_k)_k$ is unbounded in~$\Lp^\infty([0,1])$, and is therefore not {\weaklystar} convergent.
 
 
 
@@ -117,11 +128,8 @@ The sequence~$(f_k)_k$ is unbounded in~$\Lp^\infty([0,1])$, and hence not strong
 
 \subsection{}
 
-The support of~$\varphi$ is bounded and hence compact, and~$\varphi$ is continuous.
-We therefore find that~$\varphi \in \Lp^p(\Real)$ for every~$1 \leq p \leq \infty$.
-
 If~$\varphi = 0$ then~$f_k = 0$ for every~$k$.
-Then~$f_k \to 0$ and consequently also~$f_k \wto 0$, and the sequence~$(f_k)_k$ is bounded in~$\Lp^p(\Real)$.
+Then~$f_k \to 0$ and consequently also~$f_k \wto 0$, and the sequence~$(f_k)_k$ is bounded in~$\Lp^p(\Real)$ for all~$1 \leq p \leq \infty$.
 So let’s assume in the following that~$\varphi \neq 0$.
 Then~$\norm{\varphi}_p > 0$ for every~$1 \leq p \leq \infty$ by the continuity of~$\varphi$.
 
@@ -134,6 +142,8 @@ We have~$\norm{f_k}_p =  \norm{\varphi}_p$ for every~$1 \leq p \leq \infty$, whe
 
 
 \subsubsection{Weak Convergence}
+
+We note that~$\supp(f_k) \subseteq [k-1,k+1]$ for every~$k$.
 
 If~$1 < p < \infty$ then there exist for every~$f' \in \Lp^p(\Real)'$ some~$g \in \Lp^q(\Real)$ (where~$p$ and~$q$ are dual exponents) with~$\bil{\tilde{f},f'} = \int_{\Real} \tilde{f} g$ for every~$\tilde{f} \in \Lp^p(\Real)$.
 It follows that
@@ -166,33 +176,34 @@ We consider the resulting functional~$f' \in \Lp^1(\Real)'$ given by
 We have that
 \[
     \bil{f_{4k}, f}
-  = \int_{\Real} f_{4k} f_{4k} g
-  = \int_{[4k-1,4k+1]} f_{4k} g
-  = \int_{-1,1} \varphi g
-  = \int_{-1,1} \abs{\varphi}
+  = \int_{\Real} f_{4k} g
+  = \int_{4k-1}^{4k+1} f_{4k} g
+  = \int_{-1}^1 \varphi g
+  = \int_{-1}^1 \varphi \sign(\varphi)
+  = \int_{-1}^1 \abs{\varphi}
   = \norm{\varphi}_1
   > 0 \,,
 \]
 and
 \[
     \bil{f_{4k+2}, f}
-  = \int_{\Real} f_{4k+2} f_{4k} g
-  = \int_{[4k+1,4k+3]} f_{4k} g
-  = \int_{1,3} f_2 g
-  = \int_{-1,1} 0
+  = \int_{\Real} f_{4k+2} g
+  = \int_{4k+1}^{4k+3} f_{4k+2} g
+  = \int_1^3 f_2 g
+  = \int_{-1}^1 0
   = 0 \,.
 \]
-This shows that the sequence~$(\bil{f_k, f'})_k$ does not converge, whence that the sequence~$(f_k)_k$ does not converge weakly.
+This shows that the sequence~$(\bil{f_k, f'})_k$ does not converge, hence that the sequence~$(f_k)_k$ does not converge weakly.
 
 Consider now~$p = \infty$.
 We have for every~$f \in \Lp^1(\Real)$ that
 \begin{align*}
-        \abs*{ \int_{\Real} f_k f }
-  &\leq \int_{\Real} \abs{f_k} \abs{f}
-   =    \int_{[k-1,k+1]} \abs{f_k} \abs{f}  \\
-  &\leq \int_{[k-1,k+1]} \norm{\varphi} \abs{f}
+        \abs{ \bil{f, f_k} }
+   =    \abs*{ \int_{\Real} f f_k }
+  &\leq \int_{\Real} \abs{f} \abs{f_k}
+   =    \int_{[k-1,k+1]} \abs{f} \abs{f_k}  \\
+  &\leq \int_{[k-1,k+1]} \norm{\varphi}_\infty \abs{f}
    \leq \norm{\varphi}_\infty \int_{[k-1,k+1]} \abs{f}
-   \leq \norm{\varphi}_\infty \int_{k-1}^\infty \abs{f}
    \to  0 \,,
 \end{align*}
 which shows that~$f_k \wtostar 0$ in~$\Lp^\infty(\Real)$.
@@ -208,12 +219,15 @@ Hence
     \norm{f_k - f_{k+3}}_p^p
   = \norm{f_k}^p + \norm{f_{k+3}}_p^p
   = 2 \norm{\varphi}_p^p
-  > 0 \,.
+  > 0
 \]
 for all~$k$ and every~$1 \leq p < \infty$.
 This shows that the sequence~$(f_k)_k$ is not Cauchy in~$\Lp^p(\Real)$ for~$1 \leq p < \infty$, and hence not strongly convergent.
+
 We similarly find that~$\norm{f_k - f_{k+3}}_\infty = \norm{\varphi}_\infty$ for all~$k$, and hence that the sequence~$(f_k)_k$ is also not strongly convergent in~$\Lp^\infty(\Real)$.
 
+(For~$1 < p \leq \infty$ one can also argue that~$f_k \wto 0$, and that the sequence~$(f_k)_k$ is therefore strongly convergent in~$\Lp^p(\Real)$ if and only if~$f_k \to 0$ in~$\Lp^p(\Real)$.
+But~$\norm{f_k}_p = \norm{\varphi} > 0$ for every~$k$, so that~$f_k \nto 0$ in~$\Lp^p(\Real)$.)
 
 
 
@@ -221,8 +235,8 @@ We similarly find that~$\norm{f_k - f_{k+3}}_\infty = \norm{\varphi}_\infty$ for
 \subsection{}
 
 If~$\varphi = 0$ then~$f_k = 0$ for every~$k$.
-The sequence~$(f_k)_k$ is then bounded, and~$f_k \to 0$ and~$f_k \wto 0$.
-We will therefore assume in the following that~$\varphi \neq 0$.
+We then find for all~$1 \leq p \leq \infty$ that the sequence~$(f_k)_k$ isd bounded in~$\Lp^p(\Real^n)$, and~$f_k \to 0$ and~$f_k \wto 0$.
+We will therefore assume in the following that~$\varphi \neq 0$, and therefore~$\norm{\varphi}_p > 0$ for all~$1 \leq p \leq \infty$.
 
 
 
@@ -230,28 +244,41 @@ We will therefore assume in the following that~$\varphi \neq 0$.
 
 We have for every~$1 \leq p < \infty$ that
 \begin{align*}
-      \norm{f_k}_p^p
-   =  \int_{\Real^n} \abs*{ k^{-n/2} \varphi\left( \frac{x}{k} \right) }^p \dd{x}
-  &= \int_{\Real^n} \abs{ k^{-n/2} \varphi(x) }^p k^n \dd{x}  \\
-  &= k^{n - np/2} \int_{\Real^n} \abs{\varphi(x)}^p \dd{x}
-   = k^{n(1 - p/2)} \norm{\varphi}_p^p \,.
+  \norm{f_k}_p^p
+  =
+  \int_{\Real^n} \abs*{ k^{-n/2} \varphi\left( \frac{x}{k} \right) }^p \dd{x}
+  &\xlongequal[x \to kx]{}
+  \int_{\Real^n} \abs{ k^{-n/2} \varphi(x) }^p k^n \dd{x}  \\
+  &=
+  k^{n - np/2} \int_{\Real^n} \abs{\varphi(x)}^p \dd{x}
+  =
+  k^{n(1 - p/2)} \norm{\varphi}_p^p \,.
 \end{align*}
 This shows that the sequence~$(f_k)_k$ is bounded in~$\Lp^p(\Real^n)$ if and only if~$1-p/2 \leq 0$, i.e.\ if and only if~$p \geq 2$.
 
-We have that~$\norm{f_k}_\infty = k^{-n/2} \norm{\varphi}_{\infty}$, and~$k^{-n/2} \to 0$ as~$k \to \infty$.
+We have for~$p = \infty$ that~$\norm{f_k}_\infty = k^{-n/2} \norm{\varphi}_{\infty}$, where~$k^{-n/2} \to 0$ as~$k \to \infty$.
 The sequence~$(f_k)_k$ is therefore bounded in~$\Lp^\infty(\Real^n)$.
 
 
 
 \subsubsection{Weak Convergence}
 
-If~$p < 2$ then the sequence~$(f_k)_k$ is unbounded because~$\norm{f_k}_p^p = k^{n(1-p/2)} \norm{\varphi}_p^p \to \infty$, and hence not weakly convergent.
+If~$p < 2$ then the sequence~$(f_k)_k$ is unbounded in~$\Lp^p(\Real^n)$ because
+\[
+  \norm{f_k}_p^p
+  =
+  k^{n(1-p/2)} \norm{\varphi}_p^p
+  \to
+  \infty \,.
+\]
+The sequence is then not weakly convergent in~$\Lp^p(\Real^n)$.
 
 If~$p > 2$ then~$f_k \to 0$ (see below) and hence~$f_k \wto 0$ (resp.~$f_k \wtostar 0$).
 It similarly follows from~$f_k \to 0$ in~$\Lp^\infty(\Real^n)$ (see again below) that~$f_k \wtostar 0$.
 
 For~$p = 2$ we show that~$f_k \wto 0$.
-For this we use that~$\Lp^2(\Real^n)' = \Lp^2(\Real^n)$, and need to show to
+For this we use that~$\Lp^2(\Real^n)' = \Lp^2(\Real^n)$.
+We therefore need to show that
 \[
       \int_{\Real^n} f_k g
   \to 0
@@ -260,13 +287,16 @@ for every~$g \in \Lp^2(\Real^n)$.
 By part~(i) of Exercise~2 is sufficies to show this for~$g \in \cont^\infty_c(\Real^n)$ because~$\cont^\infty_c(\Real^n)$ is dense in~$\Lp^2(\Real^n)$.
 We have for every~$g \in \cont^\infty_c(\Real^n)$ that
 \begin{align*}
-        \int_{\Real^n} f_k(x) g(x) \dd{x}
-  &=    k^{-n/2} \int_{\Real^n} \varphi\left( \frac{x}{k} \right) g(x) \dd{x} \\
-  &=    k^{-n/2} \int_{\Real^n} \varphi(x) g(kx) k^n \dd{x}
-   =    \int_{\Real^n} \varphi(x) g_k(x) \dd{x}
+  \int_{\Real^n} f_k(x) g(x) \dd{x}
+  &=
+  \int_{\Real^n} k^{-n/2} \varphi\left( \frac{x}{k} \right) g(x) \dd{x} \\
+  &\xlongequal[k \to kx]{}
+  \int_{\Real^n} k^{-n/2} \varphi(x) g(kx) k^n \dd{x}
+  =
+  \int_{\Real^n} \varphi(x) g_k(x) \dd{x}
 \end{align*}
 where~$g_k(x) \defined k^{n/2} g(kx)$.
-We have seen in the lecture (last bullet point, part (ii), before Theorem~8.4 in the lecture notes) that
+We have seen in the lecture (page~70, part~(ii) near the beginning of the page) that
 \[
       \int_{\Real_n} \varphi(x) g_k(x)
   \to 0 \,,
@@ -281,12 +311,19 @@ as desired.
 
 We have seen above that the sequence~$(f_k)_k$ is for~$p < 2$ unbounded, and hence not strongly convergent.
 
-We also find for~$2 < p < \infty$ that~$\norm{f_k}_p^p = k^{n(1-p/2)} \norm{\varphi}_p^p \to 0$ and hence~$f_k \to 0$.
-We have seen above that~$\norm{f_k}_\infty = k^{-n/2} \norm{\varphi}_\infty \to 0$, whence~$f_k \to 0$ in~$\Lp^\infty(\Real)$.
+We find for~$2 < p < \infty$ that~$\norm{f_k}_p^p = k^{n(1-p/2)} \norm{\varphi}_p^p \to 0$ and hence~$f_k \to 0$.
+For~$p = \infty$ we have seen above that~$\norm{f_k}_\infty = k^{-n/2} \norm{\varphi}_\infty \to 0$, whence~$f_k \to 0$ in~$\Lp^\infty(\Real)$.
 
-If the sequence of~$(f_k)_k$ would strongly converge in~$\Lp^2(\Real^2)$, say~$f_k \to f$, then also~$f_k \wto f$.
-We have seen above that~$f_k \wto 0$, hence we would have that~$f = 0$.
-But we have seen that~$\norm{f_k}_2 = \norm{\varphi}_2 > 0$ for every~$k$, so~$f \nto 0$.
+If the sequence~$(f_k)_k$ would strongly converge in~$\Lp^2(\Real^2)$, say~$f_k \to f$, then also~$f_k \wto f$.
+We have seen above that~$f_k \wto 0$, hence we would have~$f = 0$.
+But
+\[
+    \norm{f_k}_2^2
+  = k^{n(1-2/2)} \norm{\varphi}_p^p
+  = k^0 \norm{\varphi}_p^p
+  = \norm{\varphi}_2^2
+\]
+for every~$k$, so~$f \nto 0$.
 This shows that the sequence~$(f_k)_k$ does not strongly converge in~$\Lp^2(\Real^n)$.
 
 
