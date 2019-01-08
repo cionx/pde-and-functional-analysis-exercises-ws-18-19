@@ -1,4 +1,125 @@
-\addtocounter{section}{1}
+\section{}
+
+
+
+
+
+\subsection{}
+
+Suppose first that~$x^{(k)} \wto x$.
+For every~$i$, the projection~$P_i \colon \ell^p \to \Real$,~$y = (y_n)_n \mapsto y_i$ is~{\lipcont} (with Lipschitz constant~$1$.)
+It therefore follows from~$x^{(k)} \wto x$ that
+\[
+      x^{(k)}_i
+  =   P_i x^{(k)}
+  \to P_i x
+  =   x_i \,.
+\]
+We have seen in the lecture that weakly convergent sequences are bounded.
+
+Suppose now that~$x^{(k)}_i \to x_i$ for every~$i$, and that the sequence~$(x^{(k)})_k$ is bounded with~$\norm{x^{(k)}}_p \leq C$ for every~$k$.
+We fix~$T \in (\ell^p)'$ and need to show that~$T x^{(k)} \to T x$.
+We may replace~$x^{(k)}$ by~$x^{(k)} - x$ to assume that~$x = 0$.
+We hence have that~$x^{(k)}_i \to 0$ for every~$i$ and that~$\norm{x^{(k)}}_p \leq C$ for every~$k$, and we need to show that~$T x^{(k)} \to 0$.
+
+We now that~$(\ell^p)' = \ell^q$, in the sense that there exists a sequence~$(a_n)_n \in \ell^q$ with
+\[
+    T y
+  = \sum_i a_i y_i
+\]
+for every~$y = (y_n)_n \in \ell^p$.
+We may consider for any~$N$ the sequence
+\[
+  b^{(N)}
+  \defined
+  (a_{N+1}, a_{N+2}, \dotsc)
+  \in
+  \ell^q \,,
+\]
+for which we have by Hölder’s inequality
+\[
+  \abs{Ty}
+  =
+  \abs*{ \sum_i a_i y_i }
+  \leq
+  \abs*{ \sum_{i=1}^N a_i y_i }
+  +
+  \abs*{ \sum_{i=N+1}^\infty a_i y_i }
+  \leq
+  \sum_{i=1}^N \abs{a_i} \abs{y_i}
+  +
+  \norm{ b^{(N)} }_q \norm{y}_p
+\]
+for every~$y = (y_n)_n \in \ell^p$.
+We have in particular that
+\[
+  \abs{ T x^{(k)} }
+  \leq
+  \sum_{i=1}^N \abs{a_i} \abs{x^{(k)}_i}
+  +
+  C \norm{b^{(N)}}_q \,,
+\]
+and therefore
+\[
+  \limsup_{k \to \infty} \abs{ T x^{(k)} }
+  \leq
+  C \norm{b^{(N)}}_q
+\]
+for every~$N$.
+We have that~$\norm{b^{(N)}}_q \to 0$ as~$N \to \infty$, and hence find that
+\[
+  \limsup_{k \to \infty} \abs{ T x^{(k)} }
+  =
+  0 \,.
+\]
+This shows that~$T x^{(k)} \to 0$, as desired.
+
+
+
+
+
+\subsection{}
+
+Strong convergence implies weak convergence, so we only need to show that~$x^{(k)} \to x$ if~$x^{(k)} \wto x$.
+For this we may replace~$x^{(k)}$ by~$x^{(k)} - x$ to assume that~$x = 0$.
+We hence have that~$x^{(k)} \wto 0$ and need to show that~$x^{(k)} \to 0$.
+We note that every subsequence of~$x^{(k)}$ again weakly converges to~$0$.
+
+We show that~$(x^{(k)}_k)$ has a subsequence that converges to~$0$;
+i.e.\ we show that every sequence in~$\ell^1$ that converges weakly to~$0$ has a subsequence that converges strongly to~$0$.
+It then follows that every subsequence of~$(x^{(k)}_k)$ has a subsequence that converges to~$0$ (because every subsequence~$(x^{(k)}_k)$ is again weakly convergent to~$0$, just as~$(x^{(k)}_k)$ itself).
+This then means that~$x^{(k)} \to 0$.
+
+There exists a subsequence~$(x^{(k_i)})_1$ with~$x^{(k_i)}_1 \geq 0$ for every~$i$ or~$x^{(k_i)}_1 \leq 0$ for every~$i$ (because there exist inifinitely many~$k$ with~$x^k_1 \geq 0$ or infinitely many~$k$ with~$x^{(k)}_1 \leq 0$).
+By using the diagonal sequence trick we find that there exist a subsequence~$(x^{(k_i)})_i$ such that for every~$j$ we have~$x^{(k_i)}_j \geq 0$ for all~$i$ or~$x^{(k_i)}_j \leq 0$ for all~$i$.
+We may replace the sequence~$(x^{(k)})_k$ by this subsequence to assume that~$x^{(k)}_i$ has for all~$k$ the same sign (or is~$0$).
+
+There hence exists a sequence~$(a_i)_i \subseteq \{1,-1\}$ with~$a_i x^{(k)}_i = \abs{x^{(k)}}_i$ for all~$i$, and therefore
+\[
+  \sum_i a_i x^{(k)}_i
+  =
+  \sum_i \abs{x^{(k)}_i}
+  =
+  \norm{ x^{(k)} }_1
+\]
+for all~$k$.
+The sequence~$(a_i)_i$ is bounded and hence defines a bounded linear operator~$T \in (\ell_1)'$ given by
+\[
+  T y
+  =
+  \sum_i a_i y_i
+\]
+for all~$y \in \ell^1$.
+We find with~$x^{(k)} \wto 0$ that
+\[
+  \norm{ x^{(k)} }_1
+  =
+  \sum_i a_i x^{(k)}_i
+  =
+  T x^{(k)}
+  \to
+  0 \,.
+\]
 
 
 
