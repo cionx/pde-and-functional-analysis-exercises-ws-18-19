@@ -10,9 +10,12 @@ We can replace~$x$ by~$x/\norm{x}$ and~$x_k$ by~$x_k/\norm{x}$ to assume that~$\
 It follows from~$\norm{x_k} \to \norm{x} = 1$ that~$x_k \neq 0$ for all but finitely many~$k$, so we may assume that~$x_k \neq 0$ for every~$k$.
 It also follows from~$\norm{x_k} \to \norm{x} = 1$ that
 \[
-  \norm*{ x_k - \frac{x_k}{\norm{x}} }
+  \norm*{ x_k - \frac{x_k}{\norm{x_k}} }
+  =
+  \abs*{ 1 - \frac{1}{\norm{x_k}} }
+  \norm{ x_k }
   \to
-  0 \,;
+  0 \,,
 \]
 and we also have for every~$T \in X'$ that
 \[
@@ -24,24 +27,28 @@ and we also have for every~$T \in X'$ that
   =
   T x
 \]
-because~$x_k \wto x$, which shows that also~$x_k/\norm{x_k} \wto x$.
-Together this shows that we may also replace~$x_k$ by~$x_k/\norm{x_k}$ to additionally asume that~$\norm{x_k} = 1$ for all~$k$.
+because~$x_k \wto x$;
+this shows that also~$x_k/\norm{x_k} \wto x$.
+Together this shows that we may also replace~$x_k$ by~$x_k/\norm{x_k}$ to additionally asume that~$\norm{x_k} = 1$ for every~$k$.
 
-We now have that~$\norm{x} = 1$ and~$\norm{x_k} = 1$ for all~$k$, and~$x_k \wto x$.
+We now have that~$\norm{x} = 1$ and~$\norm{x_k} = 1$ for all~$k$, and that~$x_k \wto x$.
 We have that
 \[
   \norm*{ \frac{x_k + x}{2} }
   \leq
+  \frac{ \norm{x_k} + \norm{x} }{2}
+  =
   1
 \]
-for all~$k$, and that~$x_k \to x$ is now equivalent to
+for all~$k$.
+That~$x_k \to x$ is therefore equivalent to
 \[
   \norm*{ \frac{x_k + x}{2} }
   \to
   1
 \]
 because~$X$ is uniformly convex.
-We know from the lecture (Corollary~6.6) that there exists some~$T \in X'$ with~$\norm{T} = 1$ and~$Tx = \norm{x}$.
+We know from the lecture (Corollary~6.6) that there exists a linear functional~$T \in X'$ with~$\norm{T} = 1$ and~$Tx = \norm{x} = 1$.
 It follows that
 \[
   1
@@ -54,14 +61,17 @@ It follows that
   \to
   \abs{ Tx }
   =
-  \norm{x} \,
+  \norm{x}
+  =
+  1 \,
 \]
 and therefore
 \[
   \norm*{ \frac{x_k + x}{2} }
   \to
-  1 \,.
+  1 \,,
 \]
+as desired.
 
 
 

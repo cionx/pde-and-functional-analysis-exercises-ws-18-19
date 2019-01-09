@@ -1,12 +1,12 @@
 \section{}
 
-We assume that~$f = \tilde{f}$ ought to be an equality in~$\Lp^p(U)$, and that~$f$ is supposed to be measurable.
+We suppose that~$f = \tilde{f}$ ought to be an equality in~$\Lp^p(U)$, and that~$f$ should be to be measurable.
 We show that~$f_k \wto f$ for~$1 \leq p < \infty$, and that~$f_k \wtostar f$ for~$p = \infty$.
 It then follows that~$f = \tilde{f}$ in~$\Lp^p(U)$ by the uniqueness of weak limits.
 
 We first note that~$f \in \Lp^p(U)$:
-For~$1 \leq p < \infty$ the sequence~$(f_k)_k$ is bounded in~$\Lp^p(U)$ because is is weakly convergent;
-hence
+For~$1 \leq p < \infty$ the sequence~$(f_k)_k$ is bounded in~$\Lp^p(U)$ because it is weakly convergent.
+Hence
 \[
   \norm{f}_p^p
   =
@@ -18,7 +18,7 @@ hence
   =
   \liminf_{k \to \infty} \norm{f_k}_p^p
   <
-  \infty \,.
+  \infty
 \]
 by Fatou’s lemma.
 For~$p = \infty$ we similarly find that the sequence~$(f_k)_k$ is bounded in~$\Lp^\infty(U)$ because it is {\weaklystar} convergent.
@@ -43,7 +43,7 @@ for almost all~$x \in U$, and hence that~$\norm{f}_\infty < \infty$.
 We consider first the case~$1 \leq p < \infty$.
 We fix~$T \in \Lp^p(U)'$ and show that~$T f_k \to T f$.
 For this we may replace~$f_k$ by~$f_k - f$ to assume that~$f = 0$.
-We hence need to show that~$T f_k \to 0$, when~$f_k \to 0$ almost everywhere and the sequence~$(f_k)_k$ is bounded in~$\Lp^p(U)$.
+We hence need to show that~$T f_k \to 0$.
 Let~$\varepsilon > 0$.
 
 We know that~$\Lp^p(U)' = \Lp^q(U)$ with~$1/p + 1/q = 1$, in the sense that there exists some~$g \in \Lp^q(U)$ with
@@ -52,7 +52,7 @@ We know that~$\Lp^p(U)' = \Lp^q(U)$ with~$1/p + 1/q = 1$, in the sense that ther
   = \int_U g h
 \]
 for every~$h \in \Lp^p(U)$.
-We therefore for every set
+We therefore have for every~$k$ that
 \[
   \abs{ T f_k }
   =
@@ -87,16 +87,16 @@ It follows from Lebesgue’s monotone convergence theorem that
   \norm{g}_{q,U}^q
 \]
 and hence~$\norm{g}_{q, U \setminus A_n} \to 0$.
-For~$n$ sufficiently large we hence find that~$\norm{g}_{q, U \setminus A_n} < \varepsilon$, and so we may choose~$A \defined A_n$.
+For~$n$ sufficiently large we hence have~$\norm{g}_{q, U \setminus A_n} < \varepsilon$, and may choose~$A \defined A_n$.
 
-The sequence~$(f_k)_k$ is bounded in~$\Lp^p(U)$, hence there exists~$C > 0$ with~$\norm{f_k}_{p,U} < C$ for all~$k$.
+The sequence~$(f_k)_k$ is bounded in~$\Lp^p(U)$, hence there exists~$C > 0$ with~$\norm{f_k}_{p,U} < C$ for every~$k$.
 It follows for every~$k$ that
 \begin{gather*}
   \int_U \abs{g f_k}
   =
-  \int_{U \setminus A} \abs{g f_k}
-  +
   \int_{A} \abs{g f_k}
+  +
+  \int_{U \setminus A} \abs{g f_k}
 \shortintertext{with}
   \int_{U \setminus A} \abs{g f_k}
   \leq
@@ -110,34 +110,34 @@ It follows for every~$k$ that
 We have that~$f_k \to 0$ almost everywhere, and hence there exists by Egorov’s theorem for every~$\delta > 0$ some measurable subset~$A' \subseteq A$ with~$\lambda(A \setminus A') < \delta$, such that~$f_k \to 0$ uniformly on~$A'$.
 (Here~$\lambda$ denotes the Lebesgue measure.)
 It follows that there exists a measurable subset~$A' \subseteq A$ with~$\norm{g}_{q,A \setminus A'} < \varepsilon$ such that~$f_k \to 0$ uniformly on~$A'$:
-Indeed, there exists for every~$n \geq 1$ some measurable subset~$A_n \subseteq A$ with~$\lambda(A \setminus A_n) < 1/n$ such that~$f_k \to 0$ uniformly on~$A_n$.
-We may assume that~$A_n \subseteq A_{n+1}$ for all~$n$ by replacing for every~$n$ the set~$A_n$ with~$\bigcup_{m \leq n} A_m$.
+Indeed, there exists for every~$n \geq 1$ some measurable subset~$A'_n \subseteq A$ with~$\lambda(A \setminus A'_n) < 1/n$ such that~$f_k \to 0$ uniformly on~$A'_n$.
+We may assume that~$A'_n \subseteq A_{n+1}$ for every~$n$ by replacing the set~$A'_n$ with~$\bigcup_{m \leq n} A_m$ (as given so far) for every~$n$.
 Then
 \[
-  \lambda\left( U \setminus \bigcup_{n=1}^\infty A_n \right)
+  \lambda\left( U \setminus \bigcup_{n=1}^\infty A'_n \right)
   =
-  \lambda\left( \bigcap_{n=1}^\infty (U \setminus A_n) \right)
+  \lambda\left( \bigcap_{n=1}^\infty (U \setminus A'_n) \right)
   =
-  \lim_{n \to \infty} \lambda(U \setminus A_n)
+  \lim_{n \to \infty} \lambda(U \setminus A'_n)
   =
   0
 \]
-and hence~$\chi_{A_n} \to 1$ almost everywhere on~$A$.
+and hence~$\chi_{A'_n} \to 1$ almost everywhere on~$A$.
 It follows from another application of Lebesgue’s monotone convergence theorem that
 \[
-  \norm{g}_{q,A_n}^q
+  \norm{g}_{q,A'_n}^q
   =
-  \int_{A_n} \abs{g}^q 
+  \int_{A'_n} \abs{g}^q 
   =
-  \int_A \chi_{A_n} \abs{g}^q
+  \int_A \chi_{A'_n} \abs{g}^q
   \to
   \int_A \abs{g}^q
   =
   \norm{g}_{q,A}^q \,,
 \]
-and therefore~$\norm{g}_{q,A \setminus A_n} \to 0$.
-For~$n$ sufficiently large we hence have~$\norm{g}_{q,A \setminus A_n} < \varepsilon$, and may choose~$A' \defined A_n$.
-We now have with~$C'_A \defined \norm{g}_{q,U} \lambda(A')^{1/p}$ that
+and therefore~$\norm{g}_{q,A \setminus A'_n} \to 0$.
+For~$n$ sufficiently large we hence have~$\norm{g}_{q,A \setminus A'_n} < \varepsilon$, and may choose~$A' \defined A'_n$.
+We now have with~$C'_{A'} \defined \norm{g}_{q,U} \lambda(A')^{1/p}$ that
 \begin{align*}
   \int_A \abs{g f_k}
   &=
@@ -148,15 +148,15 @@ We now have with~$C'_A \defined \norm{g}_{q,U} \lambda(A')^{1/p}$ that
   &\leq
   \norm{g}_{q,A'} \norm{f_k}_{p,A'}
   +
-  \norm{g}_{q, A \setminus A'} \norm{p, A \setminus A'}
+  \norm{g}_{q, A \setminus A'} \norm{f_k}_{p, A \setminus A'}
   \\
   &\leq
   \norm{g}_{q,U} \norm{f_k}_{\infty,A'} \lambda(A')^{1/p}
   +
-  \norm{g}_{q, A \setminus A'} \norm{f_k}{p, U}
+  \norm{g}_{q, A \setminus A'} \norm{f_k}_{p, U}
   \\
   &\leq
-  C'_A \norm{f_k}_{\infty, A'}
+  C'_{A'} \norm{f_k}_{\infty, A'}
   +
   C \varepsilon \,.
 \end{align*}
@@ -172,7 +172,7 @@ Altogether we have that
   +
   \int_{U \setminus A} \abs{g f_k}
   \leq
-  C'_A \norm{f_k}_{\infty, A'} + 2 C \varepsilon \,.
+  C'_{A'} \norm{f_k}_{\infty, A'} + 2 C \varepsilon \,.
 \]
 We have~$f_k \to 0$ uniformly on~$A'$ and hence~$\norm{f_k}_{\infty, A'} \to 0$.
 We find that
@@ -195,7 +195,7 @@ We fix~$g \in \Lp^1(U)$ and need to show that
   \to
   \int_U f g \,.
 \]
-For this we can proceed in the same way as above.
+This follows from the same argumentation as above.
 
 
 
@@ -238,9 +238,9 @@ For this we can proceed in the same way as above.
 %   \leq
 %   C_A \norm{f_k}_{\infty, A}
 %   +
-%   C'_A \norm{g}_{q, U \setminus A}
+%   C'_{A'} \norm{g}_{q, U \setminus A}
 % \]
-% for~$C_A \defined \norm{g}_{q,U} \lambda(A)^{1/p}$ and~$C'_A \defined \sup_k \norm{f_k}_{\Lp^p(U)} < \infty$.
+% for~$C_A \defined \norm{g}_{q,U} \lambda(A)^{1/p}$ and~$C'_{A'} \defined \sup_k \norm{f_k}_{\Lp^p(U)} < \infty$.
 % (Here we use that the sequence~$(f_k)_k$ is bounded in~$\Lp^p(U)$.)
 % 
 % The idea is now for~$\varepsilon > 0$ to choose~$A$ to be of finite measure but big enough so that~$\norm{g}_{q, U \setminus A} < \varepsilon$, and then to make~$k$ big enough so that~$\norm{f_k}_{\Lp^p(U)} < \varepsilon$:
