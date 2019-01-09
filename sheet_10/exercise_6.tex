@@ -1,4 +1,141 @@
-\addtocounter{section}{1}
+\section{}
+
+We assume that the interval~$I$ is nonempty, because otherwise~$F = 0$ independent of the choice of~$f$.
+For the length~$\abs{I}$ we hence have~$\abs{I} > 0$.
+
+The map~$F$ is~{\welldef}:
+A function~$u \in \Lp^\infty(I)$ is essentially bounded, and thus there exists a compact interval~$J \subseteq \Real$ with~$u(t) \subseteq J$ for almost all~$t \in I$.
+The continous map~$f$ is bounded on~$J$, and hence~$f \circ u$ is almost bounded on~$I$.
+The composition~$f \circ u$ is measurable because both~$f$ and~$c$ is measurable, and we find that
+\[
+  \int_I \abs{f \circ u}
+  \leq
+  \norm{f \circ u}_{\infty} \abs{I}
+  <
+  \infty  \,.
+\]
+
+
+
+
+
+\subsection{}
+\label{continuous iff affine}
+
+Suppose that~$f$ is affine.
+Then there exist~$a, b \in \Real$ with~$f(x) = ax + b$ for all~$x \in \Real$.
+Suppose that~$(u_k)_k$ is a sequence in~$\Lp^\infty(I)$ and that~$u \in \Lp^\infty(I)$ with~$u_k \wtostar u$.
+Then
+\[
+  \int_I u_k
+  =
+  \int_I 1 \cdot u_k
+  \to
+  \int_I 1 \cdot u
+  \to
+  \int_I u
+\]
+because~$1 \in \Lp^1(I)$ (since~$I$ is bounded), and therefore
+\[
+  F(u_k)
+  =
+  a \int_I u_k(t) \dd{t} + b \abs{I}
+  \to
+  a \int_I u \dd{t} + b \abs{I}
+  =
+  F(u) \,.
+\]
+
+Suppose now on the other hand that~$F$ is continuous with respect to {\weakstar} convergence.
+Let~$x, y \in \Real$ and let~$0 \leq \lambda \leq 1$.
+We define for every~$k \geq 1$ a function~$u_k \in \Lp^\infty(I)$ by subdividing the interval~$I$ into~$2k$ subintervals of alternating lengths~$\lambda \abs{I}/(2k)$ and~$(1-\lambda) \abs{I}/(2k)$, and letting~$u_k$ assume the values
+\[
+  x, y, x, y, \dotsc, x, y
+\]
+on these subintervals.
+We know from Exercise~3, part~(ii) of sheet 9 that
+\[
+  u_k
+  \wto
+  \lambda x + (1 - \lambda) b
+  \defines
+  u \,.
+\]
+We have that~$\int_I f \circ u_k = \lambda \abs{I} f(x) + (1 - \lambda) \abs{I} f(y)$ for every~$k$, and hence find that 
+\begin{align*}
+  f\left( \frac{x + y}{2} \right)
+  &=
+  \frac{1}{\abs{I}} \int_I f \circ u
+  =
+  F(u)
+  =
+  \frac{1}{\abs{I}} \lim_{k \to \infty} F(u_k)
+  =
+  \frac{1}{\abs{I}} \lim_{k \to \infty} \int_I f \circ u_k
+  \\
+  &=
+  \frac{1}{\abs{I}}
+  \lim_{k \to \infty}
+  \left(
+  \lambda \abs{I} f(x) + (1 - \lambda) \abs{I} f(y)
+  \right)
+  =
+  \lambda f(x) + (1 - \lambda) f(y) \,.
+\end{align*}
+This shows that~$f$ is affine.
+
+
+
+
+
+\subsection{}
+
+Suppose that~$F$ is lower-semi-continuous with respect to {\weakstar} convergence.
+To show that~$f$ is convex we can proceed as in part~\ref{continuous iff affine}, but get instead that
+\begin{align*}
+  f\left( \frac{x + y}{2} \right)
+  &=
+  \frac{1}{\abs{I}} \int_I f \circ u
+  =
+  F(u)
+  \leq
+  \frac{1}{\abs{I}} \liminf_{k \to \infty} F(u_k)
+  =
+  \frac{1}{\abs{I}} \liminf_{k \to \infty} \int_I f \circ u_k
+  \\
+  &=
+  \frac{1}{\abs{I}}
+  \liminf_{k \to \infty} \Bigl( \lambda \abs{I} f(x) + (1 - \lambda) \abs{I} f(y) \Bigr)
+  =
+  \lambda f(x) + (1 - \lambda) f(y) \,.
+\end{align*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
