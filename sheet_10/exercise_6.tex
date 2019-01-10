@@ -90,7 +90,7 @@ This shows that~$f$ is affine.
 
 \subsection{}
 
-Suppose that~$F$ is lower-semi-continuous with respect to {\weakstar} convergence.
+Suppose now that~$F$ is lower semicontinuous with respect to {\weakstar} convergence.
 To show that~$f$ is convex we can proceed as in part~\ref{continuous iff affine}, and find that
 \begin{align*}
   f( \lambda x + (1-\lambda) y )
@@ -109,6 +109,58 @@ To show that~$f$ is convex we can proceed as in part~\ref{continuous iff affine}
   =
   \lambda f(x) + (1 - \lambda) f(y) \,.
 \end{align*}
+
+I also spent some hours trying to prove the other impliciation, but without success.
+The best I got is that the map~$F$ is lower semicontinuous with respect to the weak convergence in~$\Lp^\infty(I)$:
+
+Let~$(u_k)_k$ be a sequence in~$\Lp^\infty(I)$ with~$u_k \wto u$ for some~$u \in \Lp^\infty(I)$.
+To show that~$F(u) \leq \liminf_{k \to \infty} F(u_k)$ we may replace the sequence~$(u_k)_k$ by a suitable subsequence to assume that
+\begin{equation}
+  \label{liminf is lim}
+  \liminf_{k \to \infty} F(u_k)
+  =
+  \lim_{k \to \infty} F(u_k) \,.
+\end{equation}
+
+We also note that because the sequence~$(u_k)_k$ is bounded in~$\Lp^\infty(I)$, there exists a compact interval~$J \subseteq \Real$ with~$u_k(t) \in J$ and~$u(t) \in J$ for almost all~$t \in I$.
+Let~$\varepsilon > 0$.
+There exists some~$\delta > 0$ with~$\abs{f(x) - f(y)} < \varepsilon$ for all~$x, y \in J$ with~$\abs{x - y} < \delta$ because~$f$ is uniformly continuous on~$J$.
+
+By Mazur’s lemma there exists for every~$j$ a convex combination~$\sum_{k=j}^{n_j} \lambda^j_k u_k$ with
+\[
+  \norm*{u - \sum_{k=j}^{n_j} \lambda^j_k u_k}_{\infty}
+  <
+  \delta \,.
+\]
+We observe that~$F$ is convex, because~$f$ is convex and the integral~$\int_I$ is both linear and monotone.
+It follows that
+\begin{align*}
+  F(u)
+  =
+  \int_I f \circ u
+  &\leq
+  \int_I \left( f \circ \left( \sum_{k=j}^{n_j} \lambda^j_k u_k \right) + \varepsilon \right)
+  \\
+  &=
+  F\left( \sum_{k=j}^{n_j} \lambda^j_k u_k \right) + \varepsilon \abs{I}
+  \leq
+  \sum_{k=j}^{n_j} \lambda^j_k F(u_k) + \varepsilon \abs{I} \,.
+\end{align*}
+It follows from~\eqref{liminf is lim} that
+\[
+  \sum_{k=j}^{n_j} \lambda^j_k F(u_k)
+  \to
+  \liminf_{k \to \infty} F(u_k)
+\]
+as~$j \to \infty$.
+We therefore find that
+\[
+  F(u)
+  \leq
+  \liminf_{k \to \infty} F(u_k) + \varepsilon \abs{I} \,.
+\]
+By taking~$\varepsilon \to 0$ we arrive at~$F(u) \leq \liminf_{k \to \infty} F(u_k)$.
+
 
 
 
