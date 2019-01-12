@@ -1,5 +1,79 @@
-\addtocounter{section}{1}
+\section{}
 
+
+
+
+
+\subsection{}
+
+
+We fix~$\varepsilon > 0$.
+Suppose that no such constant~$C_\varepsilon > 0$ exists.
+Then there exists for every~$n$ some~$x_n \in X$ with
+\[
+  \norm{ K x_n }
+  >
+  \varepsilon
+  \norm{x_n}
+  +
+  n
+  \norm{ T K x_n } \,.
+\]
+We see that~$x_n \neq 0$ and can therefore assume that~$\norm{x_n} = 1$.
+Hence
+\begin{equation}
+  \label{estimate}
+  \norm{ K x_n }
+  >
+  \varepsilon
+  +
+  n
+  \norm{ T K x_n } \,.
+\end{equation}
+for every~$n$.
+It follows from~$(x_n)_n \subseteq \closure{\ball{1}{0}}$ that
+\[
+  (K x_n)_n
+  \subseteq
+  K( \closure{\ball{1}{0}} )
+  \subseteq
+  \closure{ K(\ball{1}{0}) } \,.
+\]
+The set~$\closure{ K(\ball{1}{0}) }$ is compact because~$K$ is compact.
+Hence there exist a subsequence~$(x_{n_k})_k$ with~$x_{n_k} \to y$ for some~$y \in Y$.
+We may replace the sequence~$(x_n)_n$ by this subsequence to assume that~$x_n \to y$;
+the condition~\eqref{estimate} remains true because
+\[
+  \norm{ K x_{n_k} }
+  >
+  \varepsilon
+  \norm{x_{n_k}}
+  +
+  n_k
+  \norm{ T K x_{n_k} }
+  \geq
+  \varepsilon
+  \norm{x_{n_k}}
+  +
+  k
+  \norm{ T K x_{n_k} }
+\]
+for every~$k$.
+We now find that~$\norm{K x_n} \to \norm{y}$ and~$\norm{T K x_n} \to \norm{T y}$.
+We find from~\eqref{estimate} that this is possible only if~$\norm{T y} = 0$, which tells us that~$Ty = 0$ and hence~$y = 0$ because~$T$ is injective.
+But we also find from~\eqref{estimate} that
+\[
+  \norm{ K x_n }
+  >
+  \varepsilon
+  +
+  n
+  \norm{ T K x_n }
+  \geq
+  \varepsilon
+\]
+for every~$n$, and hence that~$\norm{y} \geq \varepsilon > 0$.
+Behold, a contradiction!
 
 
 
