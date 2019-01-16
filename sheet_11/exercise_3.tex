@@ -1,33 +1,33 @@
 \section{}
 
 Suppose first that~$T \in \Compact(X,Y)$, and let~$(x_n)_n$ be a sequence in~$X$ with~$x_n \wto x$ for some~$x \in X$.
-We start by showing that the sequence~$(x_n)_n$ has a subsequence~$(x_{n_k})_k$ with~$T x_{n_k} \to T x$:
+We start by showing that the sequence~$(x_n)_n$ has a subsequence~$(x_{n_k})_k$ with~$T x_{n_k} \to T x$.
 
-The sequence~$(x_n)_n$ is bounded because it is weakly convergent, and hence contained in~$\ball{r}{0}$ for some~$r > 0$.
+The sequence~$(x_n)_n$ is bounded because it is weakly convergent, whence contained in a ball~$\ball{r}{0}$ for some~$r > 0$.
 It follows from the compactness of~$T$ that~$\closure{ T( \ball{r}{0} ) }$ is compact.
-Hence there exists a subsequence~$(x_{n_k})_k$ such that~$( T x_{n_k} )_k \to y$ for some~$y \in Y$.
+There hence exists a subsequence~$(x_{n_k})_k$ such that~$( T x_{n_k} )_k \to y$ for some~$y \in Y$.
 It follows from~$x_n \wto x$ that also~$x_{n_k} \wto x$, and hence that~$T x_{n_k} \wto T x$ because
 \[
   y' T x_{n_k}
   =
-  T'(y') x_{n_k}
+  (T' y') x_{n_k}
   \to
-  T'(y') x
+  (T' y') x
   =
   y' T x
 \]
 for every~$y' \in Y'$.
-This shows that the sequence~$(T x_{n_k})_k$ converges strongly to~$y$ and weakly to~$T x$.
-It follows that~$Tx = y$ because strong convergence implies weak convergences and weak limits are unique.
+We find that the sequence~$(T x_{n_k})_k$ converges strongly to~$y$ and weakly to~$T x$.
+It follows that~$Tx = y$ because strong convergence implies weak convergence, and weak limits are unique.
 This shows altogether that~$T x_{n_k} \to T x$.
 
 Every subsequence of~$(x_n)_n$ is again weakly convergent to~$x$.
-The above argument hence shows that every subsequence of the sequence~$(T x_n)_n$ has a subsequence that converges strongly to~$T x$.
-This then means that the sequence~$(T x_n)_n$ already converges strongly to~$T x$ itself.
+The above argument hence shows that every subsequence of~$(T x_n)_n$ has a subsequence that converges strongly to~$T x$.
+This then means that the sequence~$(T x_n)_n$ already converges strongly to~$T x$.
 
-Suppose now that~$T x_n \to Tx$ for every sequence~$(x_n)_n$ in~$X$ with~$x_n \wto x$.
+Suppose now that~$T x_n \to Tx$ for every sequence~$(x_n)_n \subseteq X$ and every~$x \in X$ with~$x_n \wto x$.
 We need to show that~$T$ is continuous and that~$\closure{ T( \ball{1}{0} ) }$ is compact.
-We have for every sequence~$(x_n)_n$ in~$X$ that
+We have for every sequence~$(x_n)_n \subseteq X$ and every~$x \in X$ that
 \[
   x_n \to x
   \implies
@@ -45,9 +45,9 @@ It follows by assumption that
   =
   T x_{n_k}
   \to
-  T x \,.
+  T x \,,
 \]
-
+which shows that the subsequence~$(y_{n_k})_k$ converges in~$Y$.
 
 
 
