@@ -1,1 +1,88 @@
-\addtocounter{section}{1}
+\section{}
+
+For~$H = 0$ we have~$\sigma(p(A)) = \Complex = p(\sigma(A))$.
+We hence consider in the following only the case~$H \neq 0$.
+
+\begin{lemma}
+  Let~$f_1, \dotsc, f_n \colon X \to X$ be pairwise commuting maps on a set~$X$.
+  Then the composition~$f_1 \circ \dotsb \circ f_n$ is invertible if and only if all~$f_i$ are invertible.
+\end{lemma}
+
+
+\begin{proof}
+  If every map~$f_i$ is invertible then~$f_1 \circ \dotsb \circ f_n$ is invertible.
+  If on the other hand~$f_1 \circ \dotsb \circ f_n$ is invertible then~$f_1$ is surjective and~$f_n$ is injective.
+  We may rearrange the terms~$f_1, \dotsc, f_n$ in the composition~$f_1 \circ \dotsb \circ f_n$ however we want.
+  With this we then find that every~$f_i$ is injective and also 
+that every~$f_i$ is surjective.
+\end{proof}
+
+
+
+If~$p = a_0 \in \Complex$ then
+\begin{gather*}
+  \sigma(p(A))
+  =
+  \sigma(a_0 \Id)
+  =
+  \{ a_0 \}
+\shortintertext{and}
+  p(\sigma(A))
+  =
+  \begin{cases}
+    \{ a_0 \} & \text{if~$\sigma(A)$ is nonempty} \,, \\
+    \emptyset & \text{otherwise}  \,.
+  \end{cases}
+\end{gather*}
+It apparently holds that the spectrum of a bounded operator is a complex Hilbert space is nonempty, so that
+\[
+  \sigma(p(A))
+  =
+  \{ a_0 \}
+  =
+  p(\sigma(A))
+\]
+as desired.
+But I don’t think that we have shown this in the lecture.
+
+We consider now case~$\deg p \geq 1$.
+We may assume that~$a_n \neq 0$ so that~$\deg p = n$.
+For every~$\lambda \in \Complex$ the polynomial~$p(z) - \lambda$ is again of degree~$n$ with leading coefficient~$a_n$, and may therefore be factorized as
+\[
+  p(z) - \lambda
+  =
+  a_n (z - \mu_1) \dotsm (z - \mu_n) \,.
+\]
+We find with the above lemma that
+\begin{align*}
+  \lambda \in \sigma(p(A))
+  &\iff
+  \text{$p(A) - \lambda$ is \dash{non}{invertible}}
+  \\
+  &\iff
+  \text{$a_n (A - \mu_1) \dotsm (A - \mu_n)$ is \dash{non}{invertible}}
+  \\
+  &\iff
+  \text{$A - \mu_i$ is \dash{non}{invertible} for some~$i$}
+  \\
+  &\iff
+  \text{$\mu_i \in \sigma(A)$ for some~$i$}
+\end{align*}
+We also note that~$\mu_1, \dotsc, \mu_n$ are precisely the solutions to the polynomial equations~$p(z) - \lambda = 0$, and hence the solutions to the equation~$p(z) = \lambda$.
+We therefore find that
+\begin{align*}
+  {}&
+  \lambda \in \sigma(p(A))
+  \\
+  \iff{}&
+  \text{there exists~$\mu$ with~$p(\mu) = \lambda$ such that~$\mu \in \sigma(A)$}
+  \\
+  \iff{}&
+  \text{there exists~$\mu \in \sigma(A)$ with~$\lambda = p(\mu)$}
+  \\
+  \iff{}&
+  \lambda \in p(\sigma(A))  \,.
+\end{align*}
+
+
+
