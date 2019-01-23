@@ -48,3 +48,146 @@ It follows for the corresponding subsequence~$(y_{n_k})_k$ that
 
 
 
+
+\subsection{}
+
+If~$H$ is finite dimensional then
+\[
+  \{
+    T \in \Lin(H)
+  \suchthat
+    \dim \Range(T) < \infty
+  \}
+  =
+  \Lin(H)
+  =
+  \Compact(H) \,.
+\]
+We will therefore consider in the following only the case that~$H$ is \dash{infinite}{dimensional}.
+
+
+\begin{lemma}
+  \label{uniform on compact}
+  Let~$X$ and~$Y$ be normed spaces and let~$(T_n)_n$ be a bounded sequence in~$\Lin(X,Y)$ that converges pointwise to~$T \in \Lin(X,Y)$.
+  Then~$T_n \to T$ uniformly on every compact subset of~$X$.
+\end{lemma}
+
+
+\begin{proof}
+  Let~$K \subseteq X$ be a compact subset.
+  There exists by assumption some constant~$C > 0$ with~$\norm{T_n} < C$ for all~$n$ and also~$\norm{T} < C$.
+  There exists for every~$\varepsilon > 0$ finitely many~$x_1, \dotsc, x_k \in X$ with
+  \[
+    K
+    \subseteq
+    \ball{\varepsilon}{x_1} \cup \dotsb \cup \ball{\varepsilon}{x_n} \,.
+  \]
+  There exists some~$N$ with~$\norm{T_n x_i - T x_i} < \varepsilon$ for every~$i \geq N$.
+  There hence exists for every~$x \in K$ some~$i$ with~$\norm{x_i - x} < \varepsilon$, and it follows that
+  \begin{align*}
+    \norm{T_n x - T x}
+    &=
+      \norm{ T_n x - T_n x_i }
+    + \norm{ T_n x_i - T x_i }
+    + \norm{ T x_i - T x }
+    \\
+    &\leq
+      \norm{T_n} \norm{x - x_i}
+    + \norm{ T_n x_i - T x_i }
+    + \norm{T} \norm{x - x_i}a
+    \\
+    &\leq
+    (2 C + 1) \varepsilon
+  \end{align*}
+  for every~$i \geq N$.
+  This shows that~$T_n \to T$ uniformly on~$K$.
+\end{proof}
+
+If~$T$ is an operator of finite rank then~$\closure{T(\ball{1}{0})}$ is a subset of the finite dimensional normed space~$\Range(T)$ that is both closed and bounded, and hence compact by Heine--Borel.
+This shows that
+\[
+  \{
+    T \in \Lin(H)
+  \suchthat
+    \dim \Range(T) < \infty
+  \}
+  \subseteq
+  \Compact(H)
+\]
+and hence that
+\[
+  \closure{
+  \{
+    T \in \Lin(H)
+  \suchthat
+    \dim \Range(T) < \infty
+  \}
+  }
+  \subseteq
+  \Compact(H)
+\]
+because~$\Compact(H)$ is closed a subspace of~$\Lin(H)$.
+
+Suppose now that~$T \in \Compact(H)$ is a compact operator.
+Let~$(e_n)_n$ be an orthonormal basis for~$H$, and for every~$n$ let
+\[
+  P_n
+  \colon
+  H
+  \to
+  H \,,
+  \quad
+  x
+  \mapsto
+  \sum_{i=1}^n (x,e_i) e_i
+\]
+be the orthogonal projection onto the finite dimenisonal subspace~$\gen{e_1, \dotsc, e_n}$;
+this linear operator is continuous because the linear functionals~$(-,e_i)$ are continuous.
+Then~$P_n \to \Id$ pointwise because~$x = \sum_{i=1}^\infty (x, e_i) e_i$ for every~$x \in H$ (this is one of the equivalent characterizations of an orthonormal basis that were given in the lecture).
+It follows from \cref{uniform on compact} that~$P_n \to \Id$ uniformly on~$\closure{T(\ball{1}{0})}$.
+We find for the linear operators~$T_n \defined P_n \circ T$, which have finite dimensional range, that
+\[
+  T_n
+  =
+  P_n \circ T
+  \to
+  {\Id} \circ T
+  = T
+\]
+uniformly on~$X$, and hence that~$T_n \to T$ in~$\Lin(H)$.
+This shows that~$T$ can be approximated by finite rank operators and hence that
+\[
+  \Compact(H)
+  \subseteq
+  \closure{
+  \{
+    T \in \Lin(H)
+  \suchthat
+    \dim \Range(H) < \infty
+  \}
+  } \,.
+\]
+
+
+\begin{remark}
+  We did not need that~$P_n \to \Id$ pointwise everywhere on~$H$, but only on the compact subset~$\closure{T(\ball{1}{0})}$.
+  We see from this that we do not need~$H$ to be separable:
+  There exists for every~$n \geq 1$ finitely many~$x_1, \dotsc, x_k \in \closure{T(\ball{1}{0})}$ with
+  \[
+    \closure{T(\ball{1}{0})}
+    \subseteq
+    \ball{\varepsilon}{x_1} \cup \dotsb \cup \ball{\varepsilon}{x_k} \,.
+  \]
+  If~$P_n \in \Lin(H)$ denotes the orthogonal projection onto the finite dimensional linear subspace~$\gen{x_1, \dotsc, x_k}$ then there exists for every~$x \in X$ some~$i$ with~$\norm{x - x_i} < \varepsilon$ and hence
+  \[
+    \norm{P x - x}
+    \leq
+    \norm{x_i - x}
+    <
+    \varepsilon \,.
+  \]
+  Then~$P_n \to \Id$ pointwise on~$\closure{T(\ball{1}{0})}$ and hence again~$P_n \circ T \to T$ uniformly on~$X$.
+\end{remark}
+
+
+
