@@ -1,1 +1,50 @@
-\addtocounter{section}{1}
+\section{}
+
+
+
+
+
+\subsection{}
+
+We show that every operator~$T \in \closure{ \Compact(X,Y) }$ already compact.
+We do so by showing that every sequence~$(y_n)_n$ in~$T(\ball{1}{0})$ has a subsequence which converges in~$Y$.
+For this it sufficies to show that for every~$\varepsilon > 0$ there exists a subsequence~$(y_{n_k})_k$ with~$\norm{y_{n_k} - y_{n_l}} < \varepsilon$ for all~$k$,~$l$.
+It then follows with the diagonal trick that there alsoa exists a subsequence~$(y_{n_k})_k$ with~$\norm{y_{n_k} - y_{n_l}} < 1/k$ for all~$k$.
+This subsequence is then a Cauchy sequence and hence convergent by the completeness of~$Y$.
+
+It follows from the assumption~$T \in \closure{ \Compact(X,Y) }$ that there exists a compact operator~$T' \in \Compact(X,Y)$ with~$\norm{T - T'} < \varepsilon / 3$.
+Let~$(x_n)_n$ be a sequence in~$\ball{1}{0}$ with~$y_n = T(x_n)$ and let~$(y'_n)_n$ be the sequence in~$T'( \ball{1}{0} )$ given by~$y'_n = T' x_n$ for all~$n$.
+It follows from the compactness of the operator~$T'$ that there exists a subsequence~$(y'_{n_k})_k$ that converges in~$Y$, and we may assume that
+\[
+  \norm{ y'_{n_k} - y'_{n_l} } < \frac{\varepsilon}{3}
+\]
+for all~$k$,~$l$.
+It follows for the corresponding subsequence~$(y_{n_k})_k$ that
+\begin{align*}
+  \norm{ y_{n_k} - y_{n_l} }
+  &\leq
+    \norm{ y_{n_k} - y'_{n_k} }
+  + \norm{ y'_{n_k} - y'_{n_l} }
+  + \norm{ y'_{n_l} - y_{n_l} }
+  \\
+  &\leq
+    \norm{ T x_{n_k} - T' x_{n_k} }
+  + \norm{ y'_{n_k} - y'_{n_l} }
+  + \norm{ T' x_{n_l} - T x_{n_l} }
+  \\
+  &\leq
+    \norm{T - T'} \norm{x_{n_k}}
+  + \norm{ y'_{n_k} - y_{n_l} }
+  + \norm{T - T'} \norm{x_{n_l}}
+  \\
+  &\leq
+    \frac{\varepsilon}{3} \cdot 1
+  + \frac{\varepsilon}{3}
+  + \frac{\varepsilon}{3} \cdot 1
+  =
+  \varepsilon \,.
+\end{align*}
+
+
+
+
