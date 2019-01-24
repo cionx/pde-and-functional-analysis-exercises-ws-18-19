@@ -1,7 +1,16 @@
 \section{}
 
-For~$H = 0$ we have~$\sigma(p(A)) = \Complex = p(\sigma(A))$.
-We hence consider in the following only the case~$H \neq 0$.
+For~$H = 0$ we have
+\[
+  \sigma(p(A))
+  =
+  \emptyset
+  =
+  p(\emptyset)
+  =
+  p(\sigma(A))
+\]
+We therefore consider in the following only the case~$H \neq 0$.
 
 \begin{lemma}
   Let~$f_1, \dotsc, f_n \colon X \to X$ be pairwise commuting maps on a set~$X$.
@@ -13,8 +22,7 @@ We hence consider in the following only the case~$H \neq 0$.
   If every map~$f_i$ is invertible then~$f_1 \circ \dotsb \circ f_n$ is invertible.
   If on the other hand~$f_1 \circ \dotsb \circ f_n$ is invertible then~$f_1$ is surjective and~$f_n$ is injective.
   We may rearrange the terms~$f_1, \dotsc, f_n$ in the composition~$f_1 \circ \dotsb \circ f_n$ however we want.
-  With this we then find that every~$f_i$ is injective and also 
-that every~$f_i$ is surjective.
+  We then find that every~$f_i$ is injective and also that every~$f_i$ is surjective.
 \end{proof}
 
 
@@ -34,7 +42,7 @@ If~$p = a_0 \in \Complex$ then
     \emptyset & \text{otherwise}  \,.
   \end{cases}
 \end{gather*}
-It apparently holds that the spectrum of a bounded operator is a complex Hilbert space is nonempty, so that
+It apparently holds that the spectrum of a bounded operator on a complex Hilbert space is nonempty, so that
 \[
   \sigma(p(A))
   =
@@ -43,7 +51,7 @@ It apparently holds that the spectrum of a bounded operator is a complex Hilbert
   p(\sigma(A))
 \]
 as desired.
-But I don’t think that we have shown this in the lecture.
+But I don’t think that we have proven this requirement in the lecture.
 
 We consider now case~$\deg p \geq 1$.
 We may assume that~$a_n \neq 0$ so that~$\deg p = n$.
@@ -68,7 +76,7 @@ We find with the above lemma that
   &\iff
   \text{$\mu_i \in \sigma(A)$ for some~$i$}
 \end{align*}
-We also note that~$\mu_1, \dotsc, \mu_n$ are precisely the solutions to the polynomial equations~$p(z) - \lambda = 0$, and hence the solutions to the equation~$p(z) = \lambda$.
+We observe that the complex numbers~$\mu_1, \dotsc, \mu_n$ are precisely the solutions to the polynomial equations~$p(z) - \lambda = 0$, and hence the solutions to the equation~$p(z) = \lambda$.
 We therefore find that
 \begin{align*}
   {}&
